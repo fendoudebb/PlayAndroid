@@ -8,9 +8,11 @@ import android.support.annotation.LayoutRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.fendoudebb.playandroid.MainActivity;
 import com.fendoudebb.playandroid.R;
 
 /**
@@ -19,6 +21,8 @@ import com.fendoudebb.playandroid.R;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
+
+    protected Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +44,34 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void initToolbar(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(true);
         }
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        /*toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });
-        toolbar.setTitle("设置");
+        });*/
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                if (this instanceof MainActivity) {
+                    break;
+                }
+                finish();
+                break;
+            default :
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @LayoutRes

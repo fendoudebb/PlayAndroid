@@ -23,6 +23,7 @@ public class SettingsActivity extends BaseActivity {
     @Override
     protected void initView() {
         new RevealEffectUtil().createEnterRevealEffect(this);
+
     }
 
     @Override
