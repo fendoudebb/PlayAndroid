@@ -3,7 +3,6 @@ package com.fendoudebb.playandroid;
 import android.content.Intent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.MenuItem;
@@ -30,11 +29,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initView() {
         new RevealEffectUtil().createEnterRevealEffect(this);
 
-        ActionBar bar = getSupportActionBar();
-        if (bar != null) {
-            bar.setLogo(R.drawable.vector_user_default_logo);
-            bar.setTitle("主页");
-        }
+        mToolbar.setLogo(R.drawable.vector_user_default_logo);
+        mToolbar.setTitleMarginStart(30);
+        setToolbarTitle("首页");
 
         mDrawerLayout = findView(R.id.drawer_layout);
 

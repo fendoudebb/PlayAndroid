@@ -59,6 +59,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         });*/
     }
 
+    protected void setToolbarTitle(String title) {
+        ActionBar bar = getSupportActionBar();
+        if (bar != null) {
+            bar.setTitle(title);
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
