@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PlayAndroid</string>
-    <string name="fendoudebb">fendoudebb</string>
+    <string name="default_name">fendoudebb</string>
     <string name="address">https://github.com</string>
+    <string name="menu_action_search">Search</string>
 </resources>

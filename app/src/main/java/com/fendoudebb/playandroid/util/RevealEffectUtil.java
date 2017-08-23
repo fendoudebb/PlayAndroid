@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.Window;
@@ -24,6 +25,7 @@ public class RevealEffectUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             final View rootView = activity.findViewById(Window.ID_ANDROID_CONTENT).getRootView();
             rootView.post(new Runnable() {
+                @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                 @Override
                 public void run() {
                     Animator revealEffect = createRevealEffect(rootView, Status.ENTER);
@@ -50,6 +52,7 @@ public class RevealEffectUtil {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private Animator createRevealEffect(View rootView, Status status) {
         float radius = (float) Math.hypot(rootView.getWidth(), rootView.getHeight());
         float startRadius = status == Status.ENTER ? 0 : radius;

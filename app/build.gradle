@@ -12,19 +12,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude "META-INF/MANIFEST.MF"
-        exclude "META-INF/MANIFEST.MF"
-    }
+
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
         }
         debug {
@@ -34,9 +27,26 @@ android {
         }
     }
 
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude "META-INF/MANIFEST.MF"
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g" //specify the heap size for the dex process
+        preDexLibraries = false //delete the already predexed libraries
+    }
+
     lintOptions {
         abortOnError false
     }
+
+
 }
 
 dependencies {

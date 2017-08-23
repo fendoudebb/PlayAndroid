@@ -2,9 +2,12 @@ package com.fendoudebb.playandroid;
 
 import android.content.Intent;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -12,7 +15,6 @@ import android.widget.TextView;
 import com.fendoudebb.playandroid.config.Constant;
 import com.fendoudebb.playandroid.ui.activity.BaseActivity;
 import com.fendoudebb.playandroid.ui.activity.SettingsActivity;
-import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -26,8 +28,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.main_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        return true;
+    }
+
+    @Override
     protected void initView() {
-        new RevealEffectUtil().createEnterRevealEffect(this);
+//        new RevealEffectUtil().createEnterRevealEffect(this);
+
+
 
         mToolbar.setLogo(R.drawable.vector_user_default_logo);
         mToolbar.setTitleMarginStart(30);
@@ -82,7 +95,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
         SpUtil.with(this).putBoolean(Constant.NIGHT_THEME, !isNightTheme);
-        new RevealEffectUtil().createExitRevealEffect(this);
+//        new RevealEffectUtil().createExitRevealEffect(this);
 
     }
 

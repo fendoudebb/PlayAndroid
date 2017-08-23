@@ -22,7 +22,7 @@ public class SettingsActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        new RevealEffectUtil().createEnterRevealEffect(this);
+//        new RevealEffectUtil().createEnterRevealEffect(this);
 
     }
 
@@ -32,15 +32,7 @@ public class SettingsActivity extends BaseActivity {
     }
 
     public void onClick1(View view) {
-        boolean isNightTheme = SpUtil.with(this).getBoolean(Constant.NIGHT_THEME, false);
-        if (isNightTheme) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-        SpUtil.with(this).putBoolean(Constant.NIGHT_THEME, !isNightTheme);
 
-        new RevealEffectUtil().createExitRevealEffect(this);
     }
 
 

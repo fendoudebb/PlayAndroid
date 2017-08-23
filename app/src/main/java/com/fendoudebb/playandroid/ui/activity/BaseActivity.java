@@ -1,5 +1,6 @@
 package com.fendoudebb.playandroid.ui.activity;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.WindowManager;
 
 import com.fendoudebb.playandroid.MainActivity;
 import com.fendoudebb.playandroid.R;
+import com.fendoudebb.playandroid.util.UnitConverter;
 
 /**
  * author : zbj on 2017/8/18 23:32.
@@ -30,8 +32,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(initContentView());
         initStatusBar();
         initToolbar();
+        init();
         initView();
         initData();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                if (this instanceof MainActivity) {
+                    break;
+                }
+                finish();
+                break;
+            default :
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initStatusBar() {
@@ -66,23 +84,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                if (this instanceof MainActivity) {
-                    break;
-                }
-                finish();
-                break;
-            default :
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @LayoutRes
     protected abstract int initContentView();
+
+    protected void init(){}
 
     protected abstract void initView();
 
@@ -91,6 +96,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     @SuppressWarnings("unchecked")
     protected <T extends View> T findView(@IdRes int id) {
         return (T) findViewById(id);
+    }
+
+    private int getStatusBarHeight() {
+        int result = (int)UnitConverter.dp2px(25);
+        int resourceId = Resources.getSystem().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result =Resources.getSystem().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 
 }

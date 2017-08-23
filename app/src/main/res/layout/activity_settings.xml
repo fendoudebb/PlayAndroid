@@ -8,6 +8,10 @@
 
     <include layout="@layout/common_toolbar"/>
 
+    <TextView
+        android:hint="dadadasd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:text="切换主题"
