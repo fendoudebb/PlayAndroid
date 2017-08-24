@@ -1,12 +1,8 @@
 package com.fendoudebb.playandroid.ui.activity;
 
-import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.config.Constant;
-import com.fendoudebb.playandroid.util.RevealEffectUtil;
-import com.fendoudebb.playandroid.util.SpUtil;
 
 /**
  * author : zbj on 2017/8/19 12:45.

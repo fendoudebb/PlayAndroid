@@ -1,6 +1,8 @@
 package com.fendoudebb.playandroid;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,12 +14,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.fendoudebb.playandroid.config.Constant;
+import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.ui.activity.BaseActivity;
 import com.fendoudebb.playandroid.ui.activity.SettingsActivity;
+import com.fendoudebb.playandroid.util.RevealEffectUtil;
+import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener, NavigationView
+        .OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity_zbj";
     private ActionBarDrawerToggle mToggle;
     private DrawerLayout mDrawerLayout;
@@ -29,7 +34,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.activity_menu_main, menu);
 
         MenuItem searchItem = menu.findItem(R.id.main_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
@@ -38,17 +43,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
-//        new RevealEffectUtil().createEnterRevealEffect(this);
+        ShortCutUtil.addShortcut(getApplicationContext());
 
-
+        new RevealEffectUtil().createEnterRevealEffect(this);
 
         mToolbar.setLogo(R.drawable.vector_user_default_logo);
         mToolbar.setTitleMarginStart(30);
-        setToolbarTitle("首页");
+        setToolbarTitle(getString(R.string.home_page));
 
         mDrawerLayout = findView(R.id.drawer_layout);
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout,mToolbar, 0, 0);
+
+        NavigationView navigationView = findView(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         mToggle.syncState();
         mDrawerLayout.addDrawerListener(mToggle);
@@ -75,6 +83,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -88,19 +98,41 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
         /*Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);*/
-        boolean isNightTheme = SpUtil.with(this).getBoolean(Constant.NIGHT_THEME, false);
+        boolean isNightTheme = SpUtil.with(this).getBoolean(C.config.night_theme, false);
         if (isNightTheme) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
-        SpUtil.with(this).putBoolean(Constant.NIGHT_THEME, !isNightTheme);
-//        new RevealEffectUtil().createExitRevealEffect(this);
+        SpUtil.with(this).putBoolean(C.config.night_theme, !isNightTheme);
+        new RevealEffectUtil().createExitRevealEffect(this);
 
     }
 
     public void onClick2(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            // Handle the camera action
+        } else if (id == R.id.nav_favorite) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

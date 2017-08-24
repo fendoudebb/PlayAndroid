@@ -37,14 +37,14 @@ android {
         exclude 'META-INF/DEPENDENCIES'
     }
 
-    dexOptions {
-        javaMaxHeapSize "4g" //specify the heap size for the dex process
-        preDexLibraries = false //delete the already predexed libraries
-    }
+//    dexOptions {
+//        javaMaxHeapSize "4g" //specify the heap size for the dex process
+//        preDexLibraries = false //delete the already predexed libraries
+//    }
 
-    lintOptions {
-        abortOnError false
-    }
+//    lintOptions {
+//        abortOnError false
+//    }
 
 
 }
@@ -56,9 +56,14 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.3.1'
+    // MultiDex
     compile "com.android.support:multidex:1.0.1"
     // Material Design
     compile 'com.android.support:design:25.3.1'
+    // RecyclerView
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    // CardView
+    compile 'com.android.support:cardview-v7:25.3.1'
     // LeakCanary
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'

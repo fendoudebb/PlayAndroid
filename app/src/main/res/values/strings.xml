@@ -3,4 +3,9 @@
     <string name="default_name">fendoudebb</string>
     <string name="address">https://github.com</string>
     <string name="menu_action_search">Search</string>
+    <string name="home_page">HomePage</string>
+    <string name="favorite">Favorite</string>
+    <string name="tools">Tools</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
 </resources>

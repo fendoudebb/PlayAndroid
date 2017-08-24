@@ -5,8 +5,10 @@ import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
@@ -16,19 +18,20 @@ import android.view.animation.AccelerateDecelerateInterpolator;
  */
 
 public class RevealEffectUtil {
-
+    private static final String TAG = "RevealEffectUtil";
     private enum Status {
         ENTER, EXIT
     }
 
     public void createEnterRevealEffect(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            final View rootView = activity.findViewById(Window.ID_ANDROID_CONTENT).getRootView();
+            final View rootView = ((ViewGroup)activity.findViewById(Window.ID_ANDROID_CONTENT)).getChildAt(0);
             rootView.post(new Runnable() {
                 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                 @Override
                 public void run() {
                     Animator revealEffect = createRevealEffect(rootView, Status.ENTER);
+                    Log.d(TAG, "run: 111111111");
                     revealEffect.start();
                 }
             });
@@ -37,7 +40,7 @@ public class RevealEffectUtil {
 
     public void createExitRevealEffect(final Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            final View rootView = activity.findViewById(Window.ID_ANDROID_CONTENT).getRootView();
+            final View rootView = ((ViewGroup)activity.findViewById(Window.ID_ANDROID_CONTENT)).getChildAt(0);
             Animator revealEffect = createRevealEffect(rootView, Status.EXIT);
             revealEffect.addListener(new AnimatorListenerAdapter() {
                 @Override

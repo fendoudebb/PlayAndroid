@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/vector_home"
+            android:title="@string/home_page"/>
+        <item
+            android:id="@+id/nav_favorite"
+            android:icon="@drawable/vector_favorite"
+            android:title="@string/favorite"/>
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/vector_manage"
+            android:title="@string/tools"/>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/vector_share"
+                android:title="@string/share"/>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/vector_send"
+                android:title="@string/send"/>
+        </menu>
+    </item>
+
+</menu>

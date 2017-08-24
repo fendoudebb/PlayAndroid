@@ -3,4 +3,9 @@
     <string name="default_name">进阶之路</string>
     <string name="address">https://github.com</string>
     <string name="menu_action_search">搜索</string>
+    <string name="home_page">首页</string>
+    <string name="favorite">我的收藏</string>
+    <string name="tools">工具管理</string>
+    <string name="share">分享</string>
+    <string name="send">发送</string>
 </resources>

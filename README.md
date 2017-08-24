@@ -1,7 +1,7 @@
 # *PlayAndroid*
-A project records the Android learning process which contains varieties of basic function based on Android Edit
+A project records the Android learning process which contains varieties of basic function based on Android
 
-### Links
+### *Links*
 [UpdateLog](UpdateLog.md)
 
 ## *Knowledge Points*
@@ -13,6 +13,7 @@ A project records the Android learning process which contains varieties of basic
 - SVG transfer Vector
 - StrictMode
 - Proguard
+- build.gradle
 - [LeakCanary](https://github.com/square/leakcanary)
 - [BlockCanary](https://github.com/markzhai/AndroidPerformanceMonitor)
 - [Glide](https://github.com/bumptech/glide)

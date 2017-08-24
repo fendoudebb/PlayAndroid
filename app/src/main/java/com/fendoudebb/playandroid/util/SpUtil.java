@@ -3,7 +3,7 @@ package com.fendoudebb.playandroid.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.fendoudebb.playandroid.config.Constant;
+import com.fendoudebb.playandroid.config.C;
 
 /**
  * author : zbj on 2017/8/18 22:49.
@@ -35,7 +35,7 @@ public class SpUtil {
     /**
      * Set config info
      *
-     * @param key   Constant field config in see{@link Constant}
+     * @param key   Constant field config in see{@link C}
      * @param value true or false
      */
     public void putBoolean(String key, boolean value) {
@@ -45,7 +45,7 @@ public class SpUtil {
     /**
      * Get config info
      *
-     * @param key      Constant field config in see{@link Constant}
+     * @param key      Constant field config in see{@link C}
      * @param defValue default value
      * @return the boolean config
      */

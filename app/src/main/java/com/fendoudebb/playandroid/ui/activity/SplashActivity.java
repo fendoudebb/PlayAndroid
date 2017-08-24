@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,17 +28,22 @@ public class SplashActivity extends AppCompatActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
-//        getWindow().setBackgroundDrawableResource(R.drawable.splash_bg);
-
-        new Handler().postDelayed(new Runnable() {
+        getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0);
                 finish();
             }
-        },2000);
+        }, 500);
+
+//        getWindow().setBackgroundDrawableResource(R.drawable.splash_bg);
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

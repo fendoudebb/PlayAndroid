@@ -1,4 +1,12 @@
 ## *Update Log*
+> 2017/8/24
+- Add NavigationView Menu
+- Add Launcher ShortCutUtil
+
+> 2017/8/23
+- Add Dependencies
+- Add SplashActivity
+
 > 2017/8/20
 - DrawerLayout and NavigationView
 - SVG transfer Vector
