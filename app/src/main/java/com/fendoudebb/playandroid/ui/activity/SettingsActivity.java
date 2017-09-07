@@ -1,5 +1,7 @@
 package com.fendoudebb.playandroid.ui.activity;
 
+import android.content.Intent;
+import android.support.v4.app.TaskStackBuilder;
 import android.view.View;
 
 import com.fendoudebb.playandroid.R;
@@ -28,6 +30,11 @@ public class SettingsActivity extends BaseActivity {
     }
 
     public void onClick1(View view) {
+        Intent intent = new Intent(this, MusicDetailActivity.class);
+
+        TaskStackBuilder.create(this)
+                .addNextIntentWithParentStack(intent)
+                .startActivities();
 
     }
 

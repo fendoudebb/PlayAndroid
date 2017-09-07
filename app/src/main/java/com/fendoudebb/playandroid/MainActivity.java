@@ -67,6 +67,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     protected void initData() {
+
     }
 
     @Override
@@ -135,4 +136,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
