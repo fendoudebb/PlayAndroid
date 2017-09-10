@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         mToolbar.setLogo(R.drawable.vector_user_default_logo);
         mToolbar.setTitleMarginStart(30);
-        setToolbarTitle(getString(R.string.home_page));
+        setToolbarTitle(getString(R.string.nav_home_page));
 
         mDrawerLayout = findView(R.id.drawer_layout);
 
@@ -99,14 +99,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public void onClick(View view) {
         /*Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);*/
-        boolean isNightTheme = SpUtil.with(this).getBoolean(C.config.night_theme, false);
-        if (isNightTheme) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-        SpUtil.with(this).putBoolean(C.config.night_theme, !isNightTheme);
-        new RevealEffectUtil().createExitRevealEffect(this);
+
 
     }
 
@@ -122,13 +115,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_favorite) {
+        } else if (id == R.id.nav_my_collection) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_tool) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_theme) {
+            boolean isNightTheme = SpUtil.with(this).getBoolean(C.config.night_theme, false);
+            if (isNightTheme) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+            SpUtil.with(this).putBoolean(C.config.night_theme, !isNightTheme);
+            new RevealEffectUtil().createExitRevealEffect(this);
+        } else if (id == R.id.nav_author) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_open_source_framework) {
+
+        } else if (id == R.id.nav_share_app) {
 
         }
 

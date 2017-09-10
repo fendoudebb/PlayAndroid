@@ -3,9 +3,13 @@
     <string name="default_name">进阶之路</string>
     <string name="address">https://github.com</string>
     <string name="menu_action_search">搜索</string>
-    <string name="home_page">首页</string>
-    <string name="favorite">我的收藏</string>
-    <string name="tools">工具管理</string>
-    <string name="share">分享</string>
+    <string name="nav_home_page">首页</string>
+    <string name="nav_my_collection">我的收藏</string>
+    <string name="nav_tools">工具管理</string>
+    <string name="nav_theme">切换主题</string>
+    <string name="nav_share_app">分享应用</string>
     <string name="send">发送</string>
+    <string name="nav_other">其他</string>
+    <string name="nav_about_author">关于作者</string>
+    <string name="nav_open_source_framework">开源框架</string>
 </resources>

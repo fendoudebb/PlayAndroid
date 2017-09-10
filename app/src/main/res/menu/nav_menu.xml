@@ -5,27 +5,36 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/vector_home"
-            android:title="@string/home_page"/>
+            android:title="@string/nav_home_page"/>
         <item
-            android:id="@+id/nav_favorite"
-            android:icon="@drawable/vector_favorite"
-            android:title="@string/favorite"/>
+            android:id="@+id/nav_my_collection"
+            android:icon="@drawable/vector_collection"
+            android:title="@string/nav_my_collection"/>
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/vector_manage"
-            android:title="@string/tools"/>
+            android:id="@+id/nav_tool"
+            android:icon="@drawable/vector_tool"
+            android:title="@string/nav_tools"/>
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/nav_other">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/vector_share"
-                android:title="@string/share"/>
+                android:id="@+id/nav_theme"
+                android:icon="@drawable/vector_theme"
+                android:title="@string/nav_theme"/>
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/vector_send"
-                android:title="@string/send"/>
+                android:id="@+id/nav_author"
+                android:icon="@drawable/vector_author"
+                android:title="@string/nav_about_author"/>
+            <item
+                android:id="@+id/nav_open_source_framework"
+                android:icon="@drawable/vector_software"
+                android:title="@string/nav_open_source_framework"/>
+            <item
+                android:id="@+id/nav_share_app"
+                android:icon="@drawable/vector_share"
+                android:title="@string/nav_share_app"/>
         </menu>
     </item>
 
