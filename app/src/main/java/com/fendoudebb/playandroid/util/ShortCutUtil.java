@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.ui.activity.SplashActivity;
+import com.fendoudebb.playandroid.module.main.SplashActivity;
 
 /**
  * author : zbj on 2017/8/23 22:05.

@@ -1,6 +1,9 @@
-package com.fendoudebb.playandroid;
+package com.fendoudebb.playandroid.module.main;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.FeatureInfo;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,14 +12,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.ui.activity.BaseActivity;
-import com.fendoudebb.playandroid.ui.activity.SettingsActivity;
+import com.fendoudebb.playandroid.module.BaseActivity;
 import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
@@ -63,6 +67,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         TextView view = findView(R.id.text_view);
         view.setOnClickListener(this);
+
+        PackageManager pm = getPackageManager();
+
+        FeatureInfo[] features = pm.getSystemAvailableFeatures(); //得到所有支援的硬件种类
+        for (FeatureInfo feature : features) Log.v(TAG, feature.name);
+
+
+
     }
 
     @Override
@@ -99,6 +111,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public void onClick(View view) {
         /*Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);*/
+
+        ProgressDialog.show(this, null, "正在登录中,请稍等...");
 
 
     }

@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.ui.activity;
+package com.fendoudebb.playandroid.module.main;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,8 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
-
-import com.fendoudebb.playandroid.MainActivity;
 
 /**
  * zbj on 2017-08-23 15:45.

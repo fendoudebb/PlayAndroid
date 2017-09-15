@@ -10,6 +10,9 @@
 - Lookup System App Info
 - Music Player
 - Video Player
+- Wallpaper
+- SD Card Size and Rom Size
+- PhoneNumber Address
 ## Need Permission
 - Lookup Contacts
 - CallLogs

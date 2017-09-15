@@ -21,7 +21,7 @@
         tools:replace="android:icon,android:theme">
 
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".module.main.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -31,20 +31,20 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".module.main.MainActivity"
             android:launchMode="singleTask"/>
 
         <activity
-            android:name=".ui.activity.SettingsActivity"/>
+            android:name=".module.main.SettingsActivity"/>
 
         <activity
-            android:name=".ui.activity.MusicDetailActivity"
+            android:name=".module.music.MusicDetailActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".ui.activity.SettingsActivity">
+            android:parentActivityName=".module.main.SettingsActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activity.SettingsActivity"/>
+                android:value=".module.main.SettingsActivity"/>
 
         </activity>
 

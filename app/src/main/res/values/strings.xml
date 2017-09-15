@@ -12,4 +12,12 @@
     <string name="nav_other">Other</string>
     <string name="nav_about_author">Author</string>
     <string name="nav_open_source_framework">OpenSourceFramework</string>
+
+    <!--Feature List-->
+    <string name="calendar">Calendar</string>
+    <string name="clock">Clock</string>
+    <string name="brightness">Brightness</string>
+    <string name="voice">Voice</string>
+    <string name="flashlight">Flashlight</string>
+    <string name="screenshot">Screenshot</string>
 </resources>

@@ -1,10 +1,12 @@
-package com.fendoudebb.playandroid.ui.activity;
+package com.fendoudebb.playandroid.module.main;
 
 import android.content.Intent;
 import android.support.v4.app.TaskStackBuilder;
 import android.view.View;
 
 import com.fendoudebb.playandroid.R;
+import com.fendoudebb.playandroid.module.BaseActivity;
+import com.fendoudebb.playandroid.module.music.MusicDetailActivity;
 
 /**
  * author : zbj on 2017/8/19 12:45.

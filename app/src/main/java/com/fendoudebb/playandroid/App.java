@@ -1,5 +1,6 @@
 package com.fendoudebb.playandroid;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -24,10 +25,19 @@ public class App extends Application {
 
     private static final String TAG = "PlayAndroid_App";
 
+    @SuppressLint("StaticFieldLeak")
+    private static Context sContext;
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        Log.d(TAG, "attachBaseContext: " + base.toString());
         MultiDex.install(this);
+        sContext = base;
+    }
+
+    public static Context getContext() {
+        return sContext;
     }
 
     @Override

@@ -1,6 +1,7 @@
-package com.fendoudebb.playandroid.ui.activity;
+package com.fendoudebb.playandroid.module.music;
 
 import com.fendoudebb.playandroid.R;
+import com.fendoudebb.playandroid.module.BaseActivity;
 
 /**
  * zbj on 2017-08-30 13:44.

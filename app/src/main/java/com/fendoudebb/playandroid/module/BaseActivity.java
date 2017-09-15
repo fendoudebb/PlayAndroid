@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.ui.activity;
+package com.fendoudebb.playandroid.module;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.fendoudebb.playandroid.MainActivity;
+import com.fendoudebb.playandroid.module.main.MainActivity;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.util.UnitConverter;
 

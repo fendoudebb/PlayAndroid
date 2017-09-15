@@ -22,3 +22,4 @@ A project records the Android learning process which contains varieties of basic
 - [Glide](https://github.com/bumptech/glide)
 - [retrofit](https://github.com/square/retrofit)
 - ActivityLifecycleCallbacks
+- [mvp-rxjava](https://github.com/googlesamples/android-architecture)
