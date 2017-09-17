@@ -4,12 +4,12 @@
     <item
         android:drawable="@android:color/white"/>
 
-    <item>
+    <!--<item>
         <bitmap
             android:gravity="center"
             android:scaleType="centerCrop"
             android:src="@drawable/splash_bg"/>
-    </item>
+    </item>-->
 
     <item
         android:bottom="16dp">

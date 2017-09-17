@@ -5,16 +5,25 @@ import android.os.Parcelable;
 
 /**
  * zbj on 2017-09-15 16:01.
- *
  */
 
-public class Feature implements Parcelable{
+public class Feature implements Parcelable {
 
     public int rank;
 
     public String name;
 
     public int logo;
+
+    public Feature() {
+
+    }
+
+    public Feature(int rank, String name, int logo) {
+        this.rank = rank;
+        this.name = name;
+        this.logo = logo;
+    }
 
     protected Feature(Parcel in) {
         rank = in.readInt();

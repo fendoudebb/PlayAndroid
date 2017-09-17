@@ -50,6 +50,12 @@
                     android:background="#f00"
                     android:onClick="onClick2"
                     android:text="Hello World!"/>
+
+                <FrameLayout
+                    android:id="@+id/contentFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 

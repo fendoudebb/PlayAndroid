@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 特殊字符要转义-->
-    <string-array name="feature_name">
-        <item>@string/calendar</item>
-        <item>@string/clock</item>
-        <item>@string/brightness</item>
-        <item>@string/flashlight</item>
-        <item>@string/screenshot</item>
+    <string-array name="feature_array">
+        <item>mini_browser</item>
+        <item>calendar</item>
+        <item>clock</item>
+        <item>alarm_clock</item>
+        <item>brightness</item>
+        <item>volume</item>
+        <item>flashlight</item>
+        <item>screenshot</item>
+        <item>qr_code</item>
+        <item>music</item>
+        <item>video</item>
+        <item>number_attribution</item>
+        <item>timer</item>
+        <item>camera</item>
     </string-array>
-
-    <integer-array name="feature_logo">
-        <item>@mipmap/ic_launcher_round</item>
-        <item>@mipmap/ic_launcher_round</item>
-        <item>@mipmap/ic_launcher_round</item>
-        <item>@mipmap/ic_launcher_round</item>
-        <item>@mipmap/ic_launcher_round</item>
-    </integer-array>
 
 </resources>

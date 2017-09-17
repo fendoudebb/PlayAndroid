@@ -16,8 +16,16 @@
     <!--Feature List-->
     <string name="calendar">Calendar</string>
     <string name="clock">Clock</string>
+    <string name="alarm_clock">AlarmClock</string>
     <string name="brightness">Brightness</string>
-    <string name="voice">Voice</string>
+    <string name="volume">Volume</string>
     <string name="flashlight">Flashlight</string>
     <string name="screenshot">Screenshot</string>
+    <string name="mini_browser">MiniBrowser</string>
+    <string name="qr_code">QRCode</string>
+    <string name="music">Music</string>
+    <string name="video">Video</string>
+    <string name="number_attribution">NumberAttribution</string>
+    <string name="timer">Timer</string>
+    <string name="camera">Camera</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.fendoudebb.playandroid.module.main;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
@@ -21,6 +20,8 @@ import android.widget.TextView;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.BaseActivity;
+import com.fendoudebb.playandroid.module.feature.FeaturesFragment;
+import com.fendoudebb.playandroid.util.ActivityUtil;
 import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         .OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity_zbj";
     private ActionBarDrawerToggle mToggle;
-    private DrawerLayout mDrawerLayout;
+    private DrawerLayout          mDrawerLayout;
 
     @Override
     protected int initContentView() {
@@ -57,7 +58,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         mDrawerLayout = findView(R.id.drawer_layout);
 
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout,mToolbar, 0, 0);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, 0, 0);
 
         NavigationView navigationView = findView(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -71,7 +72,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         PackageManager pm = getPackageManager();
 
         FeatureInfo[] features = pm.getSystemAvailableFeatures(); //得到所有支援的硬件种类
-        for (FeatureInfo feature : features) Log.v(TAG, feature.name);
+        Log.d(TAG, "initView: feature:size:"+  (features == null) );
+//        for (FeatureInfo feature : features) Log.v(TAG, feature.name);
+        Log.d(TAG, "initView: feature:size:"+  getResources().getResourceName(R.string.alarm_clock) );
+        Log.d(TAG, "initView: feature:size:"+  getResources().getResourceEntryName(R.string.alarm_clock) );
+        Log.d(TAG, "initView: feature:size:"+  getResources().getResourcePackageName(R.string.alarm_clock) );
+        Log.d(TAG, "initView: feature:size:"+  getResources().getResourceTypeName(R.string.alarm_clock) );
+
 
 
 
@@ -97,7 +104,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
 
-
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -112,8 +118,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         /*Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);*/
 
-        ProgressDialog.show(this, null, "正在登录中,请稍等...");
+//        ProgressDialog.show(this, null, "正在登录中,请稍等...");
 
+        FeaturesFragment featuresFragment = FeaturesFragment.newInstance();
+        ActivityUtil.addFragmentToActivity(getSupportFragmentManager(), featuresFragment,
+                R.id.contentFrame);
 
     }
 

@@ -2,6 +2,9 @@ package com.fendoudebb.playandroid.module.feature;
 
 import com.fendoudebb.playandroid.module.BasePresenter;
 import com.fendoudebb.playandroid.module.BaseView;
+import com.fendoudebb.playandroid.module.feature.data.Feature;
+
+import java.util.List;
 
 /**
  * zbj on 2017-09-15 14:49.
@@ -10,7 +13,7 @@ import com.fendoudebb.playandroid.module.BaseView;
 public interface FeaturesContract {
 
     interface View extends BaseView<Presenter> {
-
+        void showFeatures(List<Feature> features);
     }
 
     interface Presenter extends BasePresenter {

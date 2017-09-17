@@ -12,4 +12,20 @@
     <string name="nav_other">其他</string>
     <string name="nav_about_author">关于作者</string>
     <string name="nav_open_source_framework">开源框架</string>
+
+    <!--Feature List-->
+    <string name="calendar">日历</string>
+    <string name="clock">时钟</string>
+    <string name="alarm_clock">闹铃</string>
+    <string name="brightness">调节亮度</string>
+    <string name="volume">调节音量</string>
+    <string name="flashlight">手电筒</string>
+    <string name="screenshot">截屏</string>
+    <string name="mini_browser">迷你浏览器</string>
+    <string name="qr_code">二维码</string>
+    <string name="music">音乐</string>
+    <string name="video">视频</string>
+    <string name="number_attribution">号码归属地</string>
+    <string name="timer">计时器</string>
+    <string name="camera">相机</string>
 </resources>
