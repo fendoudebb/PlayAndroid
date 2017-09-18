@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
     <!-- 特殊字符要转义-->
     <string-array name="feature_array">
         <item>mini_browser</item>
@@ -16,6 +18,8 @@
         <item>number_attribution</item>
         <item>timer</item>
         <item>camera</item>
+        <item>contact</item>
+        <item>app_list</item>
     </string-array>
 
 </resources>

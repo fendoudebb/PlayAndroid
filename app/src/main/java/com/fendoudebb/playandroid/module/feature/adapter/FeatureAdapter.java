@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.feature.data.Feature;
@@ -28,8 +29,17 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.FeatureV
 
     @Override
     public FeatureViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new FeatureViewHolder(LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.item_feature, parent, false));
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.item_feature, parent, false);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext().getApplicationContext(), "点击了", Toast.LENGTH_SHORT)
+                        .show();
+
+            }
+        });
+        return new FeatureViewHolder(itemView);
     }
 
     @Override

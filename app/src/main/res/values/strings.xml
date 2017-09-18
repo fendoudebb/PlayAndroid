@@ -28,4 +28,6 @@
     <string name="number_attribution">NumberAttribution</string>
     <string name="timer">Timer</string>
     <string name="camera">Camera</string>
+    <string name="contact">Contact</string>
+    <string name="app_list">AppList</string>
 </resources>

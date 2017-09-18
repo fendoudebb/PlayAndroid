@@ -11,10 +11,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fendoudebb.playandroid.R;
@@ -62,6 +64,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         NavigationView navigationView = findView(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
+        ImageView userLogo = (ImageView) navigationView.findViewById(R.id.nav_user_logo);
+
 
         mToggle.syncState();
         mDrawerLayout.addDrawerListener(mToggle);
@@ -72,14 +76,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         PackageManager pm = getPackageManager();
 
         FeatureInfo[] features = pm.getSystemAvailableFeatures(); //得到所有支援的硬件种类
-        Log.d(TAG, "initView: feature:size:"+  (features == null) );
-//        for (FeatureInfo feature : features) Log.v(TAG, feature.name);
-        Log.d(TAG, "initView: feature:size:"+  getResources().getResourceName(R.string.alarm_clock) );
-        Log.d(TAG, "initView: feature:size:"+  getResources().getResourceEntryName(R.string.alarm_clock) );
-        Log.d(TAG, "initView: feature:size:"+  getResources().getResourcePackageName(R.string.alarm_clock) );
-        Log.d(TAG, "initView: feature:size:"+  getResources().getResourceTypeName(R.string.alarm_clock) );
-
-
+        Log.d(TAG, "initView: feature:size:" + (features == null));
+        for (FeatureInfo feature : features) {
+            if (feature != null) {
+                String name = feature.name;
+                if (TextUtils.isEmpty(name)) {
+                    Log.v(TAG, "name2: " + feature.reqGlEsVersion);
+                } else {
+                    Log.v(TAG, "name1: " + feature.name);
+                }
+            } else {
+                Log.d(TAG, "空!");
+            }
+        }
 
 
     }
@@ -137,7 +146,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            // Handle the action
         } else if (id == R.id.nav_my_collection) {
 
         } else if (id == R.id.nav_tool) {

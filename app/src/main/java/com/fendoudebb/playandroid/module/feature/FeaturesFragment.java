@@ -54,6 +54,15 @@ public class FeaturesFragment extends Fragment implements FeaturesContract.View 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        /*mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            private int mSpace = (int) UnitConverter.dp2px(10);
+
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView
+                    .State state) {
+                outRect.top = outRect.left = outRect.right = outRect.bottom = mSpace;
+            }
+        });*/
 
     }
 

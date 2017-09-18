@@ -28,4 +28,6 @@
     <string name="number_attribution">号码归属地</string>
     <string name="timer">计时器</string>
     <string name="camera">相机</string>
+    <string name="contact">联系人</string>
+    <string name="app_list">应用列表</string>
 </resources>
