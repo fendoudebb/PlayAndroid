@@ -1,4 +1,14 @@
-## *Update Log*
+## *Update Log*[更新日志](doc-zh/UpdateLog-zh.md)
+> 2017/9/19
+- Add SigningConfigs
+
+> 2017/9/18
+- Add proguard rules
+
+> 2017/9/17
+- Add vector drawable
+- Using mvp-RxJava
+
 > 2017/8/24
 - Add NavigationView Menu
 - Add Launcher ShortCutUtil

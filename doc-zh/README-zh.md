@@ -21,3 +21,4 @@
 - [Glide图片加载](https://github.com/bumptech/glide)
 - [retrofit网络请求](https://github.com/square/retrofit)
 - Activity生命周期回调
+- 使用mvp-rxjava架构

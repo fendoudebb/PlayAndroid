@@ -5,7 +5,7 @@
 - Flashlight
 - Screenshot
 - Wifi Manager
-- Micro Browser
+- Mini Browser
 - Lookup Install App Info
 - Lookup System App Info
 - Music Player
