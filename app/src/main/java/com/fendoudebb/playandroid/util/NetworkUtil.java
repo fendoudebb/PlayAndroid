@@ -18,6 +18,10 @@ import java.util.Enumeration;
 
 public class NetworkUtil {
 
+    private NetworkUtil() {
+        throw new IllegalArgumentException("NetworkUtil can not be initialized");
+    }
+
     private static Context getContext() {
         return App.getContext();
     }

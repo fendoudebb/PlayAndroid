@@ -1,5 +1,6 @@
 package com.fendoudebb.playandroid.module.feature.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fendoudebb.playandroid.R;
+import com.fendoudebb.playandroid.config.C;
+import com.fendoudebb.playandroid.module.feature.FeatureDetailActivity;
 import com.fendoudebb.playandroid.module.feature.data.Feature;
+import com.fendoudebb.playandroid.util.ResUtil;
 
 import java.util.List;
 
@@ -31,20 +35,25 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.FeatureV
     public FeatureViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.item_feature, parent, false);
+        final FeatureViewHolder viewHolder = new FeatureViewHolder(itemView);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), FeatureDetailActivity.class);
+                intent.putExtra(C.intent.feature_name_id, mFeatures.get(viewHolder
+                        .getAdapterPosition()).nameId);
+                v.getContext().startActivity(intent);
                 Toast.makeText(v.getContext().getApplicationContext(), "点击了", Toast.LENGTH_SHORT)
                         .show();
 
             }
         });
-        return new FeatureViewHolder(itemView);
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(FeatureViewHolder holder, int position) {
-        holder.mFeatureName.setText(mFeatures.get(position).name);
+        holder.mFeatureName.setText(ResUtil.getString(mFeatures.get(position).nameId));
         holder.mFeatureLogo.setImageResource(mFeatures.get(position).logo);
         Log.d(TAG, "onBindViewHolder: mFeatures.get(position).logo: " + mFeatures.get(position).logo);
     }

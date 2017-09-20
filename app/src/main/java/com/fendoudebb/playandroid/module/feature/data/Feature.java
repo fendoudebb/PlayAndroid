@@ -11,7 +11,7 @@ public class Feature implements Parcelable {
 
     public int rank;
 
-    public String name;
+    public int nameId;
 
     public int logo;
 
@@ -19,22 +19,22 @@ public class Feature implements Parcelable {
 
     }
 
-    public Feature(int rank, String name, int logo) {
+    public Feature(int rank, int nameId, int logo) {
         this.rank = rank;
-        this.name = name;
+        this.nameId = nameId;
         this.logo = logo;
     }
 
     protected Feature(Parcel in) {
         rank = in.readInt();
-        name = in.readString();
+        nameId = in.readInt();
         logo = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(rank);
-        dest.writeString(name);
+        dest.writeInt(nameId);
         dest.writeInt(logo);
     }
 

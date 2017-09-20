@@ -1,6 +1,7 @@
 package com.fendoudebb.playandroid.util;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.AnyRes;
 import android.support.annotation.ArrayRes;
@@ -18,8 +19,21 @@ import com.fendoudebb.playandroid.App;
 
 public class ResUtil {
 
+    private ResUtil() {
+        throw new IllegalArgumentException("ResUtil can not be initialized");
+    }
+
     private static Context getContext() {
         return App.getContext();
+    }
+
+    /**
+     * 获取Resources对象
+     *
+     * @return {@link Resources}
+     */
+    public static Resources getResources() {
+        return getContext().getResources();
     }
 
     /**
@@ -29,7 +43,7 @@ public class ResUtil {
      * @return string.xml中配置的key值
      */
     public static String getResName(@AnyRes int resId) {
-        return getContext().getResources().getResourceEntryName(resId);
+        return getResources().getResourceEntryName(resId);
     }
 
     /**
@@ -39,7 +53,7 @@ public class ResUtil {
      * @return 字符串
      */
     public static String getString(@StringRes int id) {
-        return getContext().getResources().getString(id);
+        return getResources().getString(id);
     }
 
     /**
@@ -49,7 +63,7 @@ public class ResUtil {
      * @return 字符串数组
      */
     public static String[] getStringArray(@ArrayRes int id) {
-        return getContext().getResources().getStringArray(id);
+        return getResources().getStringArray(id);
     }
 
     /**
@@ -59,7 +73,7 @@ public class ResUtil {
      * @return int类型数组
      */
     public static int[] getIntArray(@ArrayRes int id) {
-        return getContext().getResources().getIntArray(id);
+        return getResources().getIntArray(id);
     }
 
     /**
@@ -135,9 +149,7 @@ public class ResUtil {
     }
 
     private static int getIdentifierByType(String resourceName, String defType) {
-        return getContext().getResources().getIdentifier(resourceName, defType, getContext()
-                .getPackageName());
+        return getResources().getIdentifier(resourceName, defType, getContext().getPackageName());
     }
-
 
 }

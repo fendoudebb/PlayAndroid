@@ -24,6 +24,16 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme">
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.fendoudebb.playandroid.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
         <activity
             android:name=".module.main.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -35,8 +45,14 @@
         </activity>
 
         <activity
+            android:name=".module.main.AdvertiseActivity"
+            android:theme="@style/SplashTheme"/>
+
+        <activity
             android:name=".module.main.MainActivity"
             android:launchMode="singleTask"/>
+
+        <activity android:name=".module.feature.FeatureDetailActivity"/>
 
         <activity
             android:name=".module.main.SettingsActivity"/>
@@ -51,20 +67,6 @@
                 android:value=".module.main.SettingsActivity"/>
 
         </activity>
-
-        <activity
-            android:name=".module.main.AdvertiseActivity"
-            android:theme="@style/SplashTheme"/>
-
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.fendoudebb.playandroid.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
-        </provider>
 
 
     </application>

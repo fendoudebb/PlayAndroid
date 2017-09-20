@@ -11,4 +11,8 @@ public class C {
         public static final String short_cut = "short_cut";
     }
 
+    public static class intent{
+        public static final String feature_name_id = "feature_name_id";
+    }
+
 }

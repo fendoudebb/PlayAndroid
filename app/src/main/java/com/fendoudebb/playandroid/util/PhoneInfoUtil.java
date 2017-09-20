@@ -13,6 +13,10 @@ import com.fendoudebb.playandroid.App;
 @SuppressLint("HardwareIds")
 public class PhoneInfoUtil {
 
+    private PhoneInfoUtil() {
+        throw new IllegalArgumentException("PhoneInfoUtil can not be initialized");
+    }
+
     private static Context getContext() {
         return App.getContext();
     }
@@ -22,7 +26,9 @@ public class PhoneInfoUtil {
     }
 
     /**
-     * 获取电话号码
+     * 获取电话号码,移动/电信4G卡均不能获取
+     *
+     * @return 获取手机号
      */
     public static String getPhoneNumber() {
         return getTelephonyManager().getLine1Number();
