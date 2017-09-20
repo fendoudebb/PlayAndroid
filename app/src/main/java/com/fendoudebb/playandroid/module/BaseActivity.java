@@ -1,20 +1,24 @@
 package com.fendoudebb.playandroid.module;
 
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.fendoudebb.playandroid.module.main.MainActivity;
 import com.fendoudebb.playandroid.R;
+import com.fendoudebb.playandroid.module.main.MainActivity;
+import com.fendoudebb.playandroid.util.DialogHelper;
 import com.fendoudebb.playandroid.util.UnitConverter;
 
 /**
@@ -105,6 +109,23 @@ public abstract class BaseActivity extends AppCompatActivity {
             result =Resources.getSystem().getDimensionPixelSize(resourceId);
         }
         return result;
+    }
+
+    protected void requestPermission(final String permission, String rationale, final int requestCode) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
+            new DialogHelper().showAlertDialog(this,"权限需求", rationale,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(BaseActivity.this, new String[]{permission}, requestCode);
+                        }
+                    },"确认", null, "取消");
+            Log.d("zbj", "requestPermission-shouldShowRequestPermissionRationale: ");
+        } else {
+            ActivityCompat.requestPermissions(this,new String[]{permission}, requestCode);
+
+            Log.d("zbj", "requestPermission---: ");
+        }
     }
 
 }

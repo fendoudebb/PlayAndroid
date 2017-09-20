@@ -13,7 +13,6 @@ import com.facebook.stetho.Stetho;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.fendoudebb.playandroid.util.AppBlockCanaryContext;
 import com.github.moduth.blockcanary.BlockCanary;
-import com.squareup.leakcanary.LeakCanary;
 
 import okhttp3.OkHttpClient;
 
@@ -44,12 +43,12 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        //init LeakCanary
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return;
-        }
-        LeakCanary.install(this);
-
+//        //init LeakCanary
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            return;
+//        }
+//        LeakCanary.install(this);
+//
         BlockCanary.install(this, new AppBlockCanaryContext()).start();
 
         Stetho.initializeWithDefaults(this);

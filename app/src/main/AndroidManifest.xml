@@ -8,6 +8,10 @@
     <!-- 移除快捷方式 -->
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -48,8 +52,20 @@
 
         </activity>
 
-        <activity android:name=".module.main.AdvertiseActivity"
-                  android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".module.main.AdvertiseActivity"
+            android:theme="@style/SplashTheme"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.fendoudebb.playandroid.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
 
     </application>
 

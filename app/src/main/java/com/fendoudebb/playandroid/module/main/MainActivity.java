@@ -1,10 +1,11 @@
 package com.fendoudebb.playandroid.module.main;
 
-import android.content.Intent;
+import android.Manifest;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -136,8 +137,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     public void onClick2(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);
+        /*Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);*/
+        int i = ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission
+                .WRITE_EXTERNAL_STORAGE);
+        Log.d(TAG, "onClick2: i: " + i);
+        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,"读写SD卡",100);
     }
 
     @Override
@@ -173,4 +178,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         return true;
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 }

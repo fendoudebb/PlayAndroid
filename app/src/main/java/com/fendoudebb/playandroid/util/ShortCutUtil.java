@@ -39,7 +39,7 @@ public class ShortCutUtil {
 
         // 图标
         shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
-                Intent.ShortcutIconResource.fromContext(context, R.mipmap.ic_launcher));
+                Intent.ShortcutIconResource.fromContext(context, R.drawable.layer_app_launcher));
 
         // 设置关联程序
         Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
