@@ -6,6 +6,7 @@ import android.util.Log;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.BaseActivity;
+import com.fendoudebb.playandroid.module.feature.ui.BrightnessFragment;
 import com.fendoudebb.playandroid.module.feature.ui.CalendarFragment;
 import com.fendoudebb.playandroid.module.feature.ui.ClockFragment;
 import com.fendoudebb.playandroid.util.ActivityUtil;
@@ -48,7 +49,7 @@ public class FeatureDetailActivity extends BaseActivity {
 
                 break;
             case R.string.brightness:
-
+                fragment = BrightnessFragment.newInstance();
                 break;
             case R.string.volume:
 

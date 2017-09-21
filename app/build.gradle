@@ -76,6 +76,7 @@ ext {
     rxandroidVersion = "2.0.1"
     sqlbriteVersion = "2.0.0"
     guavaVersion = "23.0-android"
+    rxpermissionsVersion = "0.9.4@aar"
 }
 
 dependencies {
@@ -116,5 +117,7 @@ dependencies {
     compile "com.squareup.sqlbrite2:sqlbrite:${sqlbriteVersion}"
     //guava
     compile "com.google.guava:guava:${guavaVersion}"
+    //rxpermissions
+    compile "com.tbruyelle.rxpermissions2:rxpermissions:${rxpermissionsVersion}"
 
 }

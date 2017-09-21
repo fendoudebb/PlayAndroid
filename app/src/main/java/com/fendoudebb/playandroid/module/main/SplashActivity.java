@@ -1,20 +1,22 @@
 package com.fendoudebb.playandroid.module.main;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.fendoudebb.playandroid.module.CheckPermissionsActivity;
 
 /**
  * zbj on 2017-08-23 15:45.
  */
 
-public class SplashActivity extends AppCompatActivity {
-
+public class SplashActivity extends CheckPermissionsActivity {
+    private static final String TAG = "SplashActivity";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,20 @@ public class SplashActivity extends AppCompatActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
+        checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+//        getWindow().setBackgroundDrawableResource(R.drawable.splash_bg);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+
+    @Override
+    protected void permissionHasGranted() {
         getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -35,13 +51,5 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 500);
-
-//        getWindow().setBackgroundDrawableResource(R.drawable.splash_bg);
-
-    }
-
-    @Override
-    public void onBackPressed() {
-
     }
 }

@@ -25,6 +25,7 @@ import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.BaseActivity;
 import com.fendoudebb.playandroid.module.feature.FeaturesFragment;
 import com.fendoudebb.playandroid.util.ActivityUtil;
+import com.fendoudebb.playandroid.util.PhoneUtil;
 import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
@@ -96,6 +97,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     protected void initData() {
+        String simOperatorName = PhoneUtil.getSimOperatorName();
+        Log.d(TAG, "simOperatorName: " + simOperatorName);
+
+        String operatorName = PhoneUtil.getSimOperator();
+        Log.d(TAG, "operatorName: " + operatorName);
+
+//        String imei = PhoneUtil.getIMEI();
+//        String imsi = PhoneUtil.getIMSI();
+//        Log.d(TAG, "imei: " + imei);
+//        Log.d(TAG, "imsi: " + imsi);
+
+//        String simSerialNumber = PhoneUtil.getSimSerialNumber();
+//        Log.d(TAG, "simSerialNumber: " + simSerialNumber);
+
+        String simCountryIso = PhoneUtil.getSimCountryIso();
+        Log.d(TAG, "simCountryIso: " + simCountryIso);
+
+//        String phoneNumber = PhoneUtil.getPhoneNumber();
+        int phoneCount = PhoneUtil.getPhoneCount();
+//        Log.d(TAG, "phoneNumber: " + phoneNumber);
+        Log.d(TAG, "phoneCount: " + phoneCount);
+
+//        String chineseOperatorName = PhoneUtil.getChineseOperatorName();
+//        Log.d(TAG, "chineseOperatorName: " + chineseOperatorName);
 
     }
 
