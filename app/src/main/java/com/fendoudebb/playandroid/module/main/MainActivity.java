@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.BaseActivity;
+import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.feature.FeaturesFragment;
 import com.fendoudebb.playandroid.util.ActivityUtil;
 import com.fendoudebb.playandroid.util.PhoneUtil;

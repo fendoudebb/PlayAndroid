@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module;
+package com.fendoudebb.playandroid.module.base;
 
 import java.util.List;
 

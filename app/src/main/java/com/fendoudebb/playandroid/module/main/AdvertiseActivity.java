@@ -42,7 +42,7 @@ public class AdvertiseActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 finish();
             }
-        }, 1500);
+        }, 0);
 
     }
 

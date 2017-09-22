@@ -4,7 +4,7 @@ package com.fendoudebb.playandroid.module.feature.data;
 import android.content.res.TypedArray;
 
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.BaseDataSource;
+import com.fendoudebb.playandroid.module.base.BaseDataSource;
 import com.fendoudebb.playandroid.util.ResUtil;
 
 import java.util.ArrayList;

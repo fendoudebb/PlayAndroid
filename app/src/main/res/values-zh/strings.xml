@@ -13,6 +13,10 @@
     <string name="nav_about_author">关于作者</string>
     <string name="nav_open_source_framework">开源框架</string>
 
+    <string name="go_settings">去设置</string>
+    <string name="ok">确定</string>
+    <string name="no">取消</string>
+
     <!--Feature List-->
     <string name="calendar">日历</string>
     <string name="clock">时钟</string>

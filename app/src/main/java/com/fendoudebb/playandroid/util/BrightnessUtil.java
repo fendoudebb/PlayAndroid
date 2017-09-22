@@ -48,12 +48,12 @@ public class BrightnessUtil {
         return nowBrightnessValue;
     }
 
-   /* // 设置亮度
+   /* // 设置亮度,存在static方法中activity会泄露
     // 程序退出之后亮度失效
     public static void setCurWindowBrightness(int brightness) {
         // 如果开启自动亮度，则关闭。否则，设置了亮度值也是无效的
         if (isAutoBrightness()) {
-            stopAutoBrightness();
+            closeAutoBrightness();
         }
         // context转换为Activity
         Activity activity = (Activity) context;
@@ -85,14 +85,18 @@ public class BrightnessUtil {
     }
 
     // 停止自动亮度调节
-    public static void stopAutoBrightness() {
+
+    /**
+     * 需要<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+     */
+    public static void closeAutoBrightness() {
         Settings.System.putInt(getContext().getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
     }
 
     // 开启亮度自动调节
-    public static void startAutoBrightness() {
+    public static void openAutoBrightness() {
         Settings.System.putInt(getContext().getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);

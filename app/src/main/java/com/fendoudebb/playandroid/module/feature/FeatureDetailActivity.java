@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.BaseActivity;
+import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.feature.ui.BrightnessFragment;
 import com.fendoudebb.playandroid.module.feature.ui.CalendarFragment;
 import com.fendoudebb.playandroid.module.feature.ui.ClockFragment;

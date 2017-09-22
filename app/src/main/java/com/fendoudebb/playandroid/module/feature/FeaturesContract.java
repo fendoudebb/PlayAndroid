@@ -1,7 +1,7 @@
 package com.fendoudebb.playandroid.module.feature;
 
-import com.fendoudebb.playandroid.module.BasePresenter;
-import com.fendoudebb.playandroid.module.BaseView;
+import com.fendoudebb.playandroid.module.base.BasePresenter;
+import com.fendoudebb.playandroid.module.base.BaseView;
 import com.fendoudebb.playandroid.module.feature.data.Feature;
 
 import java.util.List;

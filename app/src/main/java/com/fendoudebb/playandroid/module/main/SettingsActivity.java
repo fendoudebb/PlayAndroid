@@ -5,7 +5,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.view.View;
 
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.BaseActivity;
+import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.music.MusicDetailActivity;
 
 /**

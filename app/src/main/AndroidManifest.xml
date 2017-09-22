@@ -3,15 +3,19 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.fendoudebb.playandroid">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <!-- 添加快捷方式 -->
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <!-- 移除快捷方式 -->
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--读写sd卡-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--读取imsi等手机信息-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--写入设置:调节亮度-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <application
         android:name=".App"

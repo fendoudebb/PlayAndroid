@@ -1,27 +1,27 @@
 package com.fendoudebb.playandroid.module.feature.ui;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.fendoudebb.playandroid.R;
+import com.fendoudebb.playandroid.module.base.fragment.CheckPermissionsFragment;
 import com.fendoudebb.playandroid.util.BrightnessUtil;
+import com.fendoudebb.playandroid.util.ToastUtil;
 
+import static com.fendoudebb.playandroid.util.BrightnessUtil.closeAutoBrightness;
 import static com.fendoudebb.playandroid.util.BrightnessUtil.isAutoBrightness;
-import static com.fendoudebb.playandroid.util.BrightnessUtil.stopAutoBrightness;
 
 /**
  * zbj on 2017-09-21 17:00.
  */
 
-public class BrightnessFragment extends Fragment implements View.OnClickListener {
+public class BrightnessFragment extends CheckPermissionsFragment implements View.OnClickListener {
 
     private static final String TAG = "BrightnessFragment";
+
 
     public static BrightnessFragment newInstance() {
         Bundle arguments = new Bundle();
@@ -32,19 +32,12 @@ public class BrightnessFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
-            Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_bright, container, false);
+    protected int initLayout() {
+        return R.layout.fragment_bright;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    protected void initView(View view) {
         view.findViewById(R.id.btn_1).setOnClickListener(this);
         view.findViewById(R.id.btn_2).setOnClickListener(this);
     }
@@ -59,7 +52,7 @@ public class BrightnessFragment extends Fragment implements View.OnClickListener
     public void setCurWindowBrightness(int brightness) {
         // 如果开启自动亮度，则关闭。否则，设置了亮度值也是无效的
         if (isAutoBrightness()) {
-            stopAutoBrightness();
+            closeAutoBrightness();
         }
 
         WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
@@ -75,6 +68,8 @@ public class BrightnessFragment extends Fragment implements View.OnClickListener
         getActivity().getWindow().setAttributes(lp);
     }
 
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -86,10 +81,36 @@ public class BrightnessFragment extends Fragment implements View.OnClickListener
                 Log.d(TAG, "screenBrightness: " + screenBrightness);
                 break;
             case R.id.btn_2:
-                setCurWindowBrightness(50);
+                boolean b = hasWriteSettingsPermission();
+                if (b)
+                    setCurWindowBrightness(50);
+                else
+                    show("没有权限", "给我权限", getString(R.string.ok), new DialogInterface
+                            .OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startWriteSettingsActivityForResult();
+                        }
+                    });
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onRequestGranted(String permission) {
+        setCurWindowBrightness(50);
+    }
+
+    @Override
+    protected void onRequestDenied(String permission) {
+        ToastUtil.showToast("还没有给我哦");
+    }
+
+    @Override
+    protected void onRequestNeverAsk(String permission) {
+
     }
 }

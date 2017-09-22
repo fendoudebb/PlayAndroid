@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module;
+package com.fendoudebb.playandroid.module.base.activity;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -80,9 +80,7 @@ public abstract class CheckPermissionsActivity extends AppCompatActivity {
 
     protected abstract void permissionHasGranted();
 
-    private void requestPermission(String... permissions) {
 
-    }
 
     /**
      * 提示用户的 dialog

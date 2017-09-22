@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module;
+package com.fendoudebb.playandroid.module.base.activity;
 
 import android.content.DialogInterface;
 import android.content.res.Resources;

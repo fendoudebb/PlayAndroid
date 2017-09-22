@@ -13,6 +13,10 @@
     <string name="nav_about_author">Author</string>
     <string name="nav_open_source_framework">OpenSourceFramework</string>
 
+    <string name="go_settings">Settings</string>
+    <string name="ok">OK</string>
+    <string name="no">NO</string>
+
     <!--Feature List-->
     <string name="calendar">Calendar</string>
     <string name="clock">Clock</string>
