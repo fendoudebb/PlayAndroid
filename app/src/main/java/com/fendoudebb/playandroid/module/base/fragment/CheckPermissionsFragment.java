@@ -68,7 +68,8 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
     }
 
     protected boolean hasWriteSettingsPermission() {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || Settings.System.canWrite(getContext());
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || Settings.System.canWrite
+                (getContext());
     }
 
     protected void startWriteSettingsActivityForResult() {
@@ -77,6 +78,41 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
             intent.setData(Uri.parse("package:" + getContext().getPackageName()));
             startActivityForResult(intent, REQUEST_CODE_WRITE_SETTINGS);
         }
+    }
+
+    protected AlertDialog showNeedPermissionRationale(
+            @NonNull String title
+            , @NonNull String message
+            , @NonNull String positiveText
+            , DialogInterface.OnClickListener onPositiveButtonClickListener) {
+        return new AlertDialog.Builder(getActivity())
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveText, onPositiveButtonClickListener)
+                .setNegativeButton(getString(R.string.no), null)
+                .show();
+    }
+
+    /**
+     * <p>
+     * 申请写入设置权限
+     * <p>
+     * 有权限回调{@link #onRequestGranted(String)}
+     * <p>
+     * 没有权限回调{@link #onRequestNeverAsk(String)}
+     * <p>
+     * 去设置界面后开启了权限回调{@link #onRequestGranted(String)}
+     * <p>
+     * 去设置界面后还是没有开启权限回调{@link #onRequestDenied(String)}
+     * <p>
+     */
+    protected void requestWriteSettingsPermission() {
+        if (hasWriteSettingsPermission()) {
+            onRequestGranted(Manifest.permission.WRITE_SETTINGS);
+        } else {
+            onRequestNeverAsk(Manifest.permission.WRITE_SETTINGS);
+        }
+
     }
 
     protected void requestPermissions(String... permissions) {
@@ -94,16 +130,6 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
                         }
                     }
                 });
-    }
-
-    protected void show(@NonNull String title,@NonNull String message,@NonNull String positiveText,
-                        DialogInterface.OnClickListener onPositiveButtonClickListener) {
-        new AlertDialog.Builder(getActivity())
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton(positiveText, onPositiveButtonClickListener)
-                .setNegativeButton(getString(R.string.no), null)
-                .show();
     }
 
     protected abstract void onRequestGranted(String permission);

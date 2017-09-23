@@ -17,6 +17,8 @@
     <string name="ok">确定</string>
     <string name="no">取消</string>
 
+    <string name="missing_permission">缺少权限</string>
+
     <!--Feature List-->
     <string name="calendar">日历</string>
     <string name="clock">时钟</string>

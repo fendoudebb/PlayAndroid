@@ -23,3 +23,5 @@ A project records the Android learning process which contains varieties of basic
 - [retrofit](https://github.com/square/retrofit)
 - ActivityLifecycleCallbacks
 - [mvp-rxjava](https://github.com/googlesamples/android-architecture)
+- Api23 CheckPermissions [EasyPermissions](https://github.com/googlesamples/easypermissions) [RxPermissions](https://github.com/tbruyelle/RxPermissions)
+

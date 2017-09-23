@@ -1,4 +1,15 @@
 ## *Update Log*[更新日志](doc-zh/UpdateLog-zh.md)
+> 2017/9/23
+- Extract base requestWriteSettingsPermission method
+
+> 2017/9/22
+- Permission Activity Fragment
+- Add Adjust Brightness
+
+> 2017/9/20
+- Add util class
+- Add feature ui(Calendar and Clock)
+
 > 2017/9/19
 - Add SigningConfigs
 

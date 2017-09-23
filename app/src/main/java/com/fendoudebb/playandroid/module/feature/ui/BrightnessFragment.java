@@ -68,8 +68,6 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
         getActivity().getWindow().setAttributes(lp);
     }
 
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -81,18 +79,7 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
                 Log.d(TAG, "screenBrightness: " + screenBrightness);
                 break;
             case R.id.btn_2:
-                boolean b = hasWriteSettingsPermission();
-                if (b)
-                    setCurWindowBrightness(50);
-                else
-                    show("没有权限", "给我权限", getString(R.string.ok), new DialogInterface
-                            .OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startWriteSettingsActivityForResult();
-                        }
-                    });
+                requestWriteSettingsPermission();
                 break;
             default:
                 break;
@@ -111,6 +98,15 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
 
     @Override
     protected void onRequestNeverAsk(String permission) {
+        showNeedPermissionRationale(
+                getString(R.string.missing_permission)
+                , "给我权限", getString(R.string.ok), new DialogInterface
+                        .OnClickListener() {
 
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startWriteSettingsActivityForResult();
+                    }
+                });
     }
 }

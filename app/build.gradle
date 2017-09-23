@@ -120,6 +120,4 @@ dependencies {
     //rxpermissions
     compile "com.tbruyelle.rxpermissions2:rxpermissions:${rxpermissionsVersion}"
 
-    compile 'pub.devrel:easypermissions:1.0.0'
-
 }
