@@ -1,23 +1,5 @@
 <resources>
     <string name="app_name">Android</string>
-    <string name="default_name">进阶之路</string>
-    <string name="address">https://github.com</string>
-    <string name="menu_action_search">搜索</string>
-    <string name="nav_home_page">首页</string>
-    <string name="nav_my_collection">我的收藏</string>
-    <string name="nav_tools">工具管理</string>
-    <string name="nav_theme">切换主题</string>
-    <string name="nav_share_app">分享应用</string>
-    <string name="send">发送</string>
-    <string name="nav_other">其他</string>
-    <string name="nav_about_author">关于作者</string>
-    <string name="nav_open_source_framework">开源框架</string>
-
-    <string name="go_settings">去设置</string>
-    <string name="ok">确定</string>
-    <string name="no">取消</string>
-
-    <string name="missing_permission">缺少权限</string>
 
     <!--Feature List-->
     <string name="calendar">日历</string>
@@ -36,4 +18,28 @@
     <string name="camera">相机</string>
     <string name="contact">联系人</string>
     <string name="app_list">应用列表</string>
+
+    <string name="default_name">进阶之路</string>
+    <string name="address">https://github.com</string>
+    <string name="menu_action_search">搜索</string>
+    <string name="nav_home_page">首页</string>
+    <string name="nav_my_collection">我的收藏</string>
+    <string name="nav_tools">工具管理</string>
+    <string name="nav_theme">切换主题</string>
+    <string name="nav_share_app">分享应用</string>
+    <string name="send">发送</string>
+    <string name="nav_other">其他</string>
+    <string name="nav_about_author">关于作者</string>
+    <string name="nav_open_source_framework">开源框架</string>
+
+    <string name="go_settings">去设置</string>
+    <string name="ok">确定</string>
+    <string name="no">取消</string>
+
+    <string name="missing_permission">缺少权限</string>
+    <string name="write_settings_permission_rationale">调节亮度需要修改系统亮度，需打开写入系统设置权限。</string>
+
+
+
+
 </resources>

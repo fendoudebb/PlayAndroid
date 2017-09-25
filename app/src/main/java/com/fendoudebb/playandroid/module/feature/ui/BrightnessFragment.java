@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.SeekBar;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.base.fragment.CheckPermissionsFragment;
@@ -18,9 +19,11 @@ import static com.fendoudebb.playandroid.util.BrightnessUtil.isAutoBrightness;
  * zbj on 2017-09-21 17:00.
  */
 
-public class BrightnessFragment extends CheckPermissionsFragment implements View.OnClickListener {
+public class BrightnessFragment extends CheckPermissionsFragment implements View.OnClickListener,
+        SeekBar.OnSeekBarChangeListener {
 
     private static final String TAG = "BrightnessFragment";
+    private SeekBar mSeekBar;
 
 
     public static BrightnessFragment newInstance() {
@@ -38,15 +41,50 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
 
     @Override
     protected void initView(View view) {
+
+        missingWriteSettingsPermissionRationaleDialog();
+
         view.findViewById(R.id.btn_1).setOnClickListener(this);
         view.findViewById(R.id.btn_2).setOnClickListener(this);
+        mSeekBar = (SeekBar) view.findViewById(R.id.brightness_seek_bar);
+        mSeekBar.setMax(255);
+    }
+
+    private void missingWriteSettingsPermissionRationaleDialog() {
+        showNeedPermissionRationale(
+                getString(R.string.missing_permission)
+                , getString(R.string.write_settings_permission_rationale)
+                , getString(R.string.ok)
+                , getString(R.string.no)
+                , new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startWriteSettingsActivityForResult();
+                    }
+                }
+                , new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        getActivity().finish();
+                    }
+                }
+                , false);
+    }
+
+    @Override
+    protected void initData() {
+        int screenBrightness = BrightnessUtil.getScreenBrightness();
+        Log.d(TAG, "screenBrightness: " + screenBrightness);
+        mSeekBar.setProgress(screenBrightness);
+
+        mSeekBar.setOnSeekBarChangeListener(this);
+
     }
 
     // 设置亮度
     // 程序退出之后亮度失效
 
     /**
-     *
      * @param brightness 调节的亮度 1-255之间
      */
     public void setCurWindowBrightness(int brightness) {
@@ -75,11 +113,10 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
                 boolean autoBrightness = isAutoBrightness();
                 Log.d(TAG, "autoBrightness: " + autoBrightness);
 
-                int screenBrightness = BrightnessUtil.getScreenBrightness();
-                Log.d(TAG, "screenBrightness: " + screenBrightness);
+
                 break;
             case R.id.btn_2:
-                requestWriteSettingsPermission();
+
                 break;
             default:
                 break;
@@ -88,25 +125,40 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
 
     @Override
     protected void onRequestGranted(String permission) {
-        setCurWindowBrightness(50);
+        ToastUtil.showToast("已经获得权限了，可以调整亮度了");
     }
 
     @Override
     protected void onRequestDenied(String permission) {
-        ToastUtil.showToast("还没有给我哦");
+        missingWriteSettingsPermissionRationaleDialog();
     }
 
     @Override
     protected void onRequestNeverAsk(String permission) {
-        showNeedPermissionRationale(
-                getString(R.string.missing_permission)
-                , "给我权限", getString(R.string.ok), new DialogInterface
-                        .OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startWriteSettingsActivityForResult();
-                    }
-                });
+        missingWriteSettingsPermissionRationaleDialog();
     }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        Log.d(TAG, "onProgressChanged() called with: seekBar = [" + seekBar + "], progress = [" +
+                progress + "], fromUser = [" + fromUser + "]");
+        if (hasWriteSettingsPermission()) {
+            setCurWindowBrightness(progress);
+        } else {
+            requestWriteSettingsPermission();
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        Log.d(TAG, "onStartTrackingTouch() called with: seekBar = [" + seekBar + "]");
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        Log.d(TAG, "onStopTrackingTouch() called with: seekBar = [" + seekBar + "]");
+
+    }
+
+
 }

@@ -18,25 +18,26 @@ public class DialogHelper {
      * @param activity                      dialog依附的activity
      * @param title                         标题
      * @param message                       信息
-     * @param onPositiveButtonClickListener 确认按钮监听
      * @param positiveText                  确认按钮文字
-     * @param onNegativeButtonClickListener 取消按钮监听
      * @param negativeText                  取消按钮文字
+     * @param onPositiveButtonClickListener 确认按钮监听
+     * @param onNegativeButtonClickListener 取消按钮监听
+     * @param cancelable 是否能取消
      */
-    public AlertDialog showAlertDialog(@NonNull Activity activity,
-                                       @Nullable String title, @Nullable String message,
-                                       @Nullable DialogInterface.OnClickListener
-                                               onPositiveButtonClickListener,
-                                       @NonNull String positiveText,
-                                       @Nullable DialogInterface.OnClickListener
-                                               onNegativeButtonClickListener,
-                                       @NonNull String negativeText) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.setPositiveButton(positiveText, onPositiveButtonClickListener);
-        builder.setNegativeButton(negativeText, onNegativeButtonClickListener);
-        return builder.show();
+    public AlertDialog showAlertDialog(@NonNull Activity activity
+            , @Nullable String title
+            , @Nullable String message
+            , @NonNull String positiveText
+            , @NonNull String negativeText
+            , @Nullable DialogInterface.OnClickListener onPositiveButtonClickListener
+            , @Nullable DialogInterface.OnClickListener onNegativeButtonClickListener
+            , boolean cancelable) {
+        return new AlertDialog.Builder(activity)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveText, onPositiveButtonClickListener)
+                .setNegativeButton(negativeText, onNegativeButtonClickListener)
+                .setCancelable(cancelable).show();
     }
 
 }

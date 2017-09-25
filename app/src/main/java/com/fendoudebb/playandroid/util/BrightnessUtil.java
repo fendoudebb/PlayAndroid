@@ -36,7 +36,12 @@ public class BrightnessUtil {
         return isAutoBrightness;
     }
 
-    // 获取当前屏幕的亮度
+    /**
+     * 获取当前屏幕的亮度,屏幕亮度值0-255
+     * {@link Settings.System#SCREEN_BRIGHTNESS}
+     *
+     * @return int 0-255
+     */
     public static int getScreenBrightness() {
         int nowBrightnessValue = 0;
         try {

@@ -13,7 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
-import com.fendoudebb.playandroid.R;
+import com.fendoudebb.playandroid.util.DialogHelper;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -84,13 +84,19 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
             @NonNull String title
             , @NonNull String message
             , @NonNull String positiveText
-            , DialogInterface.OnClickListener onPositiveButtonClickListener) {
-        return new AlertDialog.Builder(getActivity())
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton(positiveText, onPositiveButtonClickListener)
-                .setNegativeButton(getString(R.string.no), null)
-                .show();
+            , @NonNull String negativeText
+            , DialogInterface.OnClickListener onPositiveButtonClickListener
+            , DialogInterface.OnClickListener onNegativeButtonClickListener
+            , boolean cancelable) {
+
+        return new DialogHelper().showAlertDialog(getActivity()
+                , title
+                , message
+                , positiveText
+                , negativeText
+                , onPositiveButtonClickListener
+                , onNegativeButtonClickListener
+                , cancelable);
     }
 
     /**

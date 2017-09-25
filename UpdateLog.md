@@ -1,4 +1,7 @@
 ## *Update Log*[更新日志](doc-zh/UpdateLog-zh.md)
+> 2017/9/25
+- Finish Brightness Function
+
 > 2017/9/23
 - Extract base requestWriteSettingsPermission method
 

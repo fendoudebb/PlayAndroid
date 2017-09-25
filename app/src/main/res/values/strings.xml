@@ -1,23 +1,5 @@
 <resources>
     <string name="app_name">PlayAndroid</string>
-    <string name="default_name">fendoudebb</string>
-    <string name="address">https://github.com</string>
-    <string name="menu_action_search">Search</string>
-    <string name="nav_home_page">HomePage</string>
-    <string name="nav_my_collection">Collection</string>
-    <string name="nav_tools">Tools</string>
-    <string name="nav_theme">Theme</string>
-    <string name="nav_share_app">ShareApp</string>
-    <string name="send">Send</string>
-    <string name="nav_other">Other</string>
-    <string name="nav_about_author">Author</string>
-    <string name="nav_open_source_framework">OpenSourceFramework</string>
-
-    <string name="go_settings">GoSettings</string>
-    <string name="ok">OK</string>
-    <string name="no">NO</string>
-
-    <string name="missing_permission">MissingPermission</string>
 
     <!--Feature List-->
     <string name="calendar">Calendar</string>
@@ -36,4 +18,28 @@
     <string name="camera">Camera</string>
     <string name="contact">Contact</string>
     <string name="app_list">AppList</string>
+
+    <string name="default_name">fendoudebb</string>
+    <string name="address">https://github.com</string>
+    <string name="menu_action_search">Search</string>
+    <string name="nav_home_page">HomePage</string>
+    <string name="nav_my_collection">Collection</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_theme">Theme</string>
+    <string name="nav_share_app">ShareApp</string>
+    <string name="send">Send</string>
+    <string name="nav_other">Other</string>
+    <string name="nav_about_author">Author</string>
+    <string name="nav_open_source_framework">OpenSourceFramework</string>
+
+    <string name="go_settings">GoSettings</string>
+    <string name="ok">OK</string>
+    <string name="no">NO</string>
+
+    <string name="missing_permission">MissingPermission</string>
+    <string name="write_settings_permission_rationale">Adjust the brightness need to modify the system brightness, need to open the write settings permission.</string>
+
+
+
+
 </resources>

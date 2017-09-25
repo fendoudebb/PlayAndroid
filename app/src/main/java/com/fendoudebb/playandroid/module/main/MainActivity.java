@@ -167,7 +167,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         int i = ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission
                 .WRITE_EXTERNAL_STORAGE);
         Log.d(TAG, "onClick2: i: " + i);
-        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,"读写SD卡",100);
     }
 
     @Override
