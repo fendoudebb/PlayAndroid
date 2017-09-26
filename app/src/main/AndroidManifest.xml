@@ -59,6 +59,8 @@
 
         <activity android:name=".module.feature.FeatureDetailActivity"/>
 
+        <activity android:name=".module.feature.ui.WebViewActivity"/>
+
         <activity
             android:name=".module.main.SettingsActivity"/>
 
