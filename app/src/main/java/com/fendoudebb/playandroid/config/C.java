@@ -13,6 +13,7 @@ public class C {
 
     public static class intent{
         public static final String feature_name_id = "feature_name_id";
+        public static final String web_view_url = "web_view_url";
     }
 
 }

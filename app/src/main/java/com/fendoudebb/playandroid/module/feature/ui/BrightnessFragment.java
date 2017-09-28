@@ -1,19 +1,27 @@
 package com.fendoudebb.playandroid.module.feature.ui;
 
+import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.database.ContentObserver;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.base.fragment.CheckPermissionsFragment;
 import com.fendoudebb.playandroid.util.BrightnessUtil;
+import com.fendoudebb.playandroid.util.DrawableUtil;
 import com.fendoudebb.playandroid.util.ToastUtil;
 
-import static com.fendoudebb.playandroid.util.BrightnessUtil.closeAutoBrightness;
-import static com.fendoudebb.playandroid.util.BrightnessUtil.isAutoBrightness;
 
 /**
  * zbj on 2017-09-21 17:00.
@@ -23,8 +31,34 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
         SeekBar.OnSeekBarChangeListener {
 
     private static final String TAG = "BrightnessFragment";
-    private SeekBar mSeekBar;
 
+    private static final int MSG_UPDATE_ICON   = 0;
+    private static final int MSG_UPDATE_SLIDER = 1;
+
+    private SeekBar   mSeekBar;
+    private ImageView mBtnAutoBrightness;
+
+    private BrightnessObserver mBrightnessObserver;
+
+    private Handler mHandler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_UPDATE_ICON:
+                    changeAutoBrightnessBtnStatus();
+                    break;
+                case MSG_UPDATE_SLIDER:
+                    int screenBrightness = BrightnessUtil.getScreenBrightness();
+                    if (mSeekBar.getProgress() != screenBrightness) {
+                        Log.d(TAG, "mBrightnessObserver - screenBrightness: " + screenBrightness);
+                        mSeekBar.setProgress(screenBrightness);
+                    }
+                    break;
+                default:
+                    super.handleMessage(msg);
+            }
+        }
+    };
 
     public static BrightnessFragment newInstance() {
         Bundle arguments = new Bundle();
@@ -41,82 +75,61 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
 
     @Override
     protected void initView(View view) {
+        if (!hasWriteSettingsPermission()) {
+            missingWriteSettingsPermissionRationaleDialog();
+        }
 
-        missingWriteSettingsPermissionRationaleDialog();
+        mBtnAutoBrightness = (ImageView) view.findViewById(R.id.btn_auto_brightness);
+        view.findViewById(R.id.btn_write_settings_permission).setOnClickListener(this);
 
-        view.findViewById(R.id.btn_1).setOnClickListener(this);
-        view.findViewById(R.id.btn_2).setOnClickListener(this);
+        changeAutoBrightnessBtnStatus();
+
+        mBtnAutoBrightness.setOnClickListener(this);
+
         mSeekBar = (SeekBar) view.findViewById(R.id.brightness_seek_bar);
         mSeekBar.setMax(255);
-    }
 
-    private void missingWriteSettingsPermissionRationaleDialog() {
-        showNeedPermissionRationale(
-                getString(R.string.missing_permission)
-                , getString(R.string.write_settings_permission_rationale)
-                , getString(R.string.ok)
-                , getString(R.string.no)
-                , new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startWriteSettingsActivityForResult();
-                    }
-                }
-                , new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        getActivity().finish();
-                    }
-                }
-                , false);
     }
 
     @Override
     protected void initData() {
         int screenBrightness = BrightnessUtil.getScreenBrightness();
-        Log.d(TAG, "screenBrightness: " + screenBrightness);
+        Log.d(TAG, "initData - screenBrightness: " + screenBrightness);
         mSeekBar.setProgress(screenBrightness);
 
         mSeekBar.setOnSeekBarChangeListener(this);
 
+        mBrightnessObserver = new BrightnessObserver(mHandler);
+        mBrightnessObserver.startObserving();
+
     }
 
-    // 设置亮度
-    // 程序退出之后亮度失效
-
-    /**
-     * @param brightness 调节的亮度 1-255之间
-     */
-    public void setCurWindowBrightness(int brightness) {
-        // 如果开启自动亮度，则关闭。否则，设置了亮度值也是无效的
-        if (isAutoBrightness()) {
-            closeAutoBrightness();
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mBrightnessObserver != null) {
+            mBrightnessObserver.stopObserving();
         }
 
-        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
-        // 异常处理
-        if (brightness < 1) {
-            brightness = 1;
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(0);
+            mHandler = null;
         }
-        // 异常处理
-        if (brightness > 255) {
-            brightness = 255;
-        }
-        lp.screenBrightness = (float) brightness * (1f / 255f);
-        getActivity().getWindow().setAttributes(lp);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_1:
-                boolean autoBrightness = isAutoBrightness();
-                Log.d(TAG, "autoBrightness: " + autoBrightness);
-
-
+            case R.id.btn_auto_brightness:
+                if (BrightnessUtil.isAutoBrightness()) {
+                    BrightnessUtil.closeAutoBrightness();
+                } else {
+                    BrightnessUtil.openAutoBrightness();
+                }
+                changeAutoBrightnessBtnStatus();
                 break;
-            case R.id.btn_2:
-
+            case R.id.btn_write_settings_permission:
+                startWriteSettingsActivityForResult();
                 break;
             default:
                 break;
@@ -140,25 +153,94 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        Log.d(TAG, "onProgressChanged() called with: seekBar = [" + seekBar + "], progress = [" +
-                progress + "], fromUser = [" + fromUser + "]");
-        if (hasWriteSettingsPermission()) {
-            setCurWindowBrightness(progress);
-        } else {
-            requestWriteSettingsPermission();
+        int screenBrightness = BrightnessUtil.getScreenBrightness();
+        Log.d(TAG, "onProgressChanged:screenBrightness: " + screenBrightness);
+        if (screenBrightness != progress) {
+            BrightnessUtil.setSystemBrightness(progress);
         }
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-        Log.d(TAG, "onStartTrackingTouch() called with: seekBar = [" + seekBar + "]");
+        Log.d(TAG, "SeekBar-onStartTrackingTouch() called with: seekBar = [" + seekBar + "]");
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        Log.d(TAG, "onStopTrackingTouch() called with: seekBar = [" + seekBar + "]");
-
+        Log.d(TAG, "SeekBar-onStopTrackingTouch() called with: seekBar = [" + seekBar + "]");
     }
 
+    private void missingWriteSettingsPermissionRationaleDialog() {
+        showNeedPermissionRationale(
+                getString(R.string.missing_permission)
+                , getString(R.string.write_settings_permission_rationale)
+                , getString(R.string.ok)
+                , getString(R.string.no)
+                , new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startWriteSettingsActivityForResult();
+                    }
+                }
+                , new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        getActivity().finish();
+                    }
+                }
+                , false);
+    }
+
+    private void changeAutoBrightnessBtnStatus() {
+        if (BrightnessUtil.isAutoBrightness()) {
+            DrawableUtil.tintDrawable(mBtnAutoBrightness.getDrawable(),
+                    ContextCompat.getColor(getContext(), R.color.colorPrimary));
+        } else {
+            DrawableUtil.tintDrawable(mBtnAutoBrightness.getDrawable(), Color.BLACK);
+        }
+    }
+
+    private class BrightnessObserver extends ContentObserver {
+
+        private final Uri BRIGHTNESS_MODE_URI =
+                Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE);
+        private final Uri BRIGHTNESS_URI      =
+                Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS);
+
+        BrightnessObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            onChange(selfChange, null);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            Log.d(TAG, "onChange() called with: selfChange = [" + selfChange + "], uri = [" + uri
+                    + "]");
+            if (selfChange) return;
+
+            if (BRIGHTNESS_MODE_URI.equals(uri)) {
+                mHandler.sendEmptyMessage(MSG_UPDATE_ICON);
+            } else if (BRIGHTNESS_URI.equals(uri)) {
+                mHandler.sendEmptyMessage(MSG_UPDATE_SLIDER);
+            }
+        }
+
+        void startObserving() {
+            final ContentResolver cr = getContext().getContentResolver();
+            cr.unregisterContentObserver(this);
+            cr.registerContentObserver(BRIGHTNESS_MODE_URI, false, this);
+            cr.registerContentObserver(BRIGHTNESS_URI, false, this);
+        }
+
+        void stopObserving() {
+            final ContentResolver cr = getContext().getContentResolver();
+            cr.unregisterContentObserver(this);
+        }
+
+    }
 
 }

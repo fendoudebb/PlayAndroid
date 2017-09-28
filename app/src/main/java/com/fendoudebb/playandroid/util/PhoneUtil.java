@@ -13,7 +13,7 @@ import com.fendoudebb.playandroid.App;
  */
 
 @SuppressLint("HardwareIds")
-public class PhoneUtil {
+public final class PhoneUtil {
 
     private PhoneUtil() {
         throw new IllegalArgumentException("PhoneUtil can not be initialized");

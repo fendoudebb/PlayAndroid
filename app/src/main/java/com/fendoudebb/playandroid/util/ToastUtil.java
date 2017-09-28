@@ -10,7 +10,7 @@ import com.fendoudebb.playandroid.App;
  * zbj on 2017-09-22 17:47.
  */
 
-public class ToastUtil {
+public final class ToastUtil {
 
     private static Toast toast;
 

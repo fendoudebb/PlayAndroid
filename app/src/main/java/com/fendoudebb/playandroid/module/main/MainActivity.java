@@ -169,6 +169,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 //        Log.d(TAG, "onClick2: i: " + i);
 
         Intent intent = new Intent(this, WebViewActivity.class);
+        intent.putExtra(C.intent.web_view_url, "http://www.baidu.com");
         startActivity(intent);
 
     }

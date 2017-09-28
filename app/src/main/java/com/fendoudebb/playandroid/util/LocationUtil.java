@@ -9,7 +9,7 @@ import com.fendoudebb.playandroid.App;
  * zbj on 2017-09-20 17:56.
  */
 
-public class LocationUtil {
+public final class LocationUtil {
 
     private LocationUtil() {
         throw new IllegalArgumentException("LocationUtil can not be initialized");

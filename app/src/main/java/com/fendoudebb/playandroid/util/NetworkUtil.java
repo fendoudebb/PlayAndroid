@@ -16,7 +16,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
 
-public class NetworkUtil {
+public final class NetworkUtil {
 
     private NetworkUtil() {
         throw new IllegalArgumentException("NetworkUtil can not be initialized");

@@ -24,4 +24,6 @@ A project records the Android learning process which contains varieties of basic
 - ActivityLifecycleCallbacks
 - [mvp-rxjava](https://github.com/googlesamples/android-architecture)
 - Api23 CheckPermissions [EasyPermissions](https://github.com/googlesamples/easypermissions) [RxPermissions](https://github.com/tbruyelle/RxPermissions)
-
+- Drawable tint
+- [NestedWebView,webview-in-coordinatorlayout](https://github.com/takahirom/webview-in-coordinatorlayout)
+- Use RxBus

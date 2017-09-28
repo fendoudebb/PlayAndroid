@@ -10,7 +10,7 @@ import android.support.v7.app.AlertDialog;
  * zbj on 2017-09-20 10:28.
  */
 
-public class DialogHelper {
+public final class DialogHelper {
 
     /**
      * 显示AlertDialog

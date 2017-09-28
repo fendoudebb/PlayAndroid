@@ -17,7 +17,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
  * An animator designed to add an effect for activity recreate
  */
 
-public class RevealEffectUtil {
+public final class RevealEffectUtil {
     private static final String TAG = "RevealEffectUtil";
     private enum Status {
         ENTER, EXIT

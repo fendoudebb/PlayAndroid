@@ -17,7 +17,7 @@ import com.fendoudebb.playandroid.App;
  * 获取资源文件工具类
  */
 
-public class ResUtil {
+public final class ResUtil {
 
     private ResUtil() {
         throw new IllegalArgumentException("ResUtil can not be initialized");

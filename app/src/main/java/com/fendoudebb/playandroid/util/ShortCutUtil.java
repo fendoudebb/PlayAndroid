@@ -12,7 +12,7 @@ import com.fendoudebb.playandroid.module.main.SplashActivity;
  * Add launcher shortcut
  */
 
-public class ShortCutUtil {
+public final class ShortCutUtil {
 
     private static final String ACTION_ADD_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
 

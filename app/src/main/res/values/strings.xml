@@ -21,16 +21,21 @@
 
     <string name="default_name">fendoudebb</string>
     <string name="address">https://github.com</string>
+
+    <!--menu-->
     <string name="menu_action_search">Search</string>
     <string name="nav_home_page">HomePage</string>
     <string name="nav_my_collection">Collection</string>
     <string name="nav_tools">Tools</string>
     <string name="nav_theme">Theme</string>
     <string name="nav_share_app">ShareApp</string>
-    <string name="send">Send</string>
     <string name="nav_other">Other</string>
     <string name="nav_about_author">Author</string>
     <string name="nav_open_source_framework">OpenSourceFramework</string>
+    <string name="menu_copy_link">Copy Link</string>
+    <string name="menu_go_browser">Go Browser</string>
+    <string name="menu_share_link">Share Link</string>
+
 
     <string name="go_settings">GoSettings</string>
     <string name="ok">OK</string>
@@ -38,8 +43,11 @@
 
     <string name="missing_permission">MissingPermission</string>
     <string name="write_settings_permission_rationale">Adjust the brightness need to modify the system brightness, need to open the write settings permission.</string>
-
-
+    <string name="auto_brightness">AutoBrightness</string>
+    <string name="write_settings_permission">WriteSettingsPermission</string>
+    <string name="web_view_empty_link">Link is Empty!</string>
+    <string name="web_view_clip_success">Clip Success!</string>
+    <string name="web_view_enter_url">Please enter the URL</string>
 
 
 </resources>

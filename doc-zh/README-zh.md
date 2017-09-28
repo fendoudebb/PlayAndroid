@@ -21,4 +21,7 @@
 - [Glide图片加载](https://github.com/bumptech/glide)
 - [retrofit网络请求](https://github.com/square/retrofit)
 - Activity生命周期回调
-- 使用mvp-rxjava架构
+- [使用mvp-rxjava架构](https://github.com/googlesamples/android-architecture) 
+- 6.0权限检查 [EasyPermissions-Google](https://github.com/googlesamples/easypermissions) [RxPermissions](https://github.com/tbruyelle/RxPermissions)
+- Drawable着色
+- RxBus的使用

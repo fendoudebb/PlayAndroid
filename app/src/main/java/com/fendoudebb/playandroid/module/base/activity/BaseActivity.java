@@ -9,12 +9,16 @@ import android.support.annotation.LayoutRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.main.MainActivity;
+import com.fendoudebb.playandroid.util.KeyBoardUtil;
 import com.fendoudebb.playandroid.util.UnitConverter;
 
 /**
@@ -39,14 +43,14 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 if (this instanceof MainActivity) {
                     break;
                 }
                 finish();
                 break;
-            default :
+            default:
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -56,12 +60,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-        } else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
     }
 
-    protected void initToolbar(){
+    protected void initToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -69,6 +73,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(true);
         }
+        mToolbar.setPadding(0, getStatusBarHeight(), 0, 0);
         /*toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +92,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @LayoutRes
     protected abstract int initContentView();
 
-    protected void init(){}
+    protected void init() {
+    }
 
     protected abstract void initView();
 
@@ -99,29 +105,42 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private int getStatusBarHeight() {
-        int result = (int)UnitConverter.dp2px(25);
-        int resourceId = Resources.getSystem().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result =Resources.getSystem().getDimensionPixelSize(resourceId);
+        int result = (int) UnitConverter.dp2px(25);
+        int resId = Resources.getSystem().getIdentifier("status_bar_height", "dimen", "android");
+        if (resId > 0) {
+            result = Resources.getSystem().getDimensionPixelSize(resId);
         }
+        Log.d("zbj0927", "getStatusBarHeight: result: " + result);
         return result;
     }
 
-/*    protected void requestPermission(final String permission, String rationale, final int requestCode) {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
-            new DialogHelper().showAlertDialog(this,"权限需求", rationale,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(BaseActivity.this, new String[]{permission}, requestCode);
-                        }
-                    },"确认", null, "取消");
-            Log.d("zbj", "requestPermission-shouldShowRequestPermissionRationale: ");
-        } else {
-            ActivityCompat.requestPermissions(this,new String[]{permission}, requestCode);
-
-            Log.d("zbj", "requestPermission---: ");
+    /* 点击非EditText处隐藏键盘 */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (isShouldHideInput(v, ev) && v != null) {
+                KeyBoardUtil.hideSoftInput(v);
+            }
+            return super.dispatchTouchEvent(ev);
         }
-    }*/
+        // 必不可少，否则所有的组件都不会有TouchEvent了
+        return getWindow().superDispatchTouchEvent(ev) || onTouchEvent(ev);
+    }
+
+    public boolean isShouldHideInput(View v, MotionEvent event) {
+        if (v != null && (v instanceof EditText)) {
+            int[] leftTop = {0, 0};
+            // 获取输入框当前的location位置
+            v.getLocationInWindow(leftTop);
+            int left = leftTop[0];
+            int top = leftTop[1];
+            int bottom = top + v.getHeight();
+            int right = left + v.getWidth();
+            return !(event.getX() > left && event.getX() < right
+                    && event.getY() > top && event.getY() < bottom);
+        }
+        return false;
+    }
 
 }

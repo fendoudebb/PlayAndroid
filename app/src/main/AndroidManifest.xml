@@ -17,6 +17,10 @@
     <!--写入设置:调节亮度-->
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
+    <meta-data
+        android:name="android.webkit.WebView.EnableSafeBrowsing"
+        android:value="true"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -59,7 +63,20 @@
 
         <activity android:name=".module.feature.FeatureDetailActivity"/>
 
-        <activity android:name=".module.feature.ui.WebViewActivity"/>
+        <activity
+            android:name=".module.feature.ui.WebViewActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".module.main.SettingsActivity"/>

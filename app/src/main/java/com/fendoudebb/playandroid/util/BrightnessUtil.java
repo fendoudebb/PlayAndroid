@@ -1,8 +1,10 @@
 package com.fendoudebb.playandroid.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.provider.Settings;
+import android.view.WindowManager;
 
 import com.fendoudebb.playandroid.App;
 
@@ -13,7 +15,7 @@ import com.fendoudebb.playandroid.App;
  * <uses-permission android:name="android.permission.WRITE_SETTINGS" />
  */
 
-public class BrightnessUtil {
+public final class BrightnessUtil {
 
     private BrightnessUtil() {
         throw new IllegalArgumentException("BrightnessUtil can not be initialized");
@@ -53,15 +55,14 @@ public class BrightnessUtil {
         return nowBrightnessValue;
     }
 
-   /* // 设置亮度,存在static方法中activity会泄露
+    // 设置亮度,存在static方法中activity会泄露
     // 程序退出之后亮度失效
-    public static void setCurWindowBrightness(int brightness) {
+    //调节的亮度 1-255之间
+    public static void setCurWindowBrightness(Activity activity, int brightness) {
         // 如果开启自动亮度，则关闭。否则，设置了亮度值也是无效的
         if (isAutoBrightness()) {
             closeAutoBrightness();
         }
-        // context转换为Activity
-        Activity activity = (Activity) context;
         WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
         // 异常处理
         if (brightness < 1) {
@@ -73,11 +74,17 @@ public class BrightnessUtil {
         }
         lp.screenBrightness = (float) brightness * (1f / 255f);
         activity.getWindow().setAttributes(lp);
-    }*/
+    }
 
     // 设置系统亮度
     // 程序退出之后亮度依旧有效
     public static void setSystemBrightness(int brightness) {
+
+        // 如果开启自动亮度，则关闭。否则，设置了亮度值也是无效的
+        if (isAutoBrightness()) {
+            closeAutoBrightness();
+        }
+
         // 异常处理
         if (brightness < 1) {
             brightness = 1;
@@ -89,9 +96,8 @@ public class BrightnessUtil {
         saveBrightness(brightness);
     }
 
-    // 停止自动亮度调节
-
     /**
+     * 停止自动亮度调节
      * 需要<uses-permission android:name="android.permission.WRITE_SETTINGS" />
      */
     public static void closeAutoBrightness() {
@@ -100,7 +106,10 @@ public class BrightnessUtil {
                 Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
     }
 
-    // 开启亮度自动调节
+    /**
+     * 开启亮度自动调节
+     * 需要<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+     */
     public static void openAutoBrightness() {
         Settings.System.putInt(getContext().getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
@@ -108,9 +117,10 @@ public class BrightnessUtil {
     }
 
     // 保存亮度设置状态
-    public static void saveBrightness(int brightness) {
-        Uri uri = Settings.System.getUriFor("screen_brightness");
-        Settings.System.putInt(getContext().getContentResolver(), "screen_brightness", brightness);
+    private static void saveBrightness(int brightness) {
+        Uri uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS);
+        Settings.System.putInt(getContext().getContentResolver()
+                , Settings.System.SCREEN_BRIGHTNESS, brightness);
         getContext().getContentResolver().notifyChange(uri, null);
     }
 

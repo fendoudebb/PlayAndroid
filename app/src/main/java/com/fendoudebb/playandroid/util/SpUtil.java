@@ -9,7 +9,7 @@ import com.fendoudebb.playandroid.config.C;
  * author : zbj on 2017/8/18 22:49.
  */
 
-public class SpUtil {
+public final class SpUtil {
 
     private static final String SP_NAME = "SpConfig";
 
