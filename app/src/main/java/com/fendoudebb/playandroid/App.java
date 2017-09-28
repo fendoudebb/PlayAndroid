@@ -43,7 +43,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-//        //init LeakCanary
+//        //onFragmentCreate LeakCanary
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            return;
 //        }

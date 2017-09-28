@@ -2,6 +2,7 @@ package com.fendoudebb.playandroid.module.feature.adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.Adapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import java.util.List;
  * author : zbj on 2017/9/16 09:12.
  */
 
-public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.FeatureViewHolder> {
+public class FeatureAdapter extends Adapter<FeatureAdapter.FeatureViewHolder> {
     private static final String TAG = "FeatureAdapter";
     private List<Feature> mFeatures;
 

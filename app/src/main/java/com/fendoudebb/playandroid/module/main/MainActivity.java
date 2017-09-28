@@ -1,6 +1,5 @@
 package com.fendoudebb.playandroid.module.main;
 
-import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -15,22 +14,19 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
-import com.fendoudebb.playandroid.module.feature.FeaturesFragment;
-import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
+import com.fendoudebb.playandroid.module.main.fragment.AOSPFragment;
+import com.fendoudebb.playandroid.module.main.fragment.HomeFragment;
 import com.fendoudebb.playandroid.util.ActivityUtil;
-import com.fendoudebb.playandroid.util.PhoneUtil;
 import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, NavigationView
+public class MainActivity extends BaseActivity implements NavigationView
         .OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity_zbj";
     private ActionBarDrawerToggle mToggle;
@@ -72,9 +68,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mToggle.syncState();
         mDrawerLayout.addDrawerListener(mToggle);
 
-        TextView view = findView(R.id.text_view);
-        view.setOnClickListener(this);
-
         PackageManager pm = getPackageManager();
 
         FeatureInfo[] features = pm.getSystemAvailableFeatures(); //得到所有支援的硬件种类
@@ -97,31 +90,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     protected void initData() {
-        String simOperatorName = PhoneUtil.getSimOperatorName();
-        Log.d(TAG, "simOperatorName: " + simOperatorName);
-
-        String operatorName = PhoneUtil.getSimOperator();
-        Log.d(TAG, "operatorName: " + operatorName);
-
-//        String imei = PhoneUtil.getIMEI();
-//        String imsi = PhoneUtil.getIMSI();
-//        Log.d(TAG, "imei: " + imei);
-//        Log.d(TAG, "imsi: " + imsi);
-
-//        String simSerialNumber = PhoneUtil.getSimSerialNumber();
-//        Log.d(TAG, "simSerialNumber: " + simSerialNumber);
-
-        String simCountryIso = PhoneUtil.getSimCountryIso();
-        Log.d(TAG, "simCountryIso: " + simCountryIso);
-
-//        String phoneNumber = PhoneUtil.getPhoneNumber();
-        int phoneCount = PhoneUtil.getPhoneCount();
-//        Log.d(TAG, "phoneNumber: " + phoneNumber);
-        Log.d(TAG, "phoneCount: " + phoneCount);
-
-//        String chineseOperatorName = PhoneUtil.getChineseOperatorName();
-//        Log.d(TAG, "chineseOperatorName: " + chineseOperatorName);
-
+        HomeFragment homeFragment = HomeFragment.newInstance();
+        ActivityUtil.addFragmentToActivity(getSupportFragmentManager(), homeFragment,
+                R.id.main_container);
     }
 
     @Override
@@ -149,32 +120,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     @Override
-    public void onClick(View view) {
-        /*Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);*/
-
-//        ProgressDialog.show(this, null, "正在登录中,请稍等...");
-
-        FeaturesFragment featuresFragment = FeaturesFragment.newInstance();
-        ActivityUtil.addFragmentToActivity(getSupportFragmentManager(), featuresFragment,
-                R.id.contentFrame);
-
-    }
-
-    public void onClick2(View view) {
-        /*Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);*/
-//        int i = ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission
-//                .WRITE_EXTERNAL_STORAGE);
-//        Log.d(TAG, "onClick2: i: " + i);
-
-        Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra(C.intent.web_view_url, "http://www.baidu.com");
-        startActivity(intent);
-
-    }
-
-    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
@@ -197,7 +142,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         } else if (id == R.id.nav_author) {
 
         } else if (id == R.id.nav_open_source_framework) {
-
+            AOSPFragment aospFragment = AOSPFragment.newInstance();
+            ActivityUtil.replaceFragmentToActivity(getSupportFragmentManager(), aospFragment,
+                    R.id.main_container);
         } else if (id == R.id.nav_share_app) {
 
         }
@@ -207,9 +154,4 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         return true;
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
 }

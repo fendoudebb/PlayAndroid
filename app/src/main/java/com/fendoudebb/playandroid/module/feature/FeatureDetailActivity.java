@@ -33,7 +33,7 @@ public class FeatureDetailActivity extends BaseActivity {
     protected void initData() {
         int nameId = getIntent().getIntExtra(C.intent.feature_name_id, 0);
         setToolbarTitle(ResUtil.getString(nameId));
-        Log.d(TAG, "initData: stringId: " + nameId);
+        Log.d(TAG, "onViewInit: stringId: " + nameId);
         Fragment fragment = null;
         switch (nameId) {
             case R.string.mini_browser:

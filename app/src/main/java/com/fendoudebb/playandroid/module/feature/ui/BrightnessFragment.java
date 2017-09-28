@@ -94,7 +94,7 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
     @Override
     protected void initData() {
         int screenBrightness = BrightnessUtil.getScreenBrightness();
-        Log.d(TAG, "initData - screenBrightness: " + screenBrightness);
+        Log.d(TAG, "onViewInit - screenBrightness: " + screenBrightness);
         mSeekBar.setProgress(screenBrightness);
 
         mSeekBar.setOnSeekBarChangeListener(this);

@@ -25,3 +25,6 @@
 - 6.0权限检查 [EasyPermissions-Google](https://github.com/googlesamples/easypermissions) [RxPermissions](https://github.com/tbruyelle/RxPermissions)
 - Drawable着色
 - RxBus的使用
+- [SqlBrite](https://github.com/square/sqlbrite)
+- [Guava](https://github.com/google/guava)
+- [RxJava](https://github.com/ReactiveX/RxJava)

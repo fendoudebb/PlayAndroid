@@ -1,7 +1,13 @@
 ## *更新日志*
+> 2017/9/28
+- Happy Birthday to Me
+
 > 2017/9/27
 - 添加点击输入法外部隐藏输入法
 - 自定义NestedWebView时Toolbar随WebView移动而移动
+
+> 2017/9/26
+- 开始WebView编写
 
 > 2017/9/25
 - 完成调节年度设置

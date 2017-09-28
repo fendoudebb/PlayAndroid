@@ -41,4 +41,18 @@
         <item>@drawable/app_list</item>
     </integer-array>
 
+    <string-array name="open_source_framework">
+        <item>RxJava-https://github.com/ReactiveX/RxJava</item>
+        <item>RxAndroid-https://github.com/ReactiveX/RxAndroid</item>
+        <item>Guava-https://github.com/google/guava</item>
+        <item>MVP-https://github.com/googlesamples/android-architecture</item>
+        <item>LeakCanary-https://github.com/square/leakcanary</item>
+        <item>BlockCanary-https://github.com/markzhai/AndroidPerformanceMonitor</item>
+        <item>Stetho-https://github.com/facebook/stetho</item>
+        <item>Glide-https://github.com/bumptech/glide</item>
+        <item>Retrofit-https://github.com/square/retrofit</item>
+        <item>SqlBrite-https://github.com/square/sqlbrite</item>
+        <item>RxPermissions-https://github.com/tbruyelle/RxPermissions</item>
+    </string-array>
+
 </resources>
