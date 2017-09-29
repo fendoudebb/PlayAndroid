@@ -1,4 +1,7 @@
 ## *Update Log*[更新日志](doc-zh/UpdateLog-zh.md)
+> 2017/9/29
+- Add Share Function
+
 > 2017/9/27
 - Add Hide Input Method When Action Down Out of the bound of KeyBoard
 - NestedWebView coordinate Toolbar

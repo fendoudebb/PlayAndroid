@@ -66,6 +66,7 @@
         <activity
             android:name=".module.feature.ui.WebViewActivity"
             android:launchMode="singleTop"
+            android:parentActivityName=".module.main.MainActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -76,21 +77,19 @@
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
             </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".module.main.MainActivity"/>
         </activity>
+
+        <activity android:name=".module.main.activity.NavDetailActivity"/>
 
         <activity
             android:name=".module.main.SettingsActivity"/>
 
         <activity
-            android:name=".module.music.MusicDetailActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".module.main.SettingsActivity">
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".module.main.SettingsActivity"/>
-
-        </activity>
+            android:name=".module.music.MusicDetailActivity"/>
 
 
     </application>

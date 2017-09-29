@@ -28,3 +28,4 @@
 - [SqlBrite](https://github.com/square/sqlbrite)
 - [Guava](https://github.com/google/guava)
 - [RxJava](https://github.com/ReactiveX/RxJava)
+- ShareCompat分享

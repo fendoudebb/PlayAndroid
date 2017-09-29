@@ -33,12 +33,28 @@ android {
             shrinkResources true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    def fileName = "playandroid-0.0.1.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+
+                }
+            }
         }
         debug {
             signingConfig signingConfigs.release
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    def fileName = "playandroid-0.0.1.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+
+                }
+            }
         }
     }
 

@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Message;
+import android.support.v4.app.ShareCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -55,10 +56,10 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 
     private WebView     mWebView;
     private ProgressBar mProgressView;
-    private View mErrorView;
-    private EditText mAddress;
-    private View mAddressDelete;
-    private ImageView mIcon;
+    private View        mErrorView;
+    private EditText    mAddress;
+    private View        mAddressDelete;
+    private ImageView   mIcon;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,28 +70,33 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         String url = mWebView.getUrl();
+        if (TextUtils.isEmpty(url)) {
+            if (item.getItemId() != android.R.id.home) {
+                ToastUtil.showToast(R.string.web_view_empty_link);
+            }
+            return super.onOptionsItemSelected(item);
+        }
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.web_view_copy_link:
-                if (TextUtils.isEmpty(url)) {
-                    ToastUtil.showToast(R.string.web_view_empty_link);
-                } else {
-                    ClipboardUtil.copyText(url);
-                    ToastUtil.showToast(R.string.web_view_clip_success);
-                }
+                ClipboardUtil.copyText(url);
+                ToastUtil.showToast(R.string.web_view_clip_success);
                 break;
             case R.id.web_view_go_browser:
-                if (TextUtils.isEmpty(url)) {
-                    ToastUtil.showToast(R.string.web_view_empty_link);
-                } else {
-                    Intent intent= new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    Uri content_url = Uri.parse(url);
-                    intent.setData(content_url);
-                    startActivity(intent);
-                }
+                intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                Uri content_url = Uri.parse(url);
+                intent.setData(content_url);
+                startActivity(intent);
                 break;
             case R.id.web_view_share_link:
-
+                intent = ShareCompat.IntentBuilder.from(this)
+                        .setType("text/plain")
+                        .setText(mWebView.getUrl())
+                        .getIntent();
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -139,7 +145,8 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         webSettings.setGeolocationEnabled(true);//启用地理定位
         webSettings.setDatabaseEnabled(true);// 开启database storage API功能
         webSettings.setDomStorageEnabled(true);// 开启DOM storage API 功能
-        String databasePath = this.getApplicationContext().getDir("database", Context.MODE_PRIVATE).getPath();
+        String databasePath = this.getApplicationContext().getDir("database", Context
+                .MODE_PRIVATE).getPath();
         webSettings.setDatabasePath(databasePath);// 设置数据库缓存路径
         webSettings.setGeolocationDatabasePath(databasePath);//设置定位的数据库路径
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);//支持内容重新布局
@@ -283,7 +290,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         private boolean isError = false;//signal
 
         @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
             Log.d(TAG, "zbj onReceivedSslError");
             //handler.cancel(); 默认的处理方式，WebView变成空白页
             handler.proceed();//接受证书
@@ -318,7 +325,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
                     + errorCode + "], description = [" + description + "], url = [" + url +
                     "]");
             isError = true;
-            if (view != null){
+            if (view != null) {
                 view.stopLoading();
                 view.setVisibility(View.GONE);//NullPointerException
             }
@@ -429,7 +436,9 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         }
 
         @Override
-        public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize, long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater) {
+        public void onExceededDatabaseQuota(String url, String databaseIdentifier, long
+                currentQuota, long estimatedSize, long totalUsedQuota, WebStorage.QuotaUpdater
+                quotaUpdater) {
             Log.d(TAG, "onExceededDatabaseQuota() called with: url = [" + url + "], " +
                     "databaseIdentifier = [" + databaseIdentifier + "], currentQuota = [" +
                     currentQuota + "], estimatedSize = [" + estimatedSize + "], " +
@@ -439,7 +448,8 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         }
 
         @Override
-        public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
+        public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions
+                .Callback callback) {
             Log.d(TAG, "onGeolocationPermissionsShowPrompt() called with: origin = [" +
                     origin + "], callback = [" + callback + "]");
             callback.invoke(origin, true, true);

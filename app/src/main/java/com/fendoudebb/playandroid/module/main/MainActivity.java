@@ -1,12 +1,15 @@
 package com.fendoudebb.playandroid.module.main;
 
+import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.DrawerLayout.SimpleDrawerListener;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.SearchView;
@@ -14,17 +17,20 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
-import com.fendoudebb.playandroid.module.main.fragment.AOSPFragment;
+import com.fendoudebb.playandroid.module.main.activity.NavDetailActivity;
 import com.fendoudebb.playandroid.module.main.fragment.HomeFragment;
 import com.fendoudebb.playandroid.util.ActivityUtil;
 import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
+
+import static android.content.Intent.ACTION_ASSIST;
 
 public class MainActivity extends BaseActivity implements NavigationView
         .OnNavigationItemSelectedListener {
@@ -97,14 +103,6 @@ public class MainActivity extends BaseActivity implements NavigationView
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        if(drawerLayout.isDrawerOpen(Gravity.LEFT)){
-//            //如果是打开的，则关闭drawer
-//            drawerLayout.closeDrawer(Gravity.LEFT);
-//        }else {
-//            //说明是关闭的，需要打开
-//            drawerLayout.openDrawer(Gravity.LEFT);
-//        }
-        //更简单的做法
         mToggle.onOptionsItemSelected(item);
         return super.onOptionsItemSelected(item);
     }
@@ -119,8 +117,36 @@ public class MainActivity extends BaseActivity implements NavigationView
         }
     }
 
+    SimpleDrawerListener mDrawerCloseListener = new SimpleDrawerListener() {
+        @Override
+        public void onDrawerClosed(View drawerView) {
+            super.onDrawerClosed(drawerView);
+            mDrawerLayout.removeDrawerListener(mDrawerCloseListener);
+            handlerNavigationItemSelectedEvent(getMenuItem());
+        }
+    };
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        setMenuItem(item);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+
+        mDrawerLayout.addDrawerListener(mDrawerCloseListener);
+
+        return true;
+    }
+
+    private MenuItem mMenuItem;
+
+    private MenuItem getMenuItem() {
+        return mMenuItem;
+    }
+
+    private void setMenuItem(MenuItem item) {
+        mMenuItem = item;
+    }
+
+    private void handlerNavigationItemSelectedEvent(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -140,18 +166,21 @@ public class MainActivity extends BaseActivity implements NavigationView
             SpUtil.with(this).putBoolean(C.config.night_theme, !isNightTheme);
             new RevealEffectUtil().createExitRevealEffect(this);
         } else if (id == R.id.nav_author) {
-
+            Intent intent = new Intent(ACTION_ASSIST);
+            startActivity(intent);
         } else if (id == R.id.nav_open_source_framework) {
-            AOSPFragment aospFragment = AOSPFragment.newInstance();
-            ActivityUtil.replaceFragmentToActivity(getSupportFragmentManager(), aospFragment,
-                    R.id.main_container);
+            Intent intent = new Intent(this, NavDetailActivity.class);
+            intent.putExtra(C.intent.nav_name_id, R.string.nav_open_source_framework);
+            startActivity(intent);
         } else if (id == R.id.nav_share_app) {
-
+            Intent intent = ShareCompat.IntentBuilder.from(this)
+                    .setType("text/plain")
+                    .setText("https://github.com/fendoudebb/PlayAndroid")
+                    .getIntent();
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
 }
