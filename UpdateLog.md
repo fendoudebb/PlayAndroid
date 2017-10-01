@@ -1,4 +1,7 @@
 ## *Update Log*[更新日志](doc-zh/UpdateLog-zh.md)
+> 2017/10/1
+- Add Goto System Intent
+
 > 2017/9/29
 - Add Share Function
 

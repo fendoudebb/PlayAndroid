@@ -61,55 +61,104 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ToolbarPopupTheme">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/shape_round_corner_bg_5dp"
-                android:maxHeight="?attr/actionBarSize"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp">
+                android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/web_view_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/vector_web"/>
-
-                <EditText
-                    android:id="@+id/web_view_address"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:hint="@string/web_view_enter_url"
-                    android:imeOptions="actionGo"
-                    android:inputType="textUri"
-                    android:maxLines="1"
-                    android:selectAllOnFocus="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="15sp"
-                    tools:ignore="LabelFor"/>
-
-                <ImageView
-                    android:id="@+id/web_view_address_delete"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/web_view_url_view"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="5dp"
-                    android:paddingStart="5dp"
-                    android:src="@drawable/vector_close"
-                    android:tint="@color/colorPrimary"
-                    android:visibility="invisible"
-                    tools:visibility="visible"/>
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_round_corner_bg_5dp"
+                    android:maxHeight="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/vector_web"/>
+
+                    <EditText
+                        android:id="@+id/web_view_address"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/web_view_enter_url"
+                        android:imeOptions="actionGo"
+                        android:inputType="textUri"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp"
+                        tools:ignore="LabelFor"/>
+
+                    <ImageView
+                        android:id="@+id/web_view_address_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="5dp"
+                        android:paddingStart="5dp"
+                        android:src="@drawable/vector_close"
+                        android:tint="@color/colorPrimary"
+                        android:visibility="invisible"
+                        tools:visibility="visible"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="invisible"
+                    android:id="@+id/web_view_title_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_round_corner_bg_5dp_blue"
+                    android:maxHeight="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
+
+                    <ImageView
+                        android:id="@+id/web_view_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/vector_web"/>
+
+                    <TextView
+                        android:id="@+id/web_view_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:maxLines="1"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp"/>
+
+                    <ImageView
+                        android:id="@+id/web_view_refresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="5dp"
+                        android:paddingStart="5dp"
+                        android:src="@drawable/vector_refresh"
+                        android:tint="@android:color/white"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
 
         </android.support.v7.widget.Toolbar>
 

@@ -60,6 +60,9 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
     private EditText    mAddress;
     private View        mAddressDelete;
     private ImageView   mIcon;
+    private TextView mWebViewTitle;
+    private View mWebViewTitleView;
+    private View mWebViewUrlView;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -115,9 +118,24 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         mIcon = findView(R.id.web_view_icon);
         mAddress = findView(R.id.web_view_address);
         mAddressDelete = findView(R.id.web_view_address_delete);
+
+        mWebViewTitleView = findView(R.id.web_view_title_view);
+        mWebViewUrlView = findView(R.id.web_view_url_view);
+        mWebViewTitle = findView(R.id.web_view_title);
+
+        findView(R.id.web_view_refresh).setOnClickListener(this);
         mAddress.addTextChangedListener(this);
         mAddress.setOnEditorActionListener(this);
         mAddressDelete.setOnClickListener(this);
+
+        mAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Log.d(TAG, "onFocusChange() called with: v = [" + v + "], hasFocus = [" +
+                        hasFocus + "]");
+            }
+        });
+
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -194,6 +212,16 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
         return super.dispatchTouchEvent(ev);
     }
 
+    protected void onKeyboardHide() {
+        mWebViewTitleView.setVisibility(View.VISIBLE);
+        mWebViewUrlView.setVisibility(View.INVISIBLE);
+    }
+
+    protected void onKeyboardShow() {
+        mWebViewUrlView.setVisibility(View.VISIBLE);
+        mWebViewTitleView.setVisibility(View.INVISIBLE);
+    }
+
     private boolean isClickDeleteIcon(View v, MotionEvent event) {
         int[] leftTop = {0, 0};
         // 获取输入框当前的location位置
@@ -233,7 +261,14 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        mAddress.setText("");
+        switch (v.getId()) {
+            case R.id.web_view_address_delete:
+                mAddress.setText("");
+                break;
+            case R.id.web_view_refresh:
+                mWebView.reload();
+                break;
+        }
     }
 
     @Override

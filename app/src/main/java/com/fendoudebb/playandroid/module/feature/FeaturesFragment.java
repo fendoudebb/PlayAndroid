@@ -1,12 +1,16 @@
 package com.fendoudebb.playandroid.module.feature;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
+import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.fragment.BaseRecyclerViewFragment;
+import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.playandroid.module.feature.adapter.FeatureAdapter;
 import com.fendoudebb.playandroid.module.feature.data.Feature;
 
@@ -16,7 +20,7 @@ import java.util.List;
  * zbj on 2017-09-15 14:45.
  */
 
-public class FeaturesFragment extends BaseRecyclerViewFragment implements FeaturesContract.View {
+public class FeaturesFragment extends BaseRecyclerViewFragment implements FeaturesContract.View, BaseRecyclerViewAdapter.OnItemClickListener<Feature> {
 
     private FeaturesContract.Presenter mPresenter;
     private FeatureAdapter             mFeatureAdapter;
@@ -41,6 +45,7 @@ public class FeaturesFragment extends BaseRecyclerViewFragment implements Featur
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        mFeatureAdapter.setOnItemClickListener(this);
         /*mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             private int mSpace = (int) UnitConverter.dp2px(10);
 
@@ -72,5 +77,14 @@ public class FeaturesFragment extends BaseRecyclerViewFragment implements Featur
     public void onPause() {
         super.onPause();
         mPresenter.unSubscribe();
+    }
+
+    @Override
+    public void onItemClick(View v, Feature feature, int position) {
+        Intent intent = new Intent(v.getContext(), FeatureDetailActivity.class);
+        intent.putExtra(C.intent.feature_name_id, feature.nameId);
+        v.getContext().startActivity(intent);
+        Toast.makeText(v.getContext().getApplicationContext(), "点击了", Toast.LENGTH_SHORT)
+                .show();
     }
 }

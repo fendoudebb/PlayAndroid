@@ -31,3 +31,5 @@ A project records the Android learning process which contains varieties of basic
 - [Guava](https://github.com/google/guava)
 - [RxJava](https://github.com/ReactiveX/RxJava)
 - ShareCompat
+- [RecyclerView BaseAdapter](https://github.com/hongyangAndroid/baseAdapter)
+- System Intent

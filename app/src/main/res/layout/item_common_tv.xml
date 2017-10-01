@@ -10,7 +10,7 @@
     app:cardCornerRadius="8dp">
 
     <TextView
-        android:id="@+id/aosp_name"
+        android:id="@+id/item_common_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"

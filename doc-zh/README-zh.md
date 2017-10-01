@@ -24,8 +24,11 @@
 - [使用mvp-rxjava架构](https://github.com/googlesamples/android-architecture) 
 - 6.0权限检查 [EasyPermissions-Google](https://github.com/googlesamples/easypermissions) [RxPermissions](https://github.com/tbruyelle/RxPermissions)
 - Drawable着色
+- [NestedWebView,webview-in-coordinatorlayout](https://github.com/takahirom/webview-in-coordinatorlayout)
 - RxBus的使用
 - [SqlBrite](https://github.com/square/sqlbrite)
 - [Guava](https://github.com/google/guava)
 - [RxJava](https://github.com/ReactiveX/RxJava)
 - ShareCompat分享
+- [封装RecyclerView的Adapter](http://blog.csdn.net/lmj623565791/article/details/51118836/)
+- 跳转系统设置界面

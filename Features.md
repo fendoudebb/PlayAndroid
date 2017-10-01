@@ -13,6 +13,7 @@
 - Wallpaper
 - SD Card Size and Rom Size
 - PhoneNumber Address
+- Goto System Settings Activity
 ## Need Permission
 - Lookup Contacts
 - CallLogs

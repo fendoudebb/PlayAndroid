@@ -18,6 +18,7 @@
     <string name="camera">相机</string>
     <string name="contact">联系人</string>
     <string name="app_list">应用列表</string>
+    <string name="system_setting">系统设置</string>
 
     <string name="default_name">进阶之路</string>
     <string name="address">https://github.com</string>
@@ -35,6 +36,76 @@
     <string name="menu_copy_link">复制链接</string>
     <string name="menu_go_browser">用浏览器打开</string>
 
+    <!-- System Intent start-->
+    <string name="accessibility_settings">无障碍</string>
+    <string name="add_account">添加账户</string>
+    <string name="airplane_mode_settings">飞行模式</string>
+    <string name="wireless_settings">无线设置</string>
+    <string name="apn_settings">Apn设置</string>
+    <string name="application_development_settings">开发者选项</string>
+    <string name="application_settings">全部应用信息</string>
+    <string name="manage_all_applications_settings">ManageAllApplicationsSettings</string>
+    <string name="manage_applications_settings">管理应用</string>
+    <string name="bluetooth_settings">蓝牙</string>
+    <string name="data_roaming_settings">移动网络</string>
+    <string name="device_info_settings">手机状态</string>
+    <string name="display_settings">显示</string>
+    <string name="dream_settings">互动屏保</string>
+    <string name="input_method_settings">语言和输入法</string>
+    <string name="input_method_subtype_settings">输入法子类型</string>
+    <string name="internal_storage_settings">内部存储</string>
+    <string name="memory_card_settings">内存卡</string>
+    <string name="locale_settings">语言</string>
+    <string name="location_source_settings">位置信息</string>
+    <string name="network_operator_settings">网络运营商</string>
+    <string name="nfc_settings">NFC</string>
+    <string name="privacy_settings">备份和重置</string>
+    <string name="quick_launch_settings">快速启动</string>
+    <string name="search_settings">搜索</string>
+    <string name="security_settings">安全</string>
+    <string name="settings">设置</string>
+    <string name="sync_settings">同步</string>
+    <string name="user_dictionary_settings">个人字典</string>
+    <string name="wifi_ip_settings">IP设置</string>
+    <string name="wifi_settings">WLAN设置</string>
+
+    <string name="nfcsharing_settings">NFC分享</string>
+    <string name="captioning_settings">字幕</string>
+    <string name="print_settings">打印</string>
+    <string name="sound_settings">声音</string>
+    <string name="date_settings">日期和时间</string>
+    <string name="nfc_payment_settings">NFC支付</string>
+    <string name="extra_account_types">ExtraAccountTypes</string>
+    <string name="extra_authorities">ExtraAuthorities</string>
+    <string name="extra_input_method_id">ExtraInputMethodId</string>
+
+    <!-- api-21 -->
+    <string name="home_settings">主屏幕</string>
+    <string name="cast_settings">投射</string>
+    <string name="usage_access_settings">有权查看使用情况的应用</string>
+    <string name="voice_input_settings">辅助应用和语音输入</string>
+
+    <!-- api-22 -->
+    <string name="battery_saver_settings">节电助手</string>
+    <string name="notification_listener_settings">通知使用权</string>
+
+    <!-- api-23 -->
+    <string name="manage_write_settings">可修改系统设置</string>
+    <string name="ignore_battery_optimization_settings">电池优化</string>
+    <string name="voice_control_airplane_mode">VoiceControlAirplaneMode</string>
+    <string name="voice_control_battery_saver_mode">VoiceControlBatterySaverMode</string>
+    <string name="voice_control_do_not_disturb_mode">VoiceControlDoNotDisturbMode</string>
+    <string name="extra_do_not_disturb_mode_enabled">ExtraDoNotDisturbModeEnabled</string>
+    <string name="extra_do_not_disturb_mode_minutes">ExtraDoNotDisturbModeMinutes</string>
+    <string name="extra_airplane_mode_enabled">ExtraAirplaneModeEnabled</string>
+    <string name="extra_battery_saver_mode_enabled">ExtraBatterySaverModeEnabled</string>
+
+    <!-- api-24 -->
+    <string name="vpn_settings">VPN设置</string>
+    <string name="webview_settings">WebView设置</string>
+    <string name="hard_keyboard_settings">HardKeyboardSettings</string>
+    <string name="vr_listener_settings">VrListenerSettings</string>
+    <!-- System Intent end-->
 
     <string name="go_settings">去设置</string>
     <string name="ok">确定</string>
