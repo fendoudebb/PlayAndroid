@@ -25,18 +25,22 @@ import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.main.activity.NavDetailActivity;
 import com.fendoudebb.playandroid.module.main.fragment.HomeFragment;
+import com.fendoudebb.playandroid.module.music.MusicDetailActivity;
 import com.fendoudebb.playandroid.util.ActivityUtil;
 import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.playandroid.util.SpUtil;
-
-import static android.content.Intent.ACTION_ASSIST;
 
 public class MainActivity extends BaseActivity implements NavigationView
         .OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity_zbj";
     private ActionBarDrawerToggle mToggle;
     private DrawerLayout          mDrawerLayout;
+
+    @Override
+    protected boolean isSupportSwipeBack() {
+        return false;
+    }
 
     @Override
     protected int initContentView() {
@@ -166,7 +170,7 @@ public class MainActivity extends BaseActivity implements NavigationView
             SpUtil.with(this).putBoolean(C.config.night_theme, !isNightTheme);
             new RevealEffectUtil().createExitRevealEffect(this);
         } else if (id == R.id.nav_author) {
-            Intent intent = new Intent(ACTION_ASSIST);
+            Intent intent = new Intent(this, MusicDetailActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_open_source_framework) {
             Intent intent = new Intent(this, NavDetailActivity.class);

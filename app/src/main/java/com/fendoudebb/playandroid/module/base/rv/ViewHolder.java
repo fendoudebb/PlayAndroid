@@ -33,7 +33,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
      * 通过viewId获取控件
      */
     @SuppressWarnings("unchecked")
-    private <T extends View> T getView(@IdRes int viewId) {
+    public <T extends View> T getView(@IdRes int viewId) {
         View view = mViews.get(viewId);
         if (view == null) {
             view = mItemView.findViewById(viewId);

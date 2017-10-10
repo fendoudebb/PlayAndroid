@@ -32,3 +32,4 @@
 - ShareCompat分享
 - [封装RecyclerView的Adapter](http://blog.csdn.net/lmj623565791/article/details/51118836/)
 - 跳转系统设置界面
+- 使用SlidingPaneLayout侧滑退出Activity

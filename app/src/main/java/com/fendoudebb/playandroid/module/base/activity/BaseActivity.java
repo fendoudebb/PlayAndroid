@@ -6,8 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.v4.widget.SlidingPaneLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -26,7 +26,8 @@ import com.fendoudebb.playandroid.util.UnitConverter;
  * the basic activity for packaging toolbar etc.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends SwipeBackActivity implements SlidingPaneLayout
+        .PanelSlideListener {
 
     protected Toolbar mToolbar;
 

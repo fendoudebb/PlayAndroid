@@ -8,6 +8,7 @@ import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
  */
 
 public class MusicDetailActivity extends BaseActivity {
+    private static final String TAG = "MusicDetailActivity-zbj";
     @Override
     protected int initContentView() {
         return R.layout.activity_music_detail;
@@ -15,11 +16,12 @@ public class MusicDetailActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
     }
 
     @Override
     protected void initData() {
 
     }
+
+
 }

@@ -1,4 +1,8 @@
 ## *Update Log*[更新日志](doc-zh/UpdateLog-zh.md)
+> 2017/10/10
+- Add SwipeBack Activity
+- Add Gank
+
 > 2017/10/1
 - Add Goto System Intent
 

@@ -25,6 +25,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 
+/**
+ * https://github.com/takahirom/webview-in-coordinatorlayout
+ */
 public class NestedWebView extends WebView implements NestedScrollingChild {
 
     private int mLastY;

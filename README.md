@@ -33,3 +33,4 @@ A project records the Android learning process which contains varieties of basic
 - ShareCompat
 - [RecyclerView BaseAdapter](https://github.com/hongyangAndroid/baseAdapter)
 - System Intent
+- SlidingPaneLayout SwipeBack Activity

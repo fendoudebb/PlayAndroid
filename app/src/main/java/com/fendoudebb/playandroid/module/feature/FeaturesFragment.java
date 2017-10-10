@@ -6,13 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
+import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.fragment.BaseRecyclerViewFragment;
 import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.playandroid.module.feature.adapter.FeatureAdapter;
 import com.fendoudebb.playandroid.module.feature.data.Feature;
+import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
+import com.fendoudebb.playandroid.module.feature.ui.gank.GankActivity;
 
 import java.util.List;
 
@@ -81,10 +83,17 @@ public class FeaturesFragment extends BaseRecyclerViewFragment implements Featur
 
     @Override
     public void onItemClick(View v, Feature feature, int position) {
-        Intent intent = new Intent(v.getContext(), FeatureDetailActivity.class);
+        Intent intent;
+
+        if (feature.nameId == R.string.gank) {
+            intent = new Intent(v.getContext(), GankActivity.class);
+        } else if (feature.nameId == R.string.mini_browser) {
+            intent = new Intent(v.getContext(), WebViewActivity.class);
+        } else {
+            intent = new Intent(v.getContext(), FeatureDetailActivity.class);
+        }
+
         intent.putExtra(C.intent.feature_name_id, feature.nameId);
         v.getContext().startActivity(intent);
-        Toast.makeText(v.getContext().getApplicationContext(), "点击了", Toast.LENGTH_SHORT)
-                .show();
     }
 }

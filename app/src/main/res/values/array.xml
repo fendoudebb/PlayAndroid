@@ -21,6 +21,7 @@
         <item>contact</item>
         <item>app_list</item>
         <item>system_setting</item>
+        <item>gank</item>
     </string-array>
 
     <integer-array name="feature_logo">
@@ -41,6 +42,7 @@
         <item>@drawable/contact</item>
         <item>@drawable/app_list</item>
         <item>@drawable/system_setting</item>
+        <item>@drawable/gank</item>
     </integer-array>
 
     <string-array name="open_source_framework">
@@ -56,6 +58,7 @@
         <item>SqlBrite#https://github.com/square/sqlbrite</item>
         <item>RxPermissions#https://github.com/tbruyelle/RxPermissions</item>
         <item>NestedWebView#https://github.com/takahirom/webview-in-coordinatorlayout</item>
+        <item>SwipeBackActivity#https://github.com/hanhailong/SwipeBackSample</item>
     </string-array>
 
 

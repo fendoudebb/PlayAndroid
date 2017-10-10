@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -6,7 +6,36 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
+    <style name="SwipeBackTheme" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/SlidingBackAnimation</item>
+        <item name="android:actionBarStyle">@style/SlidingBackActionBar</item>
+    </style>
+
+    <style name="SlidingBackActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="displayOptions">showCustom</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
+        <item name="android:displayOptions" tools:ignore="NewApi">showCustom</item>
+        <item name="android:height">?actionBarSize</item>
+    </style>
+
+    <style name="SlidingBackAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+        <item name="android:wallpaperOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:wallpaperOpenExitAnimation">@anim/slide_out_right</item>
+        <item name="android:wallpaperCloseEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:wallpaperCloseExitAnimation">@anim/slide_out_right</item>
+        <item name="android:wallpaperIntraOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:wallpaperIntraOpenExitAnimation">@anim/slide_out_right</item>
+        <item name="android:wallpaperIntraCloseEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:wallpaperIntraCloseExitAnimation">@anim/slide_out_right</item>
     </style>
 
     <style name="NoWindowAnimationStyle" parent="AppTheme">
@@ -34,10 +63,19 @@
     </style>
 
     <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
-        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item> <!--新增一个item，用于控制menu-->
+        <!--新增一个item，用于控制menu-->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
     </style>
+
     <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
-        <item name="overlapAnchor">false</item>  <!--把该属性改为false即可使menu位置位于toolbar之下-->
+        <!--把该属性改为false即可使menu位置位于toolbar之下-->
+        <item name="overlapAnchor">false</item>
+    </style>
+
+    <!--解决TabLayout Item全英文大写-->
+    <style name="TabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
 </resources>

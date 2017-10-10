@@ -14,6 +14,7 @@
 - SD Card Size and Rom Size
 - PhoneNumber Address
 - Goto System Settings Activity
+- Gank
 ## Need Permission
 - Lookup Contacts
 - CallLogs
