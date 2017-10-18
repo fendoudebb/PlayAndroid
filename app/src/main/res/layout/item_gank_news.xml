@@ -48,7 +48,7 @@
                 android:layout_above="@+id/item_gank_news_author"
                 android:ellipsize="end"
                 android:textSize="18sp"
-                tools:text="RxJava"/>
+                tools:text="RxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJava"/>
 
         </RelativeLayout>
 

@@ -48,6 +48,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public ViewHolder setText(@IdRes int viewId, CharSequence text) {
+        TextView tv = getView(viewId);
+        tv.setText(text);
+        return this;
+    }
+
     public ViewHolder setText(@IdRes int viewId, @StringRes int text) {
         TextView tv = getView(viewId);
         tv.setText(text);
