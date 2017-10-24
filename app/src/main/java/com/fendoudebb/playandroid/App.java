@@ -7,13 +7,7 @@ import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
-import com.facebook.stetho.Stetho;
-import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.fendoudebb.playandroid.util.AppBlockCanaryContext;
 import com.fendoudebb.playandroid.util.LifeCycleUtil;
-import com.github.moduth.blockcanary.BlockCanary;
-
-import okhttp3.OkHttpClient;
 
 /**
  * author : zbj on 2017/8/19 22:03.
@@ -49,14 +43,11 @@ public class App extends Application {
 //        }
 //        LeakCanary.install(this);
 //
-        BlockCanary.install(this, new AppBlockCanaryContext()).start();
+//        BlockCanary.install(this, new AppBlockCanaryContext()).start();
 
-        Stetho.initializeWithDefaults(this);
+        BuildConfig.BLOCKCANARY.init(this);
 
-        new OkHttpClient.Builder()
-                .addNetworkInterceptor(new StethoInterceptor())
-                .build();
-
+        BuildConfig.STETHO.init(this).configureInterceptor();
 
         //Open StrictMode in debug
         if (BuildConfig.DEBUG) {

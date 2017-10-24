@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
-import com.fendoudebb.playandroid.module.media.MusicDetailActivity;
+import com.fendoudebb.playandroid.module.media.ui.MusicActivity;
 
 /**
  * author : zbj on 2017/8/19 12:45.
@@ -32,7 +32,7 @@ public class SettingsActivity extends BaseActivity {
     }
 
     public void onClick1(View view) {
-        Intent intent = new Intent(this, MusicDetailActivity.class);
+        Intent intent = new Intent(this, MusicActivity.class);
 
         TaskStackBuilder.create(this)
                 .addNextIntentWithParentStack(intent)

@@ -84,7 +84,7 @@
 
         <activity android:name=".module.feature.ui.gank.GankActivity"/>
 
-        <activity android:name=".module.feature.ui.music.MusicActivity"/>
+        <activity android:name=".module.media.ui.MusicActivity"/>
 
         <activity
             android:name=".module.main.SettingsActivity"/>

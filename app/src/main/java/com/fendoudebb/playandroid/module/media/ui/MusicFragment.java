@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.ui.music;
+package com.fendoudebb.playandroid.module.media.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

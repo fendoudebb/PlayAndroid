@@ -23,9 +23,9 @@ import android.widget.ImageView;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
+import com.fendoudebb.playandroid.module.media.ui.MusicActivity;
 import com.fendoudebb.playandroid.module.main.activity.NavDetailActivity;
 import com.fendoudebb.playandroid.module.main.fragment.HomeFragment;
-import com.fendoudebb.playandroid.module.media.MusicDetailActivity;
 import com.fendoudebb.playandroid.util.ActivityUtil;
 import com.fendoudebb.playandroid.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
@@ -170,7 +170,7 @@ public class MainActivity extends BaseActivity implements NavigationView
             SpUtil.with(this).putBoolean(C.config.night_theme, !isNightTheme);
             new RevealEffectUtil().createExitRevealEffect(this);
         } else if (id == R.id.nav_author) {
-            Intent intent = new Intent(this, MusicDetailActivity.class);
+            Intent intent = new Intent(this, MusicActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_open_source_framework) {
             Intent intent = new Intent(this, NavDetailActivity.class);

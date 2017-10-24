@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.util;
+package com.fendoudebb.playandroid.debug.blockcanary;
 
 import android.content.Context;
 
