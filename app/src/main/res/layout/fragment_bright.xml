@@ -1,100 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="ContentDescription">
 
-    <LinearLayout
-        android:id="@+id/brightness_console"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/btn_auto_brightness"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/vector_auto_brightness"
+        app:layout_constraintBottom_toTopOf="@+id/tv_auto_brightness"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_write_settings_permission"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/tv_auto_brightness"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:baselineAligned="true"
-        android:orientation="horizontal"
-        tools:ignore="UseCompoundDrawables">
+        android:layout_marginTop="10dp"
+        android:text="@string/auto_brightness"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btn_auto_brightness"
+        app:layout_constraintStart_toStartOf="@id/btn_auto_brightness"
+        app:layout_constraintTop_toBottomOf="@id/btn_auto_brightness"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/btn_write_settings_permission"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/vector_permission"
+        app:layout_constraintBottom_toTopOf="@+id/tv_write_settings_permission"
+        app:layout_constraintLeft_toRightOf="@id/btn_auto_brightness"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
 
-            <ImageView
-                android:id="@+id/btn_auto_brightness"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:src="@drawable/vector_auto_brightness"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/auto_brightness"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/btn_write_settings_permission"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:src="@drawable/vector_permission"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/write_settings_permission"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_write_settings_permission"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/brightness_console"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="100dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dp"
+        android:text="@string/write_settings_permission"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btn_write_settings_permission"
+        app:layout_constraintStart_toStartOf="@id/btn_write_settings_permission"
+        app:layout_constraintTop_toBottomOf="@id/btn_write_settings_permission"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/vector_brightness_min"/>
+    <SeekBar
+        android:id="@+id/brightness_seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxHeight="4dp"
+        android:minHeight="4dp"
+        android:progressDrawable="@drawable/seek_bar_progress_drawable"
+        android:thumb="@drawable/vector_brightness_thumb"
+        app:layout_constraintBottom_toTopOf="@id/btn_auto_brightness"
+        app:layout_constraintLeft_toLeftOf="@+id/brightness_min"
+        app:layout_constraintRight_toLeftOf="@+id/brightness_max"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <SeekBar
-            android:id="@+id/brightness_seek_bar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:maxHeight="4dp"
-            android:minHeight="4dp"
-            android:progressDrawable="@drawable/seek_bar_progress_drawable"
-            android:thumb="@drawable/vector_brightness_thumb"/>
+    <ImageView
+        android:id="@+id/brightness_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vector_brightness_min"
+        app:layout_constraintBottom_toBottomOf="@id/brightness_seek_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/brightness_seek_bar"
+        app:layout_constraintTop_toTopOf="@id/brightness_seek_bar"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/vector_brightness_max"/>
+    <ImageView
+        android:id="@+id/brightness_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vector_brightness_max"
+        app:layout_constraintBottom_toBottomOf="@id/brightness_seek_bar"
+        app:layout_constraintLeft_toRightOf="@id/brightness_seek_bar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/brightness_seek_bar"/>
 
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

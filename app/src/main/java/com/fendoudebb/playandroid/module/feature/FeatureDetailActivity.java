@@ -10,7 +10,6 @@ import com.fendoudebb.playandroid.module.feature.ui.BrightnessFragment;
 import com.fendoudebb.playandroid.module.feature.ui.CalendarFragment;
 import com.fendoudebb.playandroid.module.feature.ui.ClockFragment;
 import com.fendoudebb.playandroid.module.feature.ui.SystemIntentFragment;
-import com.fendoudebb.playandroid.module.media.ui.MusicFragment;
 import com.fendoudebb.playandroid.util.ActivityUtil;
 import com.fendoudebb.playandroid.util.ResUtil;
 
@@ -66,7 +65,6 @@ public class FeatureDetailActivity extends BaseActivity {
 
                 break;
             case R.string.music:
-                fragment = MusicFragment.newInstance();
                 break;
             case R.string.video:
 

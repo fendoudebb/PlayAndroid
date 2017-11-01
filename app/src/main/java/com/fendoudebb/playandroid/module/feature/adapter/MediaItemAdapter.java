@@ -1,5 +1,6 @@
 package com.fendoudebb.playandroid.module.feature.adapter;
 
+import android.graphics.Bitmap;
 import android.support.v4.media.MediaBrowserCompat;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.util.Log;
@@ -26,6 +27,8 @@ public class MediaItemAdapter extends BaseRecyclerViewAdapter<MediaBrowserCompat
         MediaDescriptionCompat description = mediaItem.getDescription();
         Log.d(TAG, "bindData: description: " + description.toString());
         holder.setText(R.id.media_item_name, description.getTitle());
-        holder.setImageBitmap(R.id.media_item_pic, description.getIconBitmap());
+        Bitmap iconBitmap = description.getIconBitmap();
+        Log.d(TAG, "iconBitmap: " + iconBitmap);
+        holder.setImageBitmap(R.id.media_item_pic, iconBitmap);
     }
 }

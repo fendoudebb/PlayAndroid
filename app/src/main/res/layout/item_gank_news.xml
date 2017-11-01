@@ -9,49 +9,53 @@
     android:foreground="?selectableItemBackgroundBorderless"
     app:cardCornerRadius="8dp">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/item_gank_news_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/item_gank_news_author"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/item_gank_news_pic"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="RxJavaRxJavaRxJavaRxJavaRxJavaRxJadadasdasdasvaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJava"/>
+
+        <TextView
+            android:id="@+id/item_gank_news_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/item_gank_news_title"
+            app:layout_constraintRight_toRightOf="@id/item_gank_news_title"
+            app:layout_constraintTop_toBottomOf="@id/item_gank_news_title"
+            tools:text="RxJava11111111111111111111111111112222222222222111111111"/>
 
         <ImageView
             android:id="@+id/item_gank_news_pic"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/item_gank_news_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/android_splash"/>
+            tools:src="@drawable/android_splash"
+            tools:visibility="gone"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_toStartOf="@id/item_gank_news_pic"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/item_gank_news_author"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="5dp"
-                android:textSize="13sp"
-                tools:text="RxJava"/>
-
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/item_gank_news_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/item_gank_news_author"
-                android:ellipsize="end"
-                android:textSize="18sp"
-                tools:text="RxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJavaRxJava"/>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

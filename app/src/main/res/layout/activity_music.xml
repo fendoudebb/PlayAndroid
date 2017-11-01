@@ -7,7 +7,13 @@
     <include layout="@layout/common_toolbar"/>
 
     <TextView
+        android:onClick="onClick"
         android:text="ceshi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/music_list_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

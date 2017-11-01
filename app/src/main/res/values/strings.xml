@@ -122,5 +122,12 @@
     <string name="web_view_clip_success">Clip Success!</string>
     <string name="web_view_enter_url">Please enter the URL</string>
 
+    <string name="label_stop">Stop</string>
+    <string name="label_pause">Pause</string>
+    <string name="label_play">Play</string>
+    <string name="label_play_pause">Play and pause toggle</string>
+    <string name="label_previous">Previous track</string>
+    <string name="label_next">Next track</string>
+
 
 </resources>

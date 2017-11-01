@@ -84,7 +84,7 @@
 
         <activity android:name=".module.feature.ui.gank.GankActivity"/>
 
-        <activity android:name=".module.media.ui.MusicActivity"/>
+        <activity android:name=".module.media.ui.MusicListActivity"/>
 
         <activity
             android:name=".module.main.SettingsActivity"/>
@@ -97,6 +97,12 @@
                 <action android:name="android.media.browse.MediaBrowserService" />
             </intent-filter>
         </service>
+
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 
