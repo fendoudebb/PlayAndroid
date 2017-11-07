@@ -1,6 +1,8 @@
 package com.fendoudebb.playandroid.module.base.activity;
 
+import android.app.ActivityManager;
 import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,6 +36,13 @@ public abstract class BaseActivity extends SwipeBackActivity implements SlidingP
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //最近列表显示的缩略图的label,icon,top bar color
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityManager.TaskDescription taskDesc = new ActivityManager.TaskDescription(
+                    getTitle().toString(),
+                    BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_round));
+            setTaskDescription(taskDesc);
+        }
         setContentView(initContentView());
         initStatusBar();
         initToolbar();

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<color name="colorPrimary">#A4F397</color>-->
-    <color name="colorPrimary">#5FAEEA</color>
-    <color name="colorPrimaryDark">#5FAEEA</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#FF5FAEEA</color>
+    <color name="colorPrimaryDark">#FF5FAEEA</color>
+    <color name="colorAccent">#FFFF4081</color>
 
-    <color name="notification_bg">#e91e63</color>
+    <color name="notification_bg">#FFe91e63</color>
 </resources>

@@ -170,6 +170,16 @@ public class MusicService extends MediaBrowserServiceCompat {
         }
 
         @Override
+        public void onSkipToQueueItem(long queueId) {
+            
+        }
+
+        @Override
+        public void onPlayFromMediaId(String mediaId, Bundle extras) {
+            super.onPlayFromMediaId(mediaId, extras);
+        }
+
+        @Override
         public void onSeekTo(long pos) {
             mPlayback.seekTo(pos);
         }

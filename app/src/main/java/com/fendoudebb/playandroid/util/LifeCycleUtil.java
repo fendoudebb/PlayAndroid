@@ -7,6 +7,7 @@ import android.content.ComponentCallbacks2;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * zbj on 2017-09-29 17:45.
@@ -14,7 +15,11 @@ import android.util.Log;
  */
 
 public class LifeCycleUtil implements Application.ActivityLifecycleCallbacks, ComponentCallbacks,ComponentCallbacks2 {
+
     private static final String TAG = "LifeCycleUtil";
+
+    private boolean isAppBackground = false;
+
     public LifeCycleUtil(Application application) {
         application.registerActivityLifecycleCallbacks(this);
         application.registerComponentCallbacks(this);
@@ -39,6 +44,12 @@ public class LifeCycleUtil implements Application.ActivityLifecycleCallbacks, Co
     @Override
     public void onActivityResumed(Activity activity) {
         Log.d(TAG, "onActivityResumed() called with: activity = [" + activity + "]");
+        if (isAppBackground) {
+            isAppBackground = false;
+            //来广告了
+            Toast.makeText(activity.getApplicationContext(), "弹出一个广告", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "APP 进入前台");
+        }
     }
 
     @Override
@@ -75,5 +86,9 @@ public class LifeCycleUtil implements Application.ActivityLifecycleCallbacks, Co
     @Override
     public void onTrimMemory(int level) {
         Log.d(TAG, "onTrimMemory() called with: level = [" + level + "]");
+        if (level == TRIM_MEMORY_UI_HIDDEN) {
+            isAppBackground = true;
+            Log.d(TAG, "APP 退出到后台");
+        }
     }
 }
