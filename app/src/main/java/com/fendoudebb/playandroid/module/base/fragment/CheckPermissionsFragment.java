@@ -13,7 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
-import com.fendoudebb.playandroid.util.DialogHelper;
+import com.fendoudebb.util.DialogHelper;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 

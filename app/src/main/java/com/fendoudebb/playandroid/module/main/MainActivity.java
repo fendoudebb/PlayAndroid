@@ -20,16 +20,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.fendoudebb.decompress.Decompress7z;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.media.ui.MusicListActivity;
 import com.fendoudebb.playandroid.module.main.activity.NavDetailActivity;
 import com.fendoudebb.playandroid.module.main.fragment.HomeFragment;
-import com.fendoudebb.playandroid.util.ActivityUtil;
-import com.fendoudebb.playandroid.util.RevealEffectUtil;
+import com.fendoudebb.util.ActivityUtil;
+import com.fendoudebb.util.RevealEffectUtil;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
-import com.fendoudebb.playandroid.util.SpUtil;
+import com.fendoudebb.util.SpUtil;
 
 public class MainActivity extends BaseActivity implements NavigationView
         .OnNavigationItemSelectedListener {

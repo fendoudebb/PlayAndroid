@@ -28,7 +28,7 @@ import android.support.v4.media.MediaMetadataCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.fendoudebb.playandroid.App;
+import com.fendoudebb.util.ContextDelegate;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,7 +68,6 @@ public class LocalMusicLibrary {
                 MediaStore.Audio.Media.DISPLAY_NAME,//Never Had a Dream Come True.mp3
                 MediaStore.Audio.Media.ARTIST,
                 MediaStore.Audio.Media.ALBUM,
-                MediaStore.Audio.Media.GENRE,
                 MediaStore.Audio.Media.DURATION,
                 MediaStore.Audio.Media.ALBUM_ID,
                 MediaStore.Audio.Media.DATA,
@@ -103,7 +102,7 @@ public class LocalMusicLibrary {
     }
 
     static {
-        initSongList(App.getContext());
+        initSongList(ContextDelegate.getContext());
     }
 
     public static String getRoot() {

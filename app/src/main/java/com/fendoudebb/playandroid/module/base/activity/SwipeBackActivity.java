@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.widget.PagerEnabledSlidingPaneLayout;
+import com.fendoudebb.widget.PagerEnabledSlidingPaneLayout;
 
 import java.lang.reflect.Field;
 

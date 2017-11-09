@@ -1,12 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    repositories {
+    apply from: 'version.gradle'
+    /*repositories {
         jcenter()
         maven { url "https://maven.google.com" }
-    }
+    }*/
+
+    addRepos(repositories)
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath deps.plugin.android_gradle_plugin
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -14,10 +18,13 @@ buildscript {
 }
 
 allprojects {
-    repositories {
+    /*repositories {
         jcenter()
         maven { url "https://maven.google.com" }
-    }
+    }*/
+
+    addRepos(repositories)
+
     //解决mockableAndroidJar空指针
     gradle.taskGraph.whenReady {
         tasks.each { task ->

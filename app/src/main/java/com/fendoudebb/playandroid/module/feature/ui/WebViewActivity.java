@@ -39,9 +39,9 @@ import android.widget.TextView;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
-import com.fendoudebb.playandroid.util.ClipboardUtil;
-import com.fendoudebb.playandroid.util.KeyBoardUtil;
-import com.fendoudebb.playandroid.util.ToastUtil;
+import com.fendoudebb.util.ClipboardUtil;
+import com.fendoudebb.util.KeyBoardUtil;
+import com.fendoudebb.util.ToastUtil;
 
 /**
  * author : zbj on 2017/9/26 22:03.

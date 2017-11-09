@@ -14,15 +14,13 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 
-import com.fendoudebb.playandroid.module.media.manager.MediaPlayerManager;
 import com.fendoudebb.playandroid.module.media.data.LocalMusicLibrary;
 import com.fendoudebb.playandroid.module.media.listener.PlaybackInfoListener;
+import com.fendoudebb.playandroid.module.media.manager.MediaPlayerManager;
 import com.fendoudebb.playandroid.module.media.notification.MediaNotificationManager;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.fendoudebb.playandroid.util.MediaIDHelper.MEDIA_ID_ROOT;
 
 /**
  * author : zbj on 2017/10/11 16:44.
@@ -85,7 +83,7 @@ public class MusicService extends MediaBrowserServiceCompat {
             Bundle rootHints) {
         Log.d(TAG, "onGetRoot() called with: clientPackageName = [" + clientPackageName + "], " +
                 "clientUid = [" + clientUid + "], rootHints = [" + rootHints + "]");
-        return new BrowserRoot(MEDIA_ID_ROOT, null);
+        return new BrowserRoot("__ROOT__", null);
     }
 
     @Override

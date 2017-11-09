@@ -2,8 +2,8 @@ package com.fendoudebb.playandroid.module.api;
 
 import android.support.annotation.NonNull;
 
-import com.fendoudebb.playandroid.App;
-import com.fendoudebb.playandroid.util.NetworkUtil;
+import com.fendoudebb.util.ContextDelegate;
+import com.fendoudebb.util.NetworkUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class ApiRetrofit {
     }
 
     ApiRetrofit() {
-        File httpCacheDirectory = new File(App.getContext().getCacheDir(), "GankData");
+        File httpCacheDirectory = new File(ContextDelegate.getContext().getCacheDir(), "GankData");
         int cacheSize = 50 * 1024 * 1024; // 10 MiB
         Cache cache = new Cache(httpCacheDirectory, cacheSize);
         Interceptor interceptor = new Interceptor() {

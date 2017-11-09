@@ -3,6 +3,7 @@ package com.fendoudebb.playandroid.util;
 import android.content.Context;
 import android.content.Intent;
 
+import com.fendoudebb.util.SpUtil;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.main.SplashActivity;

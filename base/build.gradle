@@ -1,0 +1,86 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
+        versionName build_versions.version_name
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            moduleName "fendoudebb_decompress7z"
+            abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。
+            stl "stlport_static"    //打开.c 的 debug （此句是打开的debug的关键）
+        }
+
+    }
+
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+            /*applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    def fileName = "playandroid-0.0.1.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+
+                }
+            }*/
+            buildConfigField 'com.fendoudebb.debug.stetho.StethoHelper', 'STETHO', 'new com.fendoudebb.release.stetho.ReleaseStethoHelper()'
+            buildConfigField 'com.fendoudebb.debug.blockcanary.BlockCanaryHelper', 'BLOCKCANARY', 'new com.fendoudebb.release.blockcanary.ReleaseBlockCanaryHelper()'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+            /*applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    def fileName = "playandroid-0.0.1.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+
+                }
+            }*/
+            buildConfigField 'com.fendoudebb.debug.stetho.StethoHelper', 'STETHO', 'new com.fendoudebb.debug.stetho.DebugStethoHelper()'
+            buildConfigField 'com.fendoudebb.debug.blockcanary.BlockCanaryHelper', 'BLOCKCANARY', 'new com.fendoudebb.debug.blockcanary.DebugBlockCanaryHelper()'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Espresso UI Testing
+    androidTestImplementation deps.test.espresso_core
+    androidTestImplementation deps.test.espresso_contrib
+    androidTestImplementation deps.test.espresso_intents
+
+    testImplementation deps.test.junit
+
+    // debug
+    debugImplementation deps.debug.setho
+    debugImplementation deps.debug.leak_canary
+    debugImplementation deps.debug.block_canary
+
+    // MultiDex
+    implementation deps.tool.multidex
+
+    // Support libraries
+    implementation deps.support.app_compat
+
+    //Rx
+    implementation deps.rx.rxjava2
+    implementation deps.rx.rxandroid
+    implementation deps.rx.rxpermissions
+
+}

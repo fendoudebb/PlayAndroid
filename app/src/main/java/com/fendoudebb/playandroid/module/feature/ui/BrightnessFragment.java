@@ -18,9 +18,9 @@ import android.widget.SeekBar;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.base.fragment.CheckPermissionsFragment;
-import com.fendoudebb.playandroid.util.BrightnessUtil;
-import com.fendoudebb.playandroid.util.DrawableUtil;
-import com.fendoudebb.playandroid.util.ToastUtil;
+import com.fendoudebb.util.BrightnessUtil;
+import com.fendoudebb.util.DrawableUtil;
+import com.fendoudebb.util.ToastUtil;
 
 
 /**

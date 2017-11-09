@@ -11,7 +11,7 @@ import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.feature.adapter.GankViewPagerAdapter;
-import com.fendoudebb.playandroid.util.ResUtil;
+import com.fendoudebb.util.ResUtil;
 
 /**
  * author : zbj on 2017/10/7 21:32.

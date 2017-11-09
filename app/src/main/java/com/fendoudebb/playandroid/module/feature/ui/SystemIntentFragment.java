@@ -12,7 +12,7 @@ import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.playandroid.module.feature.adapter.SystemIntentAdapter;
 import com.fendoudebb.playandroid.module.feature.data.SystemIntent;
 import com.fendoudebb.playandroid.util.SystemIntentUtil;
-import com.fendoudebb.playandroid.util.ToastUtil;
+import com.fendoudebb.util.ToastUtil;
 
 import java.util.List;
 

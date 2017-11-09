@@ -35,3 +35,6 @@ A project records the Android learning process which contains varieties of basic
 - System Intent
 - SlidingPaneLayout SwipeBack Activity
 - Debug Compile Stetho and BlockCanary
+- jni-7zip
+- [Android Architecture Components](https://developer.android.google.cn/topic/libraries/architecture/index.html)
+- [Room](https://developer.android.google.cn/training/data-storage/room/index.html)

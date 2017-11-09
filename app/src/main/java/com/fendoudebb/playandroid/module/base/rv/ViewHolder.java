@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.fendoudebb.playandroid.util.ResUtil;
+import com.fendoudebb.util.ResUtil;
 
 /**
  * author : zbj on 2017/9/30 22:30.

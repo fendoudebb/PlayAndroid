@@ -1,0 +1,148 @@
+def build_versions = [:]
+build_versions.compile_sdk = 27
+build_versions.build_tools = "26.0.2"
+build_versions.applicationId = "com.fendoudebb.playandroid"
+build_versions.min_sdk = 19
+build_versions.target_sdk = 27
+build_versions.version_code = 1
+build_versions.version_name = "1.0"
+ext.build_versions = build_versions
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+//    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+ext.addRepos = this.&addRepos
+
+ext.deps = [:]
+
+def versions = [:]
+
+//gradle
+versions.android_gradle_plugin = "3.0.0"
+
+//support
+versions.multidex = "1.0.1"
+versions.support = "27.0.0"
+
+//Arch
+versions.arch = "1.0.0"
+versions.paging = "1.0.0-alpha3"
+
+//图片
+versions.glide = "3.8.0"
+versions.glide_compiler = "4.3.1"
+
+//网络
+versions.retrofit = "2.3.0"
+versions.logginginterceptor = "3.9.0"
+
+//Rx
+versions.rxjava2 = "2.1.3"
+versions.rxandroid = "2.0.1"
+versions.rxpermissions = "0.9.4@aar"
+
+//ui
+versions.constraint_layout = "1.0.2"
+versions.photoview = "2.1.3"
+
+//工具模板
+versions.guava = "23.0-android"
+versions.fastjson = "1.1.65.android"
+versions.gson = "2.8.2"
+
+//调试
+versions.stetho = "1.5.0"
+versions.leakcanary = "1.5.1"
+versions.blockcanary = "1.5.0"
+
+//test
+versions.junit = "4.12"
+versions.espresso = "3.0.1"
+def deps = [:]
+
+// ------------- Gradle Plugin -------------
+def plugin = [:]
+plugin.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.plugin = plugin
+
+// ------------- 测试 -------------
+def test = [:]
+test.espresso_core = "com.android.support.test.espresso:espresso-core:$versions.espresso"
+test.espresso_contrib = "com.android.support.test.espresso:espresso-contrib:$versions.espresso"
+test.espresso_intents = "com.android.support.test.espresso:espresso-intents:$versions.espresso"
+test.junit = "junit:junit:${versions.junit}"
+deps.test = test
+
+// ------------- 调试 -------------
+def debug = [:]
+debug.setho = "com.facebook.stetho:stetho-okhttp3:$versions.stetho"
+debug.leak_canary = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+debug.block_canary = "com.github.markzhai:blockcanary-android:$versions.blockcanary"
+deps.debug = debug
+
+
+// ------------- Support -------------
+def support = [:]
+support.annotations = "com.android.support:support-annotations:$versions.support"
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+support.v4 = "com.android.support:support-v4:$versions.support"
+support.core_utils = "com.android.support:support-core-utils:$versions.support"
+support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+support.cardview = "com.android.support:cardview-v7:$versions.support"
+support.design = "com.android.support:design:$versions.support"
+support.palette = "com.android.support:palette-v7:$versions.support"
+support.customtabs = "com.android.support:customtabs:$versions.support"
+support.exifinterface = "com.android.support:exifinterface:$versions.support"
+support.content = "com.android.support:support-content:$versions.support"
+support.mediarouter = "com.android.support:mediarouter-v7:$versions.support"
+deps.support = support
+
+// ------------- Arch -------------
+def arch = [:]
+arch.lifecycle = "android.arch.lifecycle:runtime:$versions.arch"
+arch.lifecycle_extensions = "android.arch.lifecycle:extensions:$versions.arch"
+arch.lifecycle_java8 = "android.arch.lifecycle:common-java8:$versions.arch"
+arch.lifecycle_compiler = "android.arch.lifecycle:compiler:$versions.arch"
+arch.room = "android.arch.persistence.room:runtime:$versions.arch"
+arch.room_compiler = "android.arch.persistence.room:compiler:$versions.arch"
+arch.room_rxjava2 = "android.arch.persistence.room:rxjava2:$versions.arch"
+arch.room_testing = "android.arch.persistence.room:testing:$versions.arch"
+arch.paging = "android.arch.paging:runtime:$versions.paging"
+arch.arch_core_testing = "android.arch.core:core-testing:$versions.arch"
+deps.arch = arch
+
+// ------------- 图片加载 -------------
+def img = [:]
+img.glide = "com.github.bumptech.glide:glide:$versions.glide"
+img.glide_compiler = "com.github.bumptech.glide:compiler:$versions.glide_compiler"
+deps.img = img
+
+// ------------- 网络请求 -------------
+def net = [:]
+net.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+net.retrofit_gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+net.retrofit_adapter_rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+net.retrofit_logging = "com.squareup.okhttp3:logging-interceptor:$versions.logginginterceptor"
+deps.net = net
+
+// ------------- ui -------------
+def ui = [:]
+ui.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+deps.ui = ui
+
+// ------------- Rx -------------
+def rx = [:]
+rx.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
+rx.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+rx.rxpermissions = "com.tbruyelle.rxpermissions2:rxpermissions:$versions.rxpermissions"
+deps.rx = rx
+
+// ------------- 工具模板 -------------
+def tool = [:]
+tool.multidex = "com.android.support:multidex:$versions.multidex"
+deps.tool = tool
+
+ext.deps = deps
+

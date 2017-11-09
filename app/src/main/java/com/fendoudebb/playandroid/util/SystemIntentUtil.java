@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.provider.Settings;
 
+import com.fendoudebb.util.ResUtil;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.feature.data.SystemIntent;
 

@@ -23,7 +23,7 @@
         android:value="true"/>
 
     <application
-        android:name=".App"
+        android:name="com.fendoudebb.App"
         android:allowBackup="true"
         android:allowClearUserData="false"
         android:icon="@drawable/layer_app_launcher"

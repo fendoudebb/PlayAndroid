@@ -15,7 +15,7 @@ import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
 import com.fendoudebb.playandroid.module.main.adapter.AOSPAdapter;
 import com.fendoudebb.playandroid.module.main.data.OSFramework;
-import com.fendoudebb.playandroid.util.ResUtil;
+import com.fendoudebb.util.ResUtil;
 
 import java.util.ArrayList;
 import java.util.List;

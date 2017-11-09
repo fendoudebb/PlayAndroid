@@ -7,8 +7,8 @@ import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.main.fragment.AOSPFragment;
-import com.fendoudebb.playandroid.util.ActivityUtil;
-import com.fendoudebb.playandroid.util.ResUtil;
+import com.fendoudebb.util.ActivityUtil;
+import com.fendoudebb.util.ResUtil;
 
 /**
  * zbj on 2017-09-29 14:31.

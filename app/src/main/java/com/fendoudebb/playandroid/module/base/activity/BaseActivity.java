@@ -20,8 +20,8 @@ import android.widget.EditText;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.main.MainActivity;
-import com.fendoudebb.playandroid.util.KeyBoardUtil;
-import com.fendoudebb.playandroid.util.UnitConverter;
+import com.fendoudebb.util.KeyBoardUtil;
+import com.fendoudebb.util.UnitConverter;
 
 /**
  * author : zbj on 2017/8/18 23:32.
