@@ -136,6 +136,12 @@ dependencies {
     implementation deps.rx.rxandroid
     implementation deps.rx.rxpermissions
 
+    // tool
+    implementation deps.tool.libphonenumber
+    implementation deps.tool.geocoder
+    implementation deps.tool.carrier
+
     implementation project(':base')
     implementation project(':widget')
+    implementation project(':number_address')
 }
