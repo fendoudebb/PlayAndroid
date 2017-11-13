@@ -3,9 +3,9 @@ package com.fendoudebb.playandroid.module.feature;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
+import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.feature.ui.BrightnessFragment;
 import com.fendoudebb.playandroid.module.feature.ui.CalendarFragment;
 import com.fendoudebb.playandroid.module.feature.ui.ClockFragment;

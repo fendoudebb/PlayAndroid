@@ -1,15 +1,15 @@
 package com.fendoudebb.playandroid.module.main.adapter;
 
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
-import com.fendoudebb.playandroid.module.base.rv.ViewHolder;
 import com.fendoudebb.playandroid.module.main.data.OSFramework;
+import com.fendoudebb.rv.BaseRecyclerViewAdapter;
+import com.fendoudebb.rv.ViewHolder;
 
 /**
  * author : zbj on 2017/9/27 21:47.
  */
 
-public class AOSPAdapter extends BaseRecyclerViewAdapter<OSFramework>{
+public class AOSPAdapter extends BaseRecyclerViewAdapter<OSFramework> {
 
     @Override
     protected int initItemLayout() {

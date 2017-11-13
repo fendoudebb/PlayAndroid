@@ -5,8 +5,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.api.bean.gank.Gank;
-import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
-import com.fendoudebb.playandroid.module.base.rv.ViewHolder;
+import com.fendoudebb.rv.BaseRecyclerViewAdapter;
+import com.fendoudebb.rv.ViewHolder;
 
 /**
  * author : zbj on 2017/10/10 15:18.

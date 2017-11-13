@@ -11,13 +11,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
-import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.playandroid.module.feature.adapter.MediaItemAdapter;
 import com.fendoudebb.playandroid.module.media.data.LocalMusicLibrary;
 import com.fendoudebb.playandroid.module.media.listener.MediaBrowserChangeListener;
 import com.fendoudebb.playandroid.module.media.manager.MediaBrowserManager;
+import com.fendoudebb.rv.BaseRecyclerViewAdapter;
 
 /**
  * author : zbj on 2017/10/11 16:37.

@@ -3,9 +3,9 @@ package com.fendoudebb.playandroid.module.main.activity;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
+import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.main.fragment.AOSPFragment;
 import com.fendoudebb.util.ActivityUtil;
 import com.fendoudebb.util.ResUtil;

@@ -7,9 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.playandroid.module.feature.adapter.GankViewPagerAdapter;
 import com.fendoudebb.util.ResUtil;
 

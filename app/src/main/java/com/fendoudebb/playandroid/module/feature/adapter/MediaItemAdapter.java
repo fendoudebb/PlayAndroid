@@ -6,8 +6,8 @@ import android.support.v4.media.MediaDescriptionCompat;
 import android.util.Log;
 
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
-import com.fendoudebb.playandroid.module.base.rv.ViewHolder;
+import com.fendoudebb.rv.BaseRecyclerViewAdapter;
+import com.fendoudebb.rv.ViewHolder;
 
 /**
  * author : zbj on 2017/10/11 16:08.

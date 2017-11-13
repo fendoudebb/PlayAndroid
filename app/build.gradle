@@ -34,7 +34,9 @@ android {
             shrinkResources true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
-            /*applicationVariants.all { variant ->
+            /*
+            AS3.0 过时
+            applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     def outputFile = output.outputFile
                     def fileName = "playandroid-0.0.1.apk"
@@ -85,6 +87,16 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = rootProject.getName() + "-" + buildType.name + ".apk"
+//                    + "-" + buildType.name
+//                    + "-" + releaseTime()
+//                    + "-v" + defaultConfig.versionName
+//                    + "-" + defaultConfig.versionCode
+        }
     }
 }
 
@@ -142,6 +154,5 @@ dependencies {
     implementation deps.tool.carrier
 
     implementation project(':base')
-    implementation project(':widget')
-    implementation project(':number_address')
+    implementation project(':number')
 }

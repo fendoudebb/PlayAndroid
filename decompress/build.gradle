@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
+        versionName build_versions.version_name
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_ALLOW_UNDEFINED_SYMBOLS=TRUE" , "-DANDROID_PLATFORM=android-19"
+                cppFlags ""
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // Espresso UI Testing
+    androidTestImplementation deps.test.espresso_core
+    androidTestImplementation deps.test.espresso_contrib
+    androidTestImplementation deps.test.espresso_intents
+    testImplementation deps.test.junit
+
+    implementation deps.support.app_compat
+}

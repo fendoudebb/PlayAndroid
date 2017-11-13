@@ -36,9 +36,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
 import com.fendoudebb.util.ClipboardUtil;
 import com.fendoudebb.util.KeyBoardUtil;
 import com.fendoudebb.util.ToastUtil;

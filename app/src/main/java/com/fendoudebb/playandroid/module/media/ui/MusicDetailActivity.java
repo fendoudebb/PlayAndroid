@@ -1,6 +1,7 @@
 package com.fendoudebb.playandroid.module.media.ui;
 
-import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
+
+import com.fendoudebb.activity.BaseActivity;
 
 /**
  * zbj on 2017-11-01 11:45.

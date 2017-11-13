@@ -9,15 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.fendoudebb.base.fragment.BaseFragment;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.api.ApiFactory;
 import com.fendoudebb.playandroid.module.api.bean.gank.Gank;
 import com.fendoudebb.playandroid.module.api.bean.gank.GankData;
-import com.fendoudebb.playandroid.module.base.fragment.BaseFragment;
-import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.playandroid.module.feature.adapter.GankNewsAdapter;
 import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
+import com.fendoudebb.rv.BaseRecyclerViewAdapter;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;

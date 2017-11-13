@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.fendoudebb.base.fragment.BaseFragment;
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.base.fragment.BaseFragment;
 import com.fendoudebb.playandroid.module.feature.FeaturesFragment;
 import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
 import com.fendoudebb.util.ActivityUtil;

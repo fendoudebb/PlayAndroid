@@ -3,6 +3,7 @@ package com.fendoudebb.playandroid.module.main;
 import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ShareCompat;
@@ -20,16 +21,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.decompress.Decompress7z;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.base.activity.BaseActivity;
-import com.fendoudebb.playandroid.module.media.ui.MusicListActivity;
 import com.fendoudebb.playandroid.module.main.activity.NavDetailActivity;
 import com.fendoudebb.playandroid.module.main.fragment.HomeFragment;
+import com.fendoudebb.playandroid.module.media.ui.MusicListActivity;
+import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.util.ActivityUtil;
 import com.fendoudebb.util.RevealEffectUtil;
-import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.util.SpUtil;
 
 public class MainActivity extends BaseActivity implements NavigationView
@@ -96,6 +97,8 @@ public class MainActivity extends BaseActivity implements NavigationView
             }
         }
 
+        Decompress7z.decompressFromAssets(this, "address",
+                Environment.getExternalStorageDirectory().getPath()+"/address");
 
     }
 
@@ -109,6 +112,10 @@ public class MainActivity extends BaseActivity implements NavigationView
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         mToggle.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

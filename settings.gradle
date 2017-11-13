@@ -1,1 +1,1 @@
-include ':app', ':base', ':widget', ':number_address'
+include ':app', ':base', ':number', ':decompress'

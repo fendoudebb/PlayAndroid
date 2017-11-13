@@ -8,13 +8,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 
+import com.fendoudebb.base.fragment.BaseRecyclerViewFragment;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.base.fragment.BaseRecyclerViewFragment;
-import com.fendoudebb.playandroid.module.base.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
 import com.fendoudebb.playandroid.module.main.adapter.AOSPAdapter;
 import com.fendoudebb.playandroid.module.main.data.OSFramework;
+import com.fendoudebb.rv.BaseRecyclerViewAdapter;
 import com.fendoudebb.util.ResUtil;
 
 import java.util.ArrayList;

@@ -8,12 +8,12 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
 
+import com.fendoudebb.base.fragment.BaseFragment;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.api.ApiFactory;
 import com.fendoudebb.playandroid.module.api.bean.gank.Gank;
 import com.fendoudebb.playandroid.module.api.bean.gank.GankData;
-import com.fendoudebb.playandroid.module.base.fragment.BaseFragment;
 import com.fendoudebb.playandroid.module.feature.adapter.GankMeiZhiAdapter;
 
 import java.util.List;
