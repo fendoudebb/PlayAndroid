@@ -38,3 +38,4 @@ A project records the Android learning process which contains varieties of basic
 - jni-7zip
 - [Android Architecture Components](https://developer.android.google.cn/topic/libraries/architecture/index.html)
 - [Room](https://developer.android.google.cn/training/data-storage/room/index.html)
+- Sensor Step Counter

@@ -11,6 +11,13 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
+
     }
 
     buildTypes {
@@ -32,6 +39,9 @@ dependencies {
 
     implementation deps.support.app_compat
     implementation deps.support.v4
+    implementation deps.arch.lifecycle_extensions
+    implementation deps.arch.room
+    annotationProcessor deps.arch.room_compiler
 
     implementation deps.tool.libphonenumber
     implementation deps.tool.geocoder

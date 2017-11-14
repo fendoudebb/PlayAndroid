@@ -131,8 +131,7 @@ dependencies {
 
     //图片
     implementation deps.img.glide
-
-    //    annotationProcessor deps.img.glide_compiler
+    annotationProcessor deps.img.glide_compiler
 
     //网络
     implementation deps.net.retrofit

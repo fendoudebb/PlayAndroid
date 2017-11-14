@@ -24,7 +24,7 @@ public class AdvertiseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertise);
-        mAdImg = (ImageView) findViewById(R.id.ad_img);
+        mAdImg = findViewById(R.id.ad_img);
         mAdImg.setImageResource(R.drawable.android_splash);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

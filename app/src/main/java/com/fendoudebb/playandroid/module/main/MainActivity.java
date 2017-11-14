@@ -3,7 +3,6 @@ package com.fendoudebb.playandroid.module.main;
 import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ShareCompat;
@@ -22,7 +21,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.fendoudebb.activity.BaseActivity;
-import com.fendoudebb.decompress.Decompress7z;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.main.activity.NavDetailActivity;
@@ -96,9 +94,6 @@ public class MainActivity extends BaseActivity implements NavigationView
                 Log.d(TAG, "空!");
             }
         }
-
-        Decompress7z.decompressFromAssets(this, "address",
-                Environment.getExternalStorageDirectory().getPath()+"/address");
 
     }
 

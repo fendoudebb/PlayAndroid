@@ -25,8 +25,8 @@ public class GankNewsAdapter extends BaseRecyclerViewAdapter<Gank> {
                 .setText(R.id.item_gank_news_author, gank.who);
         if (gank.images != null) {
             Glide.with(holder.itemView.getContext())
+//                    .asBitmap()
                     .load(gank.images.get(0))
-                    .asBitmap()
                     .into((ImageView) holder.getView(R.id.item_gank_news_pic));
             holder.setVisibleGone(R.id.item_gank_news_pic, true);
         } else {

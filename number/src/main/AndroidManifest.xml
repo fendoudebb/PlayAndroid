@@ -1,2 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.fendoudebb.address"/>
+          package="com.fendoudebb.address">
+
+    <permission android:name="com.fendoudebb.address.numaddress.provider.READ_WRITE"/>
+
+    <application>
+
+        <provider
+            android:authorities="com.fendoudebb.address.numaddress.provider"
+            android:name=".NumAddressProvider"
+            android:exported="true"
+            android:permission="com.fendoudebb.address.numaddress.provider.READ_WRITE"
+            />
+
+    </application>
+
+</manifest>
