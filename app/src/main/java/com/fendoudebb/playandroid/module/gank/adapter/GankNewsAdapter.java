@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.adapter;
+package com.fendoudebb.playandroid.module.gank.adapter;
 
 import android.widget.ImageView;
 

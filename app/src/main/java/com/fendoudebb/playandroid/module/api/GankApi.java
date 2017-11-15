@@ -5,6 +5,7 @@ import com.fendoudebb.playandroid.module.api.bean.gank.DataHistory;
 import com.fendoudebb.playandroid.module.api.bean.gank.GankData;
 
 import io.reactivex.Observable;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
@@ -38,6 +39,9 @@ public interface GankApi {
      */
     @GET("data/{category}/10/{page}")
     Observable<GankData> getCategoryData(@Path("category") String category, @Path("page") int page);
+
+    @GET("data/{category}/10/{page}")
+    Call<GankData> getCategoryDataSync(@Path("category") String category, @Path("page") int page);
 
     /**
      * 每日数据： http://gank.io/api/day/年/月/日

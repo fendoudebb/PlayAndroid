@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.ui.gank;
+package com.fendoudebb.playandroid.module.gank.ui;
 
 import android.os.Build;
 import android.support.design.widget.TabLayout;
@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.feature.adapter.GankViewPagerAdapter;
+import com.fendoudebb.playandroid.module.gank.adapter.GankViewPagerAdapter;
 import com.fendoudebb.util.ResUtil;
 
 /**

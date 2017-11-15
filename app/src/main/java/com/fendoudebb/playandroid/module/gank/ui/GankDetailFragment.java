@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.ui.gank;
+package com.fendoudebb.playandroid.module.gank.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.api.ApiFactory;
 import com.fendoudebb.playandroid.module.api.bean.gank.Gank;
 import com.fendoudebb.playandroid.module.api.bean.gank.GankData;
-import com.fendoudebb.playandroid.module.feature.adapter.GankNewsAdapter;
+import com.fendoudebb.playandroid.module.gank.adapter.GankNewsAdapter;
 import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
 import com.fendoudebb.rv.BaseRecyclerViewAdapter;
 

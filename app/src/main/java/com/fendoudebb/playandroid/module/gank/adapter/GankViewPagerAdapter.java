@@ -1,12 +1,12 @@
-package com.fendoudebb.playandroid.module.feature.adapter;
+package com.fendoudebb.playandroid.module.gank.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.feature.ui.gank.GankDetailFragment;
-import com.fendoudebb.playandroid.module.feature.ui.gank.GankMeiZhiFragment;
+import com.fendoudebb.playandroid.module.gank.ui.GankDetailFragment;
+import com.fendoudebb.playandroid.module.gank.ui.GankMeiZhiFragment;
 
 /**
  * author : zbj on 2017/10/7 20:01.
