@@ -9,10 +9,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.fendoudebb.base.fragment.BaseFragment;
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.GlideApp;
+import com.fendoudebb.playandroid.module.TestFullScreenBottomSheetDialogFragment;
 import com.fendoudebb.playandroid.module.feature.FeaturesFragment;
 import com.fendoudebb.util.ActivityUtil;
 
@@ -60,9 +59,19 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                         R.id.contentFrame);
                 break;
             case R.id.text_view_2:
-//                Glide.with(getActivity()).asBitmap().load(R.drawable.alarm_clock).into(mTest);
-                Glide.with(mTest).asBitmap().load(R.drawable.android_splash).thumbnail(0.75f).into(mTest);
-                GlideApp.with(mTest).asBitmap().load(R.drawable.android_crash).into(mTest);
+
+
+                //BottomSheetDialog 在27.0.0的v4下默认半屏展开,需改用BottomSheetDialogFragment
+                /*BottomSheetDialog mBottomSheetDialog = new BottomSheetDialog(getActivity());
+                View view = getLayoutInflater().inflate(R.layout.test_bottom_sheet_dialog, null);
+                mBottomSheetDialog.setContentView(R.layout.test_bottom_sheet_dialog);
+                BottomSheetBehavior mDialogBehavior = BottomSheetBehavior.from((View) view.getParent());
+                mDialogBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);//展开
+                mDialogBehavior.setSkipCollapsed(true);
+                mBottomSheetDialog.show();*/
+
+                new TestFullScreenBottomSheetDialogFragment().show(getFragmentManager(), "");
+
                 boolean supportStepCountSensor = isSupportStepCountSensor(getActivity());
                 Log.d("zbj1114", "supportStepCountSensor: " + supportStepCountSensor);
                 break;
