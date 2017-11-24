@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fendoudebb.base.fragment.BaseFragment;
+import com.fendoudebb.extractor.File7zExtractor;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.TestFullScreenBottomSheetDialogFragment;
 import com.fendoudebb.playandroid.module.feature.FeaturesFragment;
@@ -46,7 +47,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initData() {
-
+        File7zExtractor.extractFromAssets(getActivity(), "address", "sdcard/add.txt");
     }
 
     @Override

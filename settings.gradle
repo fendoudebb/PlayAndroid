@@ -1,1 +1,1 @@
-include ':app', ':base', ':number', ':decompress'
+include ':app', ':base', ':number', ':extractor'

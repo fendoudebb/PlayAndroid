@@ -29,11 +29,11 @@ extern "C" {
 int extract7z(const char* srcFile, const char* dstPath);
 
 /*
- * Class:     com.fendoudebb.decompress.Decompress7z
- * Method:    decompress7z
+ * Class:     com.fendoudebb.extractor.File7zExtractor
+ * Method:    extractWith7z
  * Signature: (Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_fendoudebb_decompress_Decompress7z_decompress7z
+JNIEXPORT jint JNICALL Java_com_fendoudebb_extractor_File7zExtractor_extractWith7z
 (JNIEnv *env, jclass thiz, jstring filePath, jstring outPath)
 {
 	const char* cfilePath = (const char*)env->GetStringUTFChars(filePath, NULL);

@@ -58,5 +58,5 @@ dependencies {
     implementation deps.rx.rxjava2
     implementation deps.rx.rxandroid
     implementation deps.rx.rxpermissions
-    api project(':decompress')
+    api project(':extractor')
 }

@@ -1,4 +1,4 @@
-package com.fendoudebb.decompress;
+package com.fendoudebb.extractor;
 
 import android.content.Context;
 
@@ -11,25 +11,25 @@ import java.io.InputStream;
  * 7zip 解压
  */
 
-public class Decompress7z {
+public class File7zExtractor {
 
-    public static boolean decompress7zip(String filePath, String outPath) {
+    public static boolean extract(String filePath, String outPath) {
         File outDir = new File(outPath);
         if (!outDir.exists() || !outDir.isDirectory()) {
             outDir.mkdirs();
         }
-        return (decompress7z(filePath, outPath) == 0);
+        return (extractWith7z(filePath, outPath) == 0);
     }
 
     /**
-     * Decompress from assets
+     * Extract from assets
      *
      * @param context 上下文
      * @param assetPath assets下的目录
      * @param outPath 解压至路径
      * @return 解压是否成功
      */
-    public static boolean decompressFromAssets(Context context, String assetPath, String outPath) {
+    public static boolean extractFromAssets(Context context, String assetPath, String outPath) {
         File outDir = new File(outPath);
         if (!outDir.exists() || !outDir.isDirectory()) {
             outDir.mkdirs();
@@ -42,7 +42,7 @@ public class Decompress7z {
             e.printStackTrace();
             return false;
         }
-        boolean ret = (decompress7z(tempPath, outPath) == 0);
+        boolean ret = (extractWith7z(tempPath, outPath) == 0);
         new File(tempPath).delete();
 
         return ret;
@@ -71,9 +71,9 @@ public class Decompress7z {
     }
 
     //JNI interface
-    private static native int decompress7z(String filePath, String outPath);
+    private static native int extractWith7z(String filePath, String outPath);
 
     static {
-        System.loadLibrary("fendoudebb_decompress7z");
+        System.loadLibrary("fendoudebb_extract7z");
     }
 }

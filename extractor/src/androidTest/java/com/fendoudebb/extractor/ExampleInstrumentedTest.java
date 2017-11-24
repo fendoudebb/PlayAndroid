@@ -1,4 +1,4 @@
-package com.fendoudebb.decompress;
+package com.fendoudebb.extractor;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

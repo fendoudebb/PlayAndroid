@@ -89,6 +89,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
+    //生成apk名字
     android.applicationVariants.all { variant ->
         variant.outputs.all {
             outputFileName = rootProject.getName() + "-" + buildType.name + ".apk"

@@ -30,11 +30,11 @@ list(APPEND SRC_LIST
         src/main/cpp/src/Ppmd7.c
         src/main/cpp/src/Ppmd7Dec.c
         src/main/cpp/src/7zMain.c
-        src/main/cpp/decompress7z.cpp
+        src/main/cpp/extract7z.cpp
     )
 
 add_library( # Sets the name of the library.
-             fendoudebb_decompress7z
+             fendoudebb_extract7z
 
              # Sets the library as a shared library.
              SHARED
@@ -61,7 +61,7 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-                       fendoudebb_decompress7z
+                       fendoudebb_extract7z
 
                        # Links the target library to the log library
                        # included in the NDK.

@@ -1,4 +1,4 @@
-package com.fendoudebb.decompress;
+package com.fendoudebb.extractor;
 
 import org.junit.Test;
 
