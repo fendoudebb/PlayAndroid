@@ -12,6 +12,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.fendoudebb.util.DialogHelper;
 import com.tbruyelle.rxpermissions2.Permission;
@@ -30,11 +33,11 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
 
     protected RxPermissions mRxPermissions;
 
+    @Nullable
     @Override
-    @CallSuper
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRxPermissions = new RxPermissions(getActivity());
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -78,6 +81,16 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
             intent.setData(Uri.parse("package:" + getContext().getPackageName()));
             startActivityForResult(intent, REQUEST_CODE_WRITE_SETTINGS);
         }
+    }
+
+    /**
+     * 打开App设置界面
+     */
+    protected void startAppSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.parse("package:" + getActivity().getPackageName()));
+//        intent.setData(Uri.fromParts("package", getPackageName(),null));
+        startActivity(intent);
     }
 
     protected AlertDialog showNeedPermissionRationale(

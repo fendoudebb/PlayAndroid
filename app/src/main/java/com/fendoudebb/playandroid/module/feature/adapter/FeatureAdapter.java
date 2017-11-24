@@ -2,8 +2,8 @@ package com.fendoudebb.playandroid.module.feature.adapter;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.feature.data.Feature;
-import com.fendoudebb.rv.BaseRecyclerViewAdapter;
-import com.fendoudebb.rv.ViewHolder;
+import com.fendoudebb.widget.rv.BaseRecyclerViewAdapter;
+import com.fendoudebb.widget.rv.ViewHolder;
 
 /**
  * author : zbj on 2017/9/16 09:12.

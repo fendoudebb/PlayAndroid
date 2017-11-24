@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.fendoudebb.playandroid.module.media.listener;
+package com.fendoudebb.playandroid.module.music.listener;
 
 import android.support.v4.media.session.PlaybackStateCompat;
 

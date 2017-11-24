@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.media.ui.MusicListActivity;
+import com.fendoudebb.playandroid.module.music.ui.MusicListActivity;
 
 /**
  * author : zbj on 2017/8/19 12:45.

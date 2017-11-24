@@ -16,8 +16,8 @@ import com.fendoudebb.playandroid.module.api.ApiFactory;
 import com.fendoudebb.playandroid.module.api.bean.gank.Gank;
 import com.fendoudebb.playandroid.module.api.bean.gank.GankData;
 import com.fendoudebb.playandroid.module.gank.adapter.GankNewsAdapter;
-import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
-import com.fendoudebb.rv.BaseRecyclerViewAdapter;
+import com.fendoudebb.playandroid.module.webview.WebViewActivity;
+import com.fendoudebb.widget.rv.BaseRecyclerViewAdapter;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;

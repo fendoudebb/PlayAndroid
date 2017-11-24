@@ -12,9 +12,9 @@ import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.feature.adapter.FeatureAdapter;
 import com.fendoudebb.playandroid.module.feature.data.Feature;
-import com.fendoudebb.playandroid.module.feature.ui.WebViewActivity;
+import com.fendoudebb.playandroid.module.webview.WebViewActivity;
 import com.fendoudebb.playandroid.module.gank.ui.GankActivity;
-import com.fendoudebb.rv.BaseRecyclerViewAdapter;
+import com.fendoudebb.widget.rv.BaseRecyclerViewAdapter;
 
 import java.util.List;
 

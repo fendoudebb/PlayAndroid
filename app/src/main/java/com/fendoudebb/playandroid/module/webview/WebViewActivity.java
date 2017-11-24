@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.ui;
+package com.fendoudebb.playandroid.module.webview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

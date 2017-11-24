@@ -115,7 +115,7 @@
     <string name="no">NO</string>
 
     <string name="missing_permission">MissingPermission</string>
-    <string name="write_settings_permission_rationale">Adjust the brightness need to modify the system brightness, need to open the write settings permission.</string>
+    <string name="write_settings_permission_adjust_brightness_rationale">Adjust the brightness need to modify the system brightness, need to open the write settings permission.</string>
     <string name="auto_brightness">AutoBrightness</string>
     <string name="write_settings_permission">WriteSettingsPermission</string>
     <string name="web_view_empty_link">Link is Empty!</string>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.fendoudebb.playandroid.module.media.manager;
+package com.fendoudebb.playandroid.module.music.manager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

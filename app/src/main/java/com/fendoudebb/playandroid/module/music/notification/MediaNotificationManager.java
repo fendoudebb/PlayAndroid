@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.fendoudebb.playandroid.module.media.notification;
+package com.fendoudebb.playandroid.module.music.notification;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -38,8 +38,8 @@ import android.util.Log;
 
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.main.MainActivity;
-import com.fendoudebb.playandroid.module.media.data.LocalMusicLibrary;
-import com.fendoudebb.playandroid.module.media.service.MusicService;
+import com.fendoudebb.playandroid.module.music.data.LocalMusicLibrary;
+import com.fendoudebb.playandroid.module.music.service.MusicService;
 
 /**
  * Keeps track of a notification and updates it automatically for a given MediaSession. This is

@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.media.ui;
+package com.fendoudebb.playandroid.module.music.ui;
 
 
 import com.fendoudebb.activity.BaseActivity;

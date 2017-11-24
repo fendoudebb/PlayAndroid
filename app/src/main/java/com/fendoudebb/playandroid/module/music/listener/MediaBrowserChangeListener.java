@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.media.listener;
+package com.fendoudebb.playandroid.module.music.listener;
 
 import android.support.annotation.Nullable;
 import android.support.v4.media.MediaMetadataCompat;

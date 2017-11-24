@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.media.service;
+package com.fendoudebb.playandroid.module.music.service;
 
 import android.app.Notification;
 import android.content.Intent;
@@ -14,10 +14,10 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 
-import com.fendoudebb.playandroid.module.media.data.LocalMusicLibrary;
-import com.fendoudebb.playandroid.module.media.listener.PlaybackInfoListener;
-import com.fendoudebb.playandroid.module.media.manager.MediaPlayerManager;
-import com.fendoudebb.playandroid.module.media.notification.MediaNotificationManager;
+import com.fendoudebb.playandroid.module.music.data.LocalMusicLibrary;
+import com.fendoudebb.playandroid.module.music.listener.PlaybackInfoListener;
+import com.fendoudebb.playandroid.module.music.manager.MediaPlayerManager;
+import com.fendoudebb.playandroid.module.music.notification.MediaNotificationManager;
 
 import java.util.ArrayList;
 import java.util.List;

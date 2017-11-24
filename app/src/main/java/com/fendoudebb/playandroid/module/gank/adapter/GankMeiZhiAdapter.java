@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.module.GlideApp;
 import com.fendoudebb.playandroid.module.api.bean.gank.Gank;
-import com.fendoudebb.rv.ViewHolder;
+import com.fendoudebb.widget.rv.ViewHolder;
 
 /**
  * author : zbj on 2017/10/10 15:23.

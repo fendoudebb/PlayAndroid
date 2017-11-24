@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.media.ui;
+package com.fendoudebb.playandroid.module.music.ui;
 
 import android.support.annotation.Nullable;
 import android.support.v4.media.MediaBrowserCompat;
@@ -13,11 +13,11 @@ import android.view.View;
 
 import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
-import com.fendoudebb.playandroid.module.feature.adapter.MediaItemAdapter;
-import com.fendoudebb.playandroid.module.media.data.LocalMusicLibrary;
-import com.fendoudebb.playandroid.module.media.listener.MediaBrowserChangeListener;
-import com.fendoudebb.playandroid.module.media.manager.MediaBrowserManager;
-import com.fendoudebb.rv.BaseRecyclerViewAdapter;
+import com.fendoudebb.playandroid.module.music.adapter.MediaItemAdapter;
+import com.fendoudebb.playandroid.module.music.data.LocalMusicLibrary;
+import com.fendoudebb.playandroid.module.music.listener.MediaBrowserChangeListener;
+import com.fendoudebb.playandroid.module.music.manager.MediaBrowserManager;
+import com.fendoudebb.widget.rv.BaseRecyclerViewAdapter;
 
 /**
  * author : zbj on 2017/10/11 16:37.

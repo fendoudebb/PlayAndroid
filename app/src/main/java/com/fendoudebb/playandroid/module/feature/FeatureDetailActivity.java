@@ -6,9 +6,10 @@ import android.util.Log;
 import com.fendoudebb.activity.BaseActivity;
 import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
-import com.fendoudebb.playandroid.module.feature.ui.BrightnessFragment;
-import com.fendoudebb.playandroid.module.feature.ui.CalendarFragment;
-import com.fendoudebb.playandroid.module.feature.ui.ClockFragment;
+import com.fendoudebb.playandroid.module.brightness.BrightnessFragment;
+import com.fendoudebb.playandroid.module.calendar.CalendarFragment;
+import com.fendoudebb.playandroid.module.camera.ChoosePicFragment;
+import com.fendoudebb.playandroid.module.clock.ClockFragment;
 import com.fendoudebb.playandroid.module.feature.ui.SystemIntentFragment;
 import com.fendoudebb.util.ActivityUtil;
 import com.fendoudebb.util.ResUtil;
@@ -76,7 +77,7 @@ public class FeatureDetailActivity extends BaseActivity {
 
                 break;
             case R.string.camera:
-
+                fragment = ChoosePicFragment.newInstance();
                 break;
             case R.string.contact:
 

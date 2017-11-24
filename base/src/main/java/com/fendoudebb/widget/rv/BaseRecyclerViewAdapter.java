@@ -1,4 +1,4 @@
-package com.fendoudebb.rv;
+package com.fendoudebb.widget.rv;
 
 import android.os.Parcelable;
 import android.support.annotation.LayoutRes;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.fendoudebb.playandroid.module.media.manager;
+package com.fendoudebb.playandroid.module.music.manager;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -22,8 +22,8 @@ import android.os.SystemClock;
 import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 
-import com.fendoudebb.playandroid.module.media.data.LocalMusicLibrary;
-import com.fendoudebb.playandroid.module.media.listener.PlaybackInfoListener;
+import com.fendoudebb.playandroid.module.music.data.LocalMusicLibrary;
+import com.fendoudebb.playandroid.module.music.listener.PlaybackInfoListener;
 
 
 public final class MediaPlayerManager extends PlayerManager {

@@ -25,7 +25,7 @@ import com.fendoudebb.playandroid.R;
 import com.fendoudebb.playandroid.config.C;
 import com.fendoudebb.playandroid.module.main.activity.NavDetailActivity;
 import com.fendoudebb.playandroid.module.main.fragment.HomeFragment;
-import com.fendoudebb.playandroid.module.media.ui.MusicListActivity;
+import com.fendoudebb.playandroid.module.music.ui.MusicListActivity;
 import com.fendoudebb.playandroid.util.ShortCutUtil;
 import com.fendoudebb.util.ActivityUtil;
 import com.fendoudebb.util.RevealEffectUtil;

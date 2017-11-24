@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.fendoudebb.playandroid.module.media.data;
+package com.fendoudebb.playandroid.module.music.data;
 
 import android.content.Context;
 import android.database.Cursor;

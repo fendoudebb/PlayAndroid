@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.ui;
+package com.fendoudebb.playandroid.module.clock;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -113,13 +113,15 @@
     <string name="no">取消</string>
 
     <string name="missing_permission">缺少权限</string>
-    <string name="write_settings_permission_rationale">调节亮度需要修改系统亮度，需打开写入系统设置权限。</string>
+    <string name="write_settings_permission_adjust_brightness_rationale">调节亮度需要修改系统亮度，请打开写入系统设置权限。</string>
     <string name="auto_brightness">自动亮度</string>
     <string name="write_settings_permission">写入设置权限</string>
     <string name="web_view_empty_link">链接不能为空!</string>
     <string name="web_view_clip_success">复制成功!</string>
     <string name="menu_share_link">分享链接</string>
     <string name="web_view_enter_url">请输入网址</string>
+
+    <string name="external_storage_permission_choose_pic_rationale">选择照片需要读取外部存储卡，请打开读写外部存储卡权限。</string>
 
 
 </resources>

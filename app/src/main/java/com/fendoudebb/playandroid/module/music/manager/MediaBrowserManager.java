@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.fendoudebb.playandroid.module.media.manager;
+package com.fendoudebb.playandroid.module.music.manager;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -28,8 +28,8 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 
-import com.fendoudebb.playandroid.module.media.listener.MediaBrowserChangeListener;
-import com.fendoudebb.playandroid.module.media.service.MusicService;
+import com.fendoudebb.playandroid.module.music.listener.MediaBrowserChangeListener;
+import com.fendoudebb.playandroid.module.music.service.MusicService;
 
 import java.util.ArrayList;
 import java.util.List;

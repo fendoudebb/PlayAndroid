@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.ui;
+package com.fendoudebb.playandroid.module.brightness;
 
 import android.content.ContentResolver;
 import android.content.DialogInterface;
@@ -79,14 +79,14 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
             missingWriteSettingsPermissionRationaleDialog();
         }
 
-        mBtnAutoBrightness = (ImageView) view.findViewById(R.id.btn_auto_brightness);
+        mBtnAutoBrightness = view.findViewById(R.id.btn_auto_brightness);
         view.findViewById(R.id.btn_write_settings_permission).setOnClickListener(this);
 
         changeAutoBrightnessBtnStatus();
 
         mBtnAutoBrightness.setOnClickListener(this);
 
-        mSeekBar = (SeekBar) view.findViewById(R.id.brightness_seek_bar);
+        mSeekBar = view.findViewById(R.id.brightness_seek_bar);
         mSeekBar.setMax(255);
 
     }
@@ -173,7 +173,7 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
     private void missingWriteSettingsPermissionRationaleDialog() {
         showNeedPermissionRationale(
                 getString(R.string.missing_permission)
-                , getString(R.string.write_settings_permission_rationale)
+                , getString(R.string.write_settings_permission_adjust_brightness_rationale)
                 , getString(R.string.ok)
                 , getString(R.string.no)
                 , new DialogInterface.OnClickListener() {

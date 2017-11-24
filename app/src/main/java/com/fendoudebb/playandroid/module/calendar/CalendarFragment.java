@@ -1,4 +1,4 @@
-package com.fendoudebb.playandroid.module.feature.ui;
+package com.fendoudebb.playandroid.module.calendar;
 
 import android.app.Activity;
 import android.os.Bundle;
