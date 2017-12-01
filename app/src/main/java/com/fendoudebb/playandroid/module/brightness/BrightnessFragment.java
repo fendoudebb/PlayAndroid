@@ -137,17 +137,17 @@ public class BrightnessFragment extends CheckPermissionsFragment implements View
     }
 
     @Override
-    protected void onRequestGranted(String permission) {
+    protected void onRequestGranted(String... permission) {
         ToastUtil.showToast("已经获得权限了，可以调整亮度了");
     }
 
     @Override
-    protected void onRequestDenied(String permission) {
+    protected void onRequestDenied(String... permission) {
         missingWriteSettingsPermissionRationaleDialog();
     }
 
     @Override
-    protected void onRequestNeverAsk(String permission) {
+    protected void onRequestNeverAsk(String... permission) {
         missingWriteSettingsPermissionRationaleDialog();
     }
 

@@ -54,9 +54,9 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
                 "], permissions = [" + permissions + "], grantResults = [" + grantResults + "]");
     }
 
+    @CallSuper
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         Log.d(TAG, "onActivityResult() called with: requestCode = [" + requestCode + "], " +
                 "resultCode = [" + resultCode + "], data = [" + data + "]");
         if (requestCode == REQUEST_CODE_WRITE_SETTINGS) {
@@ -112,29 +112,7 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
                 , cancelable);
     }
 
-    /**
-     * <p>
-     * 申请写入设置权限
-     * <p>
-     * 有权限回调{@link #onRequestGranted(String)}
-     * <p>
-     * 没有权限回调{@link #onRequestNeverAsk(String)}
-     * <p>
-     * 去设置界面后开启了权限回调{@link #onRequestGranted(String)}
-     * <p>
-     * 去设置界面后还是没有开启权限回调{@link #onRequestDenied(String)}
-     * <p>
-     */
-    protected void requestWriteSettingsPermission() {
-        if (hasWriteSettingsPermission()) {
-            onRequestGranted(Manifest.permission.WRITE_SETTINGS);
-        } else {
-            onRequestNeverAsk(Manifest.permission.WRITE_SETTINGS);
-        }
-
-    }
-
-    protected void requestPermissions(String... permissions) {
+    protected void requestPermissions(String permissions) {
         mRxPermissions.requestEach(permissions)
                 .subscribe(new Consumer<Permission>() {
                     @Override
@@ -151,9 +129,23 @@ public abstract class CheckPermissionsFragment extends BaseFragment {
                 });
     }
 
-    protected abstract void onRequestGranted(String permission);
+    protected void requestMultiPermission(final String... permissions) {
+        mRxPermissions.request(permissions)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        if (aBoolean) {
+                            onRequestGranted();
+                        } else {
+                            onRequestNeverAsk(permissions);
+                        }
+                    }
+                });
+    }
 
-    protected abstract void onRequestDenied(String permission);
+    protected abstract void onRequestGranted(String... permission);
 
-    protected abstract void onRequestNeverAsk(String permission);
+    protected abstract void onRequestDenied(String... permission);
+
+    protected abstract void onRequestNeverAsk(String... permission);
 }

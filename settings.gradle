@@ -1,1 +1,1 @@
-include ':app', ':base', ':number', ':extractor'
+include ':app', ':base', ':number', ':extractor', ':camera'

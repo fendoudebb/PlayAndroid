@@ -1,0 +1,41 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.fendoudebb.camera">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!--相机权限-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--记录音频权限-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!--使用GPS位置信息标记图像-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+
+
+    <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false"/>
+
+    <application>
+
+        <activity
+            android:name=".CameraPreviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreen"/>
+
+
+    </application>
+
+
+</manifest>

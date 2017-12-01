@@ -103,16 +103,13 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
     // Espresso UI Testing
     androidTestImplementation deps.test.espresso_core
     androidTestImplementation deps.test.espresso_contrib
     androidTestImplementation deps.test.espresso_intents
     testImplementation deps.test.junit
-
     // MultiDex
     implementation deps.tool.multidex
-
     // Support
     implementation deps.support.app_compat
     implementation deps.support.design
@@ -123,36 +120,30 @@ dependencies {
     implementation deps.support.cardview
     implementation deps.support.mediarouter
     implementation deps.support.content
-
     //arch
     implementation deps.arch.lifecycle_extensions
     implementation deps.arch.room
     annotationProcessor deps.arch.room_compiler
     implementation deps.arch.paging
-
     //图片
     implementation deps.img.glide
     annotationProcessor deps.img.glide_compiler
-
     //网络
     implementation deps.net.retrofit
     implementation deps.net.retrofit_gson
     implementation deps.net.retrofit_adapter_rxjava2
     implementation deps.net.retrofit_logging
-
     // ui
     implementation deps.ui.constraint_layout
-
     //Rx
     implementation deps.rx.rxjava2
     implementation deps.rx.rxandroid
     implementation deps.rx.rxpermissions
-
     // tool
     implementation deps.tool.libphonenumber
     implementation deps.tool.geocoder
     implementation deps.tool.carrier
-
     implementation project(':base')
     implementation project(':number')
+    implementation project(':camera')
 }

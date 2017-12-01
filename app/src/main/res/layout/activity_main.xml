@@ -17,21 +17,7 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize">
 
-            <android.support.v7.widget.Toolbar
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:fitsSystemWindows="true"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:contentInsetStart="0dp"
-                app:contentInsetStartWithNavigation="0dp"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-            </android.support.v7.widget.Toolbar>
+            <include layout="@layout/common_toolbar"/>
 
         </android.support.design.widget.AppBarLayout>
 
